@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+    <link href="scripts/jquery.pwi/js/jquery.slimbox2/jquery.slimbox2.css" rel="stylesheet" type="text/css"/> //-- css used by slimbox
+    <script src="scripts/jquery.pwi/js/jquery.slimbox2/jquery.slimbox2.js" type="text/javascript"></script> //-- makes a nice popup when clicking on a photo, otherwise your users are redirected to google-picasa-web
+    <script src="scripts/jquery.pwi/js/jquery.blockUI.js" type="text/javascript"></script> //--optional, shows the loading-box, little overhead
+
+    <link href="scripts/jquery.pwi/css/pwi.css" rel="stylesheet" type="text/css"/> //--contains the css used by PWI, change the settings in this file to create your own skin
+    <script src="scripts/jquery.pwi/js/jquery.pwi.js" type="text/javascript"></script> //-- The actual script :-)
+
+    <script type="text/javascript">
+        login = function() {  //-- default jQuery call, do stuff when page is loaded
+            $("#container").pwi({  //--specify your DIV's ID here
+                username: document.credentials.email.value  //--REPLACE WITH YOUR PICASA NAME!!!!
+            });
+        };
+    </script>
+  </head>
+  <body>
+    <form name="credentials">
+      <p>
+        <p>Email:<br><input name="email" type="text" size="30" maxlength="30"></p>
+        <p>Password:<br><input name="password" type="password" size="30" maxlength="40"></p>
+        <input type="button" name="Login" value="Login" onclick="login()">
+      </p>
+    </form>
+
+    <div id="container">
+    </div>
+  </body>
+</html>
