@@ -33,6 +33,7 @@ body {
 	opacity: 1.0;
 }
 
+
 .left {
 	float: left;
 	margin-left: 5px;
@@ -57,12 +58,12 @@ body {
 	border: 1px solid #888;
 }
 
-#picspace {
-	right:0;
-	top:33px;
+#body {
+	right: 0;
+	top: 33px;
 }
 
-#picspace img {
+#body img {
 	position: absolute;
 	padding: 2px;
 }
@@ -75,8 +76,8 @@ body {
 	width: 25%;
 }
 
-.x0 {
-	/* keinen abstand von links */
+.x0 { /* keinen abstand von links */
+	
 }
 
 .x1 {
@@ -108,14 +109,17 @@ table {
 	padding: 0;
 	margin: 0;
 }
+
 tbody {
 	padding: 0;
 	margin: 0;
 }
+
 td {
 	padding: 0;
 	margin: 0;
 }
+
 tr {
 	padding: 0;
 	margin: 0;
@@ -128,10 +132,9 @@ tr {
 /* 	text-align: center; */
 /* 	vertical-align: bottom; */
 /* } */
-
 #calspace #today {
-	width:200px;
-	height:200px;
+	width: 200px;
+	height: 200px;
 	font-size: 10em;
 	vertical-align: middle;
 	color: #000;
@@ -140,7 +143,7 @@ tr {
 
 #calspace {
 	background-color: #333;
-	border-top:  1px solid #555;
+	border-top: 1px solid #555;
 	bottom: 0;
 	color: #FFF;
 	height: 150px;
@@ -149,7 +152,7 @@ tr {
 	opacity: 0.5;
 }
 
-#calspace div, #calspace p {
+#calspace div,#calspace p {
 	display: inline-block;
 	margin-left: 0.5ex;
 }
@@ -160,6 +163,7 @@ tr {
 	left: 200px;
 	font-size: 2em;
 }
+
 #calSpace div.today {
 	color: #FFF;
 	font-size: 2em;
@@ -173,13 +177,4 @@ tr {
 
 p div {
 	display: inline;
-	
 }
-
-
-
-
-
-
-
-
