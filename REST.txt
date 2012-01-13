@@ -1,0 +1,130 @@
+﻿IDEA:
+	User create CalendarTemplates, not PhotoCalendars.
+	Other users may take and tailor the templates to their needs and instantiate them.
+	Those are called TailoredCalendars. TailoredCalendars are always private,
+	whereas Templates may be public or whatever.
+	Tailored attributes are:
+		Starting date of the calendar
+		type of the calendar-view.
+	Both attributs can be set as default values in the templates.
+
+Things that need to be stored.
+	User:
+		identifier: number
+		account: gmailAccount (Email address)
+		name: String
+		defaulCalendar: TailoredCalendar
+		viewType: Daily | Weekly | Monthly - 
+		OPTIONAL:
+			myCalendars: List of TailoredCalendar
+			favoriteCalendars: List of CalendarTemplate
+		
+	PhotoCalendar: (kind of abstract base class.. ;) )
+		name: String
+		description: Text
+		pictures: list of Urls
+		
+		CalendarTemplate: (as kind of enrichment of PhotoCalendar)
+			identifier: number
+			creator: String - username
+			type: Daily | Weekly | Monthly
+			startDate: Date - so that we can compute which picture is to be shown
+			OPTIONAL:
+				visibility: private < friends < public
+				likes : int
+				dislikes : int
+
+		TailoredCalendar: (as kind of enrichment of PhotoCalendar)
+			identifier: number
+			type: Daily | Weekly | Monthly
+			startDate: Date
+
+
+REST Interface.
+	POST   to create new entries
+	PUT    to update existing entries
+	GET    to retrieve entries
+	DELETE to remove entries
+	POST, PUT methods require json-objects to be transmitted.
+
+	CalendarTemplates.
+		
+		POST
+		/calendars - creates a new calendar-template (with no or random images for the start)
+			mandatory params:
+				creator - the name of the user who creates this template
+				name - name of the calendar to be
+			optional params:
+				type - defaultType of the calendar - may be overriden by the user
+				description - default ""
+				(visibility: private | friends | public)
+			returns
+				url the calendar will be accessable (e.g. /calendars/<newId>)
+		
+		DELETE
+		/calendars/<id> - removes a calendar from the system.
+			QUESTION: Removing a template will not remove all Tailored ones that depend on this one?????
+		
+		GET
+		/calendars/ - get a list of all visible calendar-templates
+			optional params:
+				order_by : date, name, ranking (how often this template is used, or similar)
+				creator : user who created the template
+		
+		GET
+		/calendars/<id> - get all metadata of this calendar (if visible for the user)
+		
+		PUT
+		/calendars/<id> - update a calendar, e.g. name, type description, whole set of photos (order, items..)
+
+	Photos:
+		PUT
+		/calendars/<id>/photos - add a photo to a calendar
+			mandatory params:
+				url
+				index - the index in the list of stored photos
+		
+		DELETE
+		/calendars/<id>/photos/<index> - remove a photo from the list. 
+	
+	User:
+		POST
+		/users - creates a new user
+			mandatory params:
+				account - username / email thingy
+			returns
+				url the user will be accessable (e.g. /users/<newId>)
+		
+		DELETE
+		/users/<id> - remove a user from the system
+		
+		GET
+		/users/<id> - get all meta-info of the user
+		
+		PUT
+		/users/<id> - update data, e.g. defaultcalendar
+	
+	TailoredCalendars:
+		POST
+		/users/<id>/calendars - add a new calendar to myCalendars
+			mandatory params:
+				calendar - id or url of the template (e.g. /calendars/<id>)
+			optional params: (to tailor the template)
+				type: Daily | Weekly | Monthly
+				startDate: Date
+			returns
+				url the instanciated calendar will be accessable (e.g. /users/<id>/calendars/<calId>)
+		
+		GET
+		/users/<id>/calendars/ - get a list of all (instantiated) calendars of a user (myCalendars)
+			optional params:
+				order_by : date, name
+		
+		PUT
+		/users/<id>/calendars/<calId> - update data, e.g. type or startDate
+			mandatory params:
+				type: Daily | Weekly | Monthly
+				startDate: Date
+		
+		DELETE
+		/users/<id>/calendars/<calId> - remove the tailoredCalendar from the system.
