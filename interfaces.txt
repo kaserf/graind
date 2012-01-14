@@ -1,0 +1,7 @@
+interfaces:
+
+facourite templates,
+picture of date (day, week, month?)
+all public templates
+my templates
+save settings (nickname, default template, ...)

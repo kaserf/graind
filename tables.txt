@@ -1,0 +1,35 @@
+(Users:
+  id,
+  account,
+  name (opt),
+  defaultTemplate,
+)
+
+FavouriteTemplates:
+  templateId,
+  userId
+
+Templates:
+  templateId,
+  createdBy,
+  type,
+  visibility
+
+YearlyTemplates:
+  templateId,
+  month (jan-dez),
+  pictureUrl
+
+MonthlyTemplates:
+  templateId,
+  week (1-52),
+  pictureUrl
+
+DailyTemplates:
+  templateId,
+  day (date - without year),
+  pictureUrl
+
+TemplateTypes:
+  typeId,
+  typeName (random, fixed)

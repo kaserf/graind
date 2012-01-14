@@ -1,0 +1,11 @@
+fragen:
+
+- tabellenaufteilung für user settings:
+  a) eine tabelle für user settings mit mehreren spalten die eventuell nicht gesetzt sind (z.b. da der user noch keinen nickname eingegeben hat)
+  b) pro setting eine tabelle: nickname tabelle, default calendar tabelle, view type (weekly, yearly, monthly) tabelle, ...
+
+- wie werden bilder gespeichert?
+  a) url
+  b) bild id für google query
+  c) bilder runterladen (falls public template mit fotos die aber private sind)
+  (Antwort: runterladen auf keinen fall.)
