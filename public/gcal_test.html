@@ -1,0 +1,21 @@
+<html>
+<head>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+<script type="text/javascript" src="scripts/calendar.js"></script>
+
+
+<script type="text/javascript">
+console.log("load gdata api");
+google.load("gdata", "2", {packages: ["calendar"]});
+
+google.setOnLoadCallback(googleReadyCallback);
+</script>
+
+</head>
+
+<body>
+  <img src="images/empty.gif" style="visibility: hidden;">
+</body>
+
+</html>
