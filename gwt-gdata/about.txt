@@ -1,0 +1,5 @@
+GData API Library for GWT 2.2.1
+(c) Copyright Google, Inc. 2008.  All rights reserved.
+Visit Google Code (http://code.google.com/p/gwt-gdata).
+
+For source availability and license information see COPYING.

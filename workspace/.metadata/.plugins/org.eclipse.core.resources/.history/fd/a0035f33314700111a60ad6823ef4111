@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Calendar View</title>
+<link rel="stylesheet" type="text/css" href="css/CalendarPage.css">
+
+</head>
+<body>
+	<div id="headline">
+		<div class="left">Calendar</div>
+		<div class="title middle">November '11</div>
+		<div class="right">login</div>
+	</div>
+	<div id="body" class="middle">
+		<img alt="Mohn"  src="images/mainPic.jpg" class="boxed big x0 y0" />
+		<img alt="Stein" src="images/mainPic.jpg" class="boxed small x3 y0" />
+		<img alt="Strand" src="images/mainPic.jpg" class="boxed small x3 y1" />
+	</div>
+	<div id="calSpace">
+	<div id="today">16</div>
+<!-- 	<table><tr><td id="today" class="left">16</td></tr></table> -->
+	<p class="timeline">1 2 3 4 5 6 7 8 9</p><div class="hasEvent">10</div><p class="timeline">11 12 13 14 15</p><div class="today">16</div><p class="timeline">17 18 19 20 20 21</p><div class="hasEvent">22</div><p class="timeline">23 24 25 26 27 28 29 30</p>
+	</div>
+</body>
+</html>

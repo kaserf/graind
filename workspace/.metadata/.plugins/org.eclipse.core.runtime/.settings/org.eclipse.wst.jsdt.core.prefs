@@ -1,0 +1,5 @@
+#Tue Jan 31 16:25:11 CET 2012
+eclipse.preferences.version=1
+org.eclipse.wst.jsdt.core.formatter.tabulation.char=space
+org.eclipse.wst.jsdt.core.formatter.tabulation.size=2
+org.eclipse.wst.jsdt.core.codeComplete.visibilityCheck=enabled

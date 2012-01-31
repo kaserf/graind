@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="84" version="2.0">
+<workbenchAdvisor/>
+<window height="769" maximized="true" width="1020" x="0" y="0">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout locked="0">
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="132" y="30"/>
+<coolItem id="com.google.gdt.eclipse.suite.GDTPulldownToolbar" itemType="typeToolBarContribution" x="48" y="30"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="com.springsource.sts.ide.ui.actionSet.workbench" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="120" y="30"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="org.eclipse.jst.j2ee.J2eeMainActionSet" itemType="typeToolBarContribution" x="84" y="30"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="132" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="68" y="30"/>
+<coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="org.eclipse.wst.ws.explorer.explorer" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="68" y="30"/>
+<coolItem id="com.springsource.sts.config.ui.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="184" y="30"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.html.core.htmlsource.source" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="com.springsource.sts.internal.ide.ui.editors.MultiPageDashboardEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page focus="true" label="Workspace - Java EE">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="De_graind.gwt.xml" partName="De_graind.gwt.xml" path="/home/felix/projects/graind/workspace/de.graind/src/de/graind/De_graind.gwt.xml" title="De_graind.gwt.xml" tooltip="de.graind/src/de/graind/De_graind.gwt.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.graind/src/de/graind/De_graind.gwt.xml"/>
+</editor>
+<editor activePart="true" focus="true" id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" name="Calendar.java" partName="Calendar.java" path="/home/felix/projects/graind/workspace/de.graind/src/de/graind/client/Calendar.java" title="Calendar.java" tooltip="de.graind/src/de/graind/client/Calendar.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.graind/src/de/graind/client/Calendar.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4915" selectionTopPixel="1807"/>
+</editor>
+<editor id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" name="MonthlyWidget.java" partName="MonthlyWidget.java" path="/home/felix/projects/graind/workspace/de.graind/src/de/graind/client/MonthlyWidget.java" title="MonthlyWidget.java" tooltip="de.graind/src/de/graind/client/MonthlyWidget.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.graind/src/de/graind/client/MonthlyWidget.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="990" selectionTopPixel="371"/>
+</editor>
+<editor id="org.eclipse.wst.html.core.htmlsource.source" name="calendar.html" partName="calendar.html" path="/home/felix/projects/graind/workspace/de.graind/war/calendar.html" title="calendar.html" tooltip="de.graind/war/calendar.html" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.graind/war/calendar.html"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="178" selectionTopPixel="0"/>
+</editor>
+<editor id="com.google.gwt.eclipse.core.editors.cssResourceEditor" name="calendar.css" partName="calendar.css" path="/home/felix/projects/graind/workspace/de.graind/war/css/calendar.css" title="calendar.css" tooltip="de.graind/war/css/calendar.css" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.graind/war/css/calendar.css"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="2304"/>
+</editor>
+<editor id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" name="DayWidget.java" partName="DayWidget.java" path="/home/felix/projects/graind/workspace/de.graind/src/de/graind/client/DayWidget.java" title="DayWidget.java" tooltip="de.graind/src/de/graind/client/DayWidget.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.graind/src/de/graind/client/DayWidget.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="616" selectionTopPixel="0"/>
+</editor>
+<editor id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" name="MonthlyWidgetView.java" partName="MonthlyWidgetView.java" path="/home/felix/projects/graind/workspace/de.graind/src/de/graind/client/MonthlyWidgetView.java" title="MonthlyWidgetView.java" tooltip="de.graind/src/de/graind/client/MonthlyWidgetView.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.graind/src/de/graind/client/MonthlyWidgetView.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="65" selectionOffset="111" selectionTopPixel="0"/>
+</editor>
+<editor id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" name="WelcomePage.java" partName="WelcomePage.java" path="/home/felix/projects/graind/workspace/de.graind/src/de/graind/client/WelcomePage.java" title="WelcomePage.java" tooltip="de.graind/src/de/graind/client/WelcomePage.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.graind/src/de/graind/client/WelcomePage.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" name="LoadDataCallback.java" partName="LoadDataCallback.java" path="/home/felix/projects/graind/workspace/de.graind/src/de/graind/client/LoadDataCallback.java" title="LoadDataCallback.java" tooltip="de.graind/src/de/graind/client/LoadDataCallback.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/de.graind/src/de/graind/client/LoadDataCallback.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="84" selectionTopPixel="0"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="1" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.ui.views.AllMarkersView" partName="Markers">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.allSeverityField" categoryGroup="org.eclipse.ui.ide.type" markerContentGenerator="org.eclipse.ui.ide.allMarkersGenerator" partName="Markers">
+<columnWidths org.eclipse.ui.ide.allSeverityField="0" org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.allSeverityField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" partName="Snippets"/>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties"/>
+<view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer"/>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks" partName="Task List"/>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="com.google.gwt.eclipse.DevModeView" partName="Development Mode">
+<viewState/>
+</view>
+<view id="org.eclipse.wst.server.ui.ServersView" partName="Servers">
+<viewState CommonNavigator.LINKING_ENABLED="0"/>
+</view>
+</views>
+<perspectives activePart="com.google.gwt.eclipse.DevModeView" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.jst.j2ee.internal.perspective.J2EEPerspective" id="org.eclipse.jst.j2ee.J2EEPerspective" label="Java EE"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="com.springsource.sts.ide.help.actionSet"/>
+<alwaysOnActionSet id="com.springsource.sts.ide.ui.actionSet.workbench"/>
+<alwaysOnActionSet id="ajrefactoring"/>
+<alwaysOnActionSet id="org.eclipse.contribution.xref.ui.XRefActionSet"/>
+<alwaysOnActionSet id="org.springframework.ide.eclipse.aop.ui.ActionSet"/>
+<alwaysOnActionSet id="org.springframework.ide.eclipse.aop.ui.matcher.actionSet"/>
+<alwaysOnActionSet id="org.springframework.ide.eclipse.beans.ui.actionSet"/>
+<alwaysOnActionSet id="org.springframework.ide.eclipse.beans.search.actionSet"/>
+<alwaysOnActionSet id="com.google.gdt.eclipse.core.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.rse.core.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.jst.j2ee.J2eeMainActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="ajelementCreation"/>
+<alwaysOnActionSet id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.wst.ws.explorer.explorer"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.wst.server.ui.ServersView"/>
+<show_view_action id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator"/>
+<show_view_action id="org.eclipse.ui.views.BookmarkView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView"/>
+<show_view_action id="org.eclipse.ui.views.AllMarkersView"/>
+<show_view_action id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
+<show_view_action id="org.eclipse.search.ui.views.SearchView"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<new_wizard_action id="com.google.gdt.eclipse.suite.wizards.newProjectWizard"/>
+<new_wizard_action id="com.google.gwt.eclipse.core.newEntryPointWizard"/>
+<new_wizard_action id="com.google.gwt.eclipse.core.newHostPageWizard"/>
+<new_wizard_action id="com.google.gwt.eclipse.core.newModuleWizard"/>
+<new_wizard_action id="com.google.gwt.eclipse.core.newClientBundleWizard"/>
+<new_wizard_action id="com.google.gwt.eclipse.core.newUiBinderWizard"/>
+<new_wizard_action id="com.springsource.sts.roo.ui.wizard.newRooProjectWizard"/>
+<new_wizard_action id="com.springsource.sts.wizard.template"/>
+<new_wizard_action id="ajaspectwizard"/>
+<new_wizard_action id="org.eclipse.jpt.ui.wizard.newJpaProject"/>
+<new_wizard_action id="org.eclipse.jst.j2ee.ui.project.facet.EarProjectWizard"/>
+<new_wizard_action id="org.eclipse.jst.servlet.ui.project.facet.WebProjectWizard"/>
+<new_wizard_action id="org.eclipse.jst.ejb.ui.project.facet.EjbProjectWizard"/>
+<new_wizard_action id="org.eclipse.jst.j2ee.jca.ui.internal.wizard.ConnectorProjectWizard"/>
+<new_wizard_action id="org.eclipse.jst.j2ee.ui.project.facet.appclient.AppClientProjectWizard"/>
+<new_wizard_action id="org.eclipse.wst.web.ui.internal.wizards.SimpleWebProjectWizard"/>
+<new_wizard_action id="org.eclipse.jst.servlet.ui.internal.wizard.AddServletWizard"/>
+<new_wizard_action id="org.eclipse.jst.ejb.ui.internal.wizard.AddSessionBeanWizard"/>
+<new_wizard_action id="org.eclipse.jst.ejb.ui.internal.wizard.AddMessageDrivenBeanWizard"/>
+<new_wizard_action id="org.eclipse.jpt.ui.wizard.newEntity"/>
+<new_wizard_action id="org.eclipse.jst.ws.creation.ui.wizard.serverwizard"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<new_wizard_action id="org.springframework.ide.eclipse.beans.ui.wizards.newSpringProject"/>
+<perspective_action id="org.eclipse.ajdt.ui.visualiser.AspectVisualizationPerspective"/>
+<perspective_action id="org.eclipse.jpt.ui.jpaPerspective"/>
+<perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.ui.resourcePerspective"/>
+<perspective_action id="org.eclipse.wst.web.ui.webDevPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<view id="org.eclipse.ui.views.AllMarkersView"/>
+<view id="org.eclipse.ui.views.PropertySheet"/>
+<view id="org.eclipse.wst.server.ui.ServersView"/>
+<view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator"/>
+<view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView"/>
+<view id="com.google.gwt.eclipse.DevModeView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="topLeft">
+<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.PackagesView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@19b45d3d" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.18045706" ratioLeft="229" ratioRight="1040" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottomRight" ratio="0.71594507" ratioLeft="678" ratioRight="269" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="com.google.gwt.eclipse.DevModeView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.AllMarkersView" label="Markers"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
+<page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
+<page content="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" label="Data Source Explorer"/>
+<page content="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" label="Snippets"/>
+<page content="com.google.gwt.eclipse.DevModeView" label="Development Mode"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="topRight" ratio="0.69920844" ratioLeft="530" ratioRight="228" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="Task List"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" path="/de.graind/src/de/graind/client/Calendar.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" path="/de.graind/src/de/graind/client/MonthlyWidget.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.html.core.htmlsource.source" path="/de.graind/war/calendar.html"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" path="/de.graind/war/de_graind/de_graind.nocache.js"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" path="/de.graind/src/de/graind/client/MonthlyWidgetView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" path="/de.graind/src/de/graind/client/WelcomePage.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" path="/de.graind/src/de/graind/client/LoadDataCallback.java"/>
+</editors>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="1211" y="0"/>
+</item>
+<item historyLabel="Calendar.java" index="0">
+<position info="not_deleted" x="4426" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position/>
+</item>
+<item historyLabel="calendar.html" index="2">
+<position info="not_deleted" x="178" y="0"/>
+</item>
+<item historyLabel="de_graind.nocache.js" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="de_graind.nocache.js" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="calendar.html" index="2">
+<position info="not_deleted" x="178" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="1555" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="2216" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="2716" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="2111" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="1779" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="761" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="908" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="840" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="850" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="869" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="880" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="892" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="2974" y="0"/>
+</item>
+<item historyLabel="Calendar.java" index="0">
+<position info="not_deleted" x="4426" y="0"/>
+</item>
+<item historyLabel="Calendar.java" index="0">
+<position info="not_deleted" x="1591" y="0"/>
+</item>
+<item historyLabel="Calendar.java" index="0">
+<position info="not_deleted" x="4361" y="10"/>
+</item>
+<item historyLabel="Calendar.java" index="0">
+<position info="not_deleted" x="4571" y="0"/>
+</item>
+<item historyLabel="Calendar.java" index="0">
+<position info="not_deleted" x="4644" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="2664" y="13"/>
+</item>
+<item historyLabel="MonthlyWidgetView.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MonthlyWidgetView.java" index="4">
+<position info="not_deleted" x="115" y="0"/>
+</item>
+<item historyLabel="MonthlyWidgetView.java" index="4">
+<position info="not_deleted" x="224" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="2664" y="13"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="1828" y="0"/>
+</item>
+<item historyLabel="WelcomePage.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Calendar.java" index="0">
+<position info="not_deleted" x="4644" y="0"/>
+</item>
+<item historyLabel="Calendar.java" index="0">
+<position info="not_deleted" x="4705" y="0"/>
+</item>
+<item historyLabel="MonthlyWidgetView.java" index="4">
+<position info="not_deleted" x="173" y="0"/>
+</item>
+<item historyLabel="LoadDataCallback.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="LoadDataCallback.java" index="6">
+<position info="not_deleted" x="105" y="0"/>
+</item>
+<item historyLabel="MonthlyWidgetView.java" index="4">
+<position info="not_deleted" x="228" y="0"/>
+</item>
+<item historyLabel="Calendar.java" index="0">
+<position info="not_deleted" x="4654" y="0"/>
+</item>
+<item historyLabel="MonthlyWidgetView.java" index="4">
+<position info="not_deleted" x="228" y="0"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="1676" y="0"/>
+</item>
+<item historyLabel="LoadDataCallback.java" index="6">
+<position info="not_deleted" x="84" y="0"/>
+</item>
+<item historyLabel="Calendar.java" index="0">
+<position info="not_deleted" x="4654" y="0"/>
+</item>
+<item historyLabel="MonthlyWidgetView.java" index="4">
+<position info="not_deleted" x="44" y="17"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="990" y="0"/>
+</item>
+<item historyLabel="MonthlyWidgetView.java" index="4">
+<position info="not_deleted" x="111" y="65"/>
+</item>
+<item historyLabel="MonthlyWidget.java" index="1">
+<position info="not_deleted" x="990" y="0"/>
+</item>
+<item active="true" historyLabel="Calendar.java" index="0">
+<position info="not_deleted" x="4729" y="65"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="topLeft"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="bottomRight"/>
+<trimItem IMemento.internal.id="topRight"/>
+</trimArea>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+<trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="com.google.gdt.eclipse.login.status.trim"/>
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" name="LoadDataCallback.java" tooltip="de.graind/src/de/graind/client/LoadDataCallback.java">
+<persistable path="/de.graind/src/de/graind/client/LoadDataCallback.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" name="WelcomePage.java" tooltip="de.graind/src/de/graind/client/WelcomePage.java">
+<persistable path="/de.graind/src/de/graind/client/WelcomePage.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" name="MonthlyWidgetView.java" tooltip="de.graind/src/de/graind/client/MonthlyWidgetView.java">
+<persistable path="/de.graind/src/de/graind/client/MonthlyWidgetView.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" name="de_graind.nocache.js" tooltip="de.graind/war/de_graind/de_graind.nocache.js">
+<persistable path="/de.graind/war/de_graind/de_graind.nocache.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" name="DayWidget.java" tooltip="de.graind/src/de/graind/client/DayWidget.java">
+<persistable path="/de.graind/src/de/graind/client/DayWidget.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.cssResourceEditor" name="calendar.css" tooltip="de.graind/war/css/calendar.css">
+<persistable path="/de.graind/war/css/calendar.css"/>
+</file>
+<file factoryID="com.springsource.sts.ide.ui.dashboard.elementFactory" id="com.springsource.sts.internal.ide.ui.editors.MultiPageDashboardEditor" name="Dashboard" tooltip="Dashboard">
+<persistable openDashboard="true"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.html.core.htmlsource.source" name="calendar.html" tooltip="de.graind/war/calendar.html">
+<persistable path="/de.graind/war/calendar.html"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" name="MonthlyWidget.java" tooltip="de.graind/src/de/graind/client/MonthlyWidget.java">
+<persistable path="/de.graind/src/de/graind/client/MonthlyWidget.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.gwtJavaEditor" name="Calendar.java" tooltip="de.graind/src/de/graind/client/Calendar.java">
+<persistable path="/de.graind/src/de/graind/client/Calendar.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.html.core.htmlsource.source" name="CalendarPage.html" tooltip="de.graind/war/CalendarPage.html">
+<persistable path="/de.graind/war/CalendarPage.html"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.cssResourceEditor" name="CalendarPage.css" tooltip="de.graind/war/CalendarPage.css">
+<persistable path="/de.graind/war/CalendarPage.css"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.google.gwt.eclipse.core.editors.cssResourceEditor" name="De_graind.css" tooltip="de.graind/war/De_graind.css">
+<persistable path="/de.graind/war/De_graind.css"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="web.xml" tooltip="de.graind/war/WEB-INF/web.xml">
+<persistable path="/de.graind/war/WEB-INF/web.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.html.core.htmlsource.source" name="De_graind.html" tooltip="de.graind/war/De_graind.html">
+<persistable path="/de.graind/war/De_graind.html"/>
+</file>
+</mruList>
+</workbench>

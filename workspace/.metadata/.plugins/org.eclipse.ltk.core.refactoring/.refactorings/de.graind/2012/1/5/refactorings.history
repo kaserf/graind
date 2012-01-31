@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;de.graind.client.MonthlyWidgetView.MonthlyWidgetController&apos; to &apos;Controller&apos;&#x0A;- Original project: &apos;de.graind&apos;&#x0A;- Original element: &apos;de.graind.client.MonthlyWidgetView.MonthlyWidgetController&apos;&#x0A;- Renamed element: &apos;de.graind.client.MonthlyWidgetView.Controller&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MonthlyWidgetController&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;de.graind.client{MonthlyWidgetView.java[MonthlyWidgetView[MonthlyWidgetController" matchStrategy="1" name="Controller" qualified="false" references="true" similarDeclarations="false" stamp="1328031938107" textual="false" version="1.0"/>
+</session>
