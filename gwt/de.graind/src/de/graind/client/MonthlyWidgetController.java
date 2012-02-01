@@ -19,7 +19,11 @@ import de.graind.shared.Config;
 
 public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
 
-  public MonthlyWidgetController() {
+  private MonthlyWidgetView view;
+
+  public MonthlyWidgetController(MonthlyWidgetView view) {
+    this.view = view;
+
     if (GData.isLoaded(GDataSystemPackage.CALENDAR)) {
       Window.alert("Calendar package is loaded");
       initCalendar();
@@ -27,6 +31,7 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
       GData.loadGDataApi(Config.API_KEY, new Runnable() {
         public void run() {
           initCalendar();
+          MonthlyWidgetController.this.view.init(MonthlyWidgetController.this);
         }
       }, GDataSystemPackage.CALENDAR);
     }

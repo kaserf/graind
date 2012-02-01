@@ -7,12 +7,14 @@ public class Calendar implements EntryPoint {
 
   @Override
   public void onModuleLoad() {
-    LoginWidget login = new LoginWidget();
-    login.init(new LoginWidgetController());
-    RootPanel.get().add(login);
+    LoginWidget loginView = new LoginWidget();
+    new LoginWidgetController(loginView);
+    // TODO: this does not belong to the root panel.
+    RootPanel.get().add(loginView);
 
-    MonthlyWidget monthly = new MonthlyWidget();
-    monthly.init(new MonthlyWidgetController());
-    RootPanel.get().add(monthly);
+    MonthlyWidget monthlyView = new MonthlyWidget();
+    new MonthlyWidgetController(monthlyView);
+    // TODO: this does not belong to the root panel.
+    RootPanel.get().add(monthlyView);
   }
 }
