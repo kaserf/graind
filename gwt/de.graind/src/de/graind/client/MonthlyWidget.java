@@ -23,12 +23,23 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
   private HorizontalPanel datePanel;
   private Label monthLabel;
   private Controller controller;
+  private VerticalPanel vpanel;
 
   public MonthlyWidget() {
     currentMonth = Integer.parseInt(DateTimeFormat.getFormat("M").format(new Date()));
     currentYear = Integer.parseInt(DateTimeFormat.getFormat("yyyy").format(new Date()));
     GWT.log("current month is: " + currentMonth + " the year is: " + currentYear);
     GWT.log("the current month has " + getDaysOfMonth(currentMonth, currentYear) + " days.");
+
+    vpanel = new VerticalPanel();
+    initWidget(vpanel);
+  }
+
+  @Override
+  public void init(Controller controller) {
+    this.controller = controller;
+
+    setupWidget();
   }
 
   private void setupWidget() {
@@ -39,8 +50,6 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
         Window.alert("" + data);
       }
     });
-
-    VerticalPanel vpanel = new VerticalPanel();
 
     monthLabel = new Label();
     vpanel.add(monthLabel);
@@ -86,8 +95,6 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
       }
     });
     hpanel.add(next);
-
-    initWidget(vpanel);
 
     fillWithDates();
   }
@@ -135,12 +142,5 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
 
       return daysPerMonth[month];
     }
-  }
-
-  @Override
-  public void init(Controller controller) {
-    this.controller = controller;
-
-    setupWidget();
   }
 }
