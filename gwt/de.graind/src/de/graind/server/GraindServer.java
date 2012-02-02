@@ -1,7 +1,10 @@
-package de.graind.server.model.interfaces;
+package de.graind.server;
 
 import java.util.Date;
 import java.util.List;
+
+import de.graind.server.model.interfaces.CalendarTemplate;
+import de.graind.server.model.interfaces.User;
 
 public interface GraindServer {
 
