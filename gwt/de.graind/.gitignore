@@ -2,3 +2,4 @@ gwt-unitCache
 *.class
 *~
 war/WEB_INF/classes
+.gwt-log
