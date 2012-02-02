@@ -5,8 +5,10 @@ import java.util.Date;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.gdata.client.EventEntry;
+import com.google.gwt.gdata.client.When;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -16,21 +18,15 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 public class MonthlyWidget extends Composite implements MonthlyWidgetView {
   private int currentMonth;
   private int currentYear;
-  private int[] daysPerMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-  private String[] monthLabels = { "January", "February", "March", "April", "May", "June", "July", "August",
-      "September", "October", "November", "December" };
+  private EventEntry[] currentEntries;
 
   private HorizontalPanel datePanel;
   private Label monthLabel;
   private Controller controller;
   private VerticalPanel vpanel;
+  private Label[] dayLabels;
 
   public MonthlyWidget() {
-    currentMonth = Integer.parseInt(DateTimeFormat.getFormat("M").format(new Date()));
-    currentYear = Integer.parseInt(DateTimeFormat.getFormat("yyyy").format(new Date()));
-    GWT.log("current month is: " + currentMonth + " the year is: " + currentYear);
-    GWT.log("the current month has " + getDaysOfMonth(currentMonth, currentYear) + " days.");
-
     vpanel = new VerticalPanel();
     initWidget(vpanel);
   }
@@ -39,17 +35,13 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
   public void init(Controller controller) {
     this.controller = controller;
 
+    currentMonth = CalendarUtil.getMonth(new Date());
+    currentYear = CalendarUtil.getYear(new Date());
+
     setupWidget();
   }
 
   private void setupWidget() {
-    controller.loadMonths(new LoadDataCallback<Integer>() {
-
-      @Override
-      public void receiveData(Integer data) {
-        Window.alert("" + data);
-      }
-    });
 
     monthLabel = new Label();
     vpanel.add(monthLabel);
@@ -70,7 +62,7 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
           currentMonth--;
         }
 
-        fillWithDates();
+        refreshWidget();
       }
     });
     hpanel.add(prev);
@@ -91,56 +83,81 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
           currentMonth++;
         }
 
-        fillWithDates();
+        refreshWidget();
       }
     });
     hpanel.add(next);
 
-    fillWithDates();
+    refreshWidget();
   }
 
-  private void fillWithDates() {
-    monthLabel.setText(monthLabels[currentMonth - 1] + " " + currentYear);
+  private void refreshWidget() {
+    monthLabel.setText(CalendarUtil.getMonthLabel(currentMonth) + " " + currentYear);
 
     // performance optimization: reuse widgets and hide the days not visible
     // this month
     datePanel.clear();
-    for (int i = 0; i < getDaysOfMonth(currentMonth, currentYear); i++) {
+    dayLabels = new Label[CalendarUtil.getDaysOfMonth(currentYear, currentMonth)];
+
+    for (int i = 0; i < CalendarUtil.getDaysOfMonth(currentYear, currentMonth); i++) {
       Label l = new Label();
       l.setText(String.valueOf(i + 1));
-      l.addClickHandler(new ClickHandler() {
-        @Override
-        public void onClick(ClickEvent event) {
-          Window.alert("You clicked on " + event.getSource().toString());
-        }
-      });
+      dayLabels[i] = l;
 
       datePanel.add(l);
     }
-  }
 
-  /**
-   * Returns the number of days a month has.
-   * 
-   * @param month
-   * @param year
-   * @return
-   * @throws IllegalArgumentException
-   */
-  public int getDaysOfMonth(int month, int year) throws IllegalArgumentException {
-    // our array starts with 0
-    month--;
-    if (month > 11) {
-      throw new IllegalArgumentException("A month larger then 12 is not allowed");
-    } else {
-      if (month == 1) {
-        // check leap year
-        if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))) {
-          return daysPerMonth[month] + 1;
-        }
+    controller.fetchEventsForMonth(currentYear, currentMonth, new AsyncCallback<EventEntry[]>() {
+
+      @Override
+      public void onSuccess(EventEntry[] result) {
+        currentEntries = result;
+        GWT.log("We got " + currentEntries.length + " new entries.");
+
+        fillDays();
       }
 
-      return daysPerMonth[month];
+      @Override
+      public void onFailure(Throwable caught) {
+        GWT.log("could not get the events: " + caught.getMessage());
+      }
+    });
+  }
+
+  private void fillDays() {
+    for (int i = 0; i < CalendarUtil.getDaysOfMonth(currentYear, currentMonth); i++) {
+      dayLabels[i].addClickHandler(new DayClickHandler(MonthlyWidget.this.getEventsForDay(i)));
     }
   }
+
+  // TODO: build a widget that shows the events
+  private String getEventsForDay(int day) {
+    String ret = "";
+
+    for (EventEntry entry : currentEntries) {
+      for (When when : entry.getTimes()) {
+        if (CalendarUtil.getDay(when.getStartTime().getDate()) == day) {
+          ret = ret + "Event: " + entry.getTitle().getText() + " (" + when.getStartTime().getDate().toString() + ")"
+              + "\n";
+        }
+      }
+    }
+    return ret;
+  }
+
+}
+
+class DayClickHandler implements ClickHandler {
+
+  private String message;
+
+  public DayClickHandler(String message) {
+    this.message = message;
+  }
+
+  @Override
+  public void onClick(ClickEvent event) {
+    Window.alert(message);
+  }
+
 }
