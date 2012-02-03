@@ -163,7 +163,7 @@ class DayClickHandler implements ClickHandler {
     DecoratedPopupPanel popup = new DecoratedPopupPanel(true);
     popup.setWidth("200px");
     popup.add(new Label(message));
-    popup.show();
+    // popup.show();
     popup.showRelativeTo(target);
   }
 

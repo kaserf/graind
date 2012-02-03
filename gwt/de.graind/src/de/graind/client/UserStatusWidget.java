@@ -7,7 +7,6 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
 
 import de.graind.shared.Config;
 
@@ -30,12 +29,16 @@ public class UserStatusWidget extends Composite implements UserStatusWidgetView 
 
   public void setupWidget() {
 
-    Label l = new Label("Username: " + controller.getUserName());
-    hpanel.add(l);
-    // TODO: show login or logout button.
-    // TODO: move all static setup to constructor.
-    addLogoutButton();
+    Button b = new Button("Google OAuth");
+    b.addClickHandler(new ClickHandler() {
 
+      @Override
+      public void onClick(ClickEvent event) {
+        controller.login();
+      }
+    });
+
+    hpanel.add(b);
   }
 
   private void addLogoutButton() {

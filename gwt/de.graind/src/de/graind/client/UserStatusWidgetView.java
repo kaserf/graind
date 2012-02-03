@@ -6,6 +6,8 @@ public interface UserStatusWidgetView {
     String getUserName();
 
     void logout();
+
+    void login();
   }
 
   public void init(Controller controller);

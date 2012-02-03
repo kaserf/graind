@@ -1,12 +1,15 @@
 package de.graind.client;
 
+import com.google.api.gwt.oauth2.client.Callback;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.gdata.client.GData;
 import com.google.gwt.gdata.client.GDataSystemPackage;
+import com.google.gwt.gdata.client.GoogleService;
 import com.google.gwt.gdata.client.calendar.CalendarFeed;
 import com.google.gwt.gdata.client.calendar.CalendarFeedCallback;
 import com.google.gwt.gdata.client.calendar.CalendarService;
 import com.google.gwt.gdata.client.impl.CallErrorException;
+import com.google.gwt.user.client.Window;
 
 import de.graind.shared.Config;
 
@@ -17,12 +20,10 @@ public class UserStatusWidgetController implements UserStatusWidgetView.Controll
 
   public UserStatusWidgetController(UserStatusWidgetView view) {
     this.view = view;
-
     // TODO: check if we need calendar AND gbase (for picasa)
     if (!GData.isLoaded(GDataSystemPackage.CALENDAR)) {
       GData.loadGDataApi(Config.API_KEY, new Runnable() {
         public void run() {
-          GWT.log("Login has loaded gdata");
           UserStatusWidgetController.this.gdataLoaded();
         }
       }, GDataSystemPackage.CALENDAR);
@@ -33,31 +34,51 @@ public class UserStatusWidgetController implements UserStatusWidgetView.Controll
 
   public void gdataLoaded() {
     service = CalendarService.newInstance(Config.applicationName);
-    service.getAllCalendarsFeed("http://www.google.com/calendar/feeds/default/allcalendars/full",
-        new CalendarFeedCallback() {
 
-          @Override
-          public void onSuccess(CalendarFeed result) {
-            GWT.log("feed link: " + result.getFeedLink().getHref());
-            GWT.log("feed id: " + result.getId().getValue());
-            GWT.log("calendar id: " + result.getEntries()[0].getId().getValue());
-            GWT.log("calendar name: " + result.getEntries()[0].getTitle().getText());
-            GWT.log("calendar author email: " + result.getEntries()[0].getAuthors()[0].getEmail().getValue());
-            GWT.log("calendar author name: " + result.getEntries()[0].getAuthors()[0].getName().getValue());
-          }
+    OAuth.login(new Callback<String, Throwable>() {
+      @Override
+      public void onSuccess(String token) {
+        Window.alert("Got an OAuth token:\n" + token);
+        GoogleService ser = GoogleService.newInstance("cl", Config.applicationName);
 
-          @Override
-          public void onFailure(CallErrorException caught) {
-            // TODO Auto-generated method stub
+        service.getAllCalendarsFeed("http://www.google.com/calendar/feeds/default/allcalendars/full",
+            new CalendarFeedCallback() {
 
-          }
-        });
+              @Override
+              public void onSuccess(CalendarFeed result) {
+                GWT.log("feed link: " + result.getFeedLink().getHref());
+                GWT.log("feed id: " + result.getId().getValue());
+                GWT.log("calendar id: " + result.getEntries()[0].getId().getValue());
+                GWT.log("calendar name: " + result.getEntries()[0].getTitle().getText());
+                GWT.log("calendar author email: " + result.getEntries()[0].getAuthors()[0].getEmail().getValue());
+                GWT.log("calendar author name: " + result.getEntries()[0].getAuthors()[0].getName().getValue());
+              }
+
+              @Override
+              public void onFailure(CallErrorException caught) {
+                // TODO Auto-generated method stub
+
+              }
+            });
+      }
+
+      @Override
+      public void onFailure(Throwable caught) {
+        Window.alert("Error:\n" + caught.getMessage());
+      }
+    });
 
     this.view.init(this);
   }
 
   @Override
+  public void login() {
+
+  }
+
+  @Override
   public String getUserName() {
+
     return "foobar";
   }
 
