@@ -1,13 +1,9 @@
 package de.graind.client;
 
-
-public interface LoginWidgetView {
+public interface UserStatusWidgetView {
 
   public interface Controller {
-    boolean isLoggedIn();
-
-    // TODO: async callback
-    void login();
+    String getUserName();
 
     void logout();
   }
