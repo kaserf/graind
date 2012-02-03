@@ -19,7 +19,7 @@
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>De_graind.html</welcome-file>
-    <welcome-file>CalendarPage.html</welcome-file>
+    <welcome-file>calendar.html</welcome-file>
   </welcome-file-list>
 
 </web-app>

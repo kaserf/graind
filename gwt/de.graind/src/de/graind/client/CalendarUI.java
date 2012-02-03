@@ -14,7 +14,7 @@ public class CalendarUI extends Composite {
   @UiField
   SimplePanel topRowLeft;
   @UiField
-  SimplePanel topRowRight;
+  UserStatusWidget topRowRight;
   @UiField
   SimplePanel topRowCenter;
   @UiField
@@ -22,17 +22,23 @@ public class CalendarUI extends Composite {
   @UiField
   SimplePanel calSpaceLeft;
   @UiField
-  SimplePanel calSpaceMonthly;
+  MonthlyWidget calSpaceMonthly;
 
   interface CalendarUIUiBinder extends UiBinder<Widget, CalendarUI> {
   }
 
   public CalendarUI() {
     initWidget(uiBinder.createAndBindUi(this));
+    initController();
   }
 
   public CalendarUI(String firstName) {
-    initWidget(uiBinder.createAndBindUi(this));
+    this();
+  }
+
+  private void initController() {
+    new MonthlyWidgetController(calSpaceMonthly);
+    new UserStatusWidgetController(topRowRight);
   }
 
 }
