@@ -1,59 +1,68 @@
 package de.graind.client;
 
+import java.util.Date;
+
+import com.google.api.gwt.client.impl.ClientGoogleApiRequestTransport;
+import com.google.api.gwt.services.calendar.shared.Calendar;
+import com.google.api.gwt.services.calendar.shared.model.Event;
+import com.google.api.gwt.services.calendar.shared.model.Events;
+import com.google.api.gwt.shared.GoogleApiRequestTransport;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.gdata.client.GData;
-import com.google.gwt.gdata.client.GDataSystemPackage;
-import com.google.gwt.gdata.client.calendar.CalendarFeed;
-import com.google.gwt.gdata.client.calendar.CalendarFeedCallback;
-import com.google.gwt.gdata.client.calendar.CalendarService;
-import com.google.gwt.gdata.client.impl.CallErrorException;
+import com.google.gwt.event.shared.SimpleEventBus;
+import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.user.client.Window;
+import com.google.web.bindery.requestfactory.shared.Receiver;
+import com.google.web.bindery.requestfactory.shared.ServerFailure;
 
 import de.graind.shared.Config;
 
 public class UserStatusWidgetController implements UserStatusWidgetView.Controller {
 
   private UserStatusWidgetView view;
-  private CalendarService service;
+  private Calendar cal = GWT.create(Calendar.class);
+
+  private String today() {
+    String today = DateTimeFormat.getFormat("yyyy-MM-dd'T'00:00:00-00:00").format(new Date());
+    return today;
+  }
 
   public UserStatusWidgetController(UserStatusWidgetView view) {
     this.view = view;
 
-    // TODO: check if we need calendar AND gbase (for picasa)
-    if (!GData.isLoaded(GDataSystemPackage.CALENDAR)) {
-      GData.loadGDataApi(Config.API_KEY, new Runnable() {
-        public void run() {
-          GWT.log("Login has loaded gdata");
-          UserStatusWidgetController.this.gdataLoaded();
-        }
-      }, GDataSystemPackage.CALENDAR);
-    } else {
-      gdataLoaded();
-    }
-  }
-
-  public void gdataLoaded() {
-    service = CalendarService.newInstance(Config.applicationName);
-    service.getAllCalendarsFeed("http://www.google.com/calendar/feeds/default/allcalendars/full",
-        new CalendarFeedCallback() {
-
+    new ClientGoogleApiRequestTransport().setApiAccessKey(Config.API_KEY).setApplicationName(Config.applicationName)
+        .create(new Receiver<GoogleApiRequestTransport>() {
           @Override
-          public void onSuccess(CalendarFeed result) {
-            GWT.log("feed link: " + result.getFeedLink().getHref());
-            GWT.log("feed id: " + result.getId().getValue());
-            GWT.log("calendar id: " + result.getEntries()[0].getId().getValue());
-            GWT.log("calendar name: " + result.getEntries()[0].getTitle().getText());
-            GWT.log("calendar author email: " + result.getEntries()[0].getAuthors()[0].getEmail().getValue());
-            GWT.log("calendar author name: " + result.getEntries()[0].getAuthors()[0].getName().getValue());
+          public void onSuccess(GoogleApiRequestTransport transport) {
+            SimpleEventBus eventBus = new SimpleEventBus();
+            cal.initialize(eventBus, transport);
+
+            cal.events().list("fl3x888@gmail.com").setTimeMin(today()).to(new Receiver<Events>() {
+              @Override
+              public void onSuccess(Events events) {
+                GWT.log("=== UPCOMING EVENTS ===");
+                for (Event event : events.getItems()) {
+                  GWT.log(event.getSummary());
+                }
+              }
+            }).fire();
+            /*
+             * cal.calendarList().list().to(new Receiver<CalendarList>() {
+             * 
+             * @Override public void onSuccess(CalendarList response) {
+             * GWT.log("=== CALENDARS ==="); for (CalendarListEntry calendar :
+             * response.getItems()) { GWT.log(calendar.getId()); } }
+             * 
+             * }).fire();
+             */
           }
 
           @Override
-          public void onFailure(CallErrorException caught) {
-            // TODO Auto-generated method stub
-
+          public void onFailure(ServerFailure error) {
+            Window.alert("Failed to initialize Transport!");
           }
         });
 
-    this.view.init(this);
+    // this.view.init(this);
   }
 
   @Override
