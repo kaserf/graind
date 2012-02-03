@@ -7,12 +7,16 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
+import de.graind.client.widgets.DayWidget;
+import de.graind.client.widgets.DayWidgetController;
+
 public class CalendarUI extends Composite {
 
   private static CalendarUIUiBinder uiBinder = GWT.create(CalendarUIUiBinder.class);
 
   @UiField
   SimplePanel topRowLeft;
+
   @UiField
   UserStatusWidget topRowRight;
   @UiField
@@ -20,7 +24,7 @@ public class CalendarUI extends Composite {
   @UiField
   SimplePanel picSpace;
   @UiField
-  SimplePanel calSpaceLeft;
+  DayWidget calSpaceLeft;
   @UiField
   MonthlyWidget calSpaceMonthly;
 
@@ -39,6 +43,7 @@ public class CalendarUI extends Composite {
   private void initController() {
     new MonthlyWidgetController(calSpaceMonthly);
     new UserStatusWidgetController(topRowRight);
+    new DayWidgetController(calSpaceLeft);
   }
 
 }
