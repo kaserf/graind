@@ -7,12 +7,13 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.gdata.client.EventEntry;
 import com.google.gwt.gdata.client.When;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.DecoratedPopupPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.UIObject;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class MonthlyWidget extends Composite implements MonthlyWidgetView {
@@ -126,7 +127,7 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
 
   private void fillDays() {
     for (int i = 0; i < CalendarUtil.getDaysOfMonth(currentYear, currentMonth); i++) {
-      dayLabels[i].addClickHandler(new DayClickHandler(MonthlyWidget.this.getEventsForDay(i)));
+      dayLabels[i].addClickHandler(new DayClickHandler(MonthlyWidget.this.getEventsForDay(i), dayLabels[i]));
     }
   }
 
@@ -150,14 +151,20 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
 class DayClickHandler implements ClickHandler {
 
   private String message;
+  private UIObject target;
 
-  public DayClickHandler(String message) {
+  public DayClickHandler(String message, UIObject target) {
     this.message = message;
+    this.target = target;
   }
 
   @Override
   public void onClick(ClickEvent event) {
-    Window.alert(message);
+    DecoratedPopupPanel popup = new DecoratedPopupPanel(true);
+    popup.setWidth("200px");
+    popup.add(new Label(message));
+    popup.show();
+    popup.showRelativeTo(target);
   }
 
 }
