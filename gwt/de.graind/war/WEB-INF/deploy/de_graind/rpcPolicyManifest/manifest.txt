@@ -1,3 +1,2 @@
 # Module de_graind
 # RPC service class, partial path of RPC policy file
-com.google.gwt.logging.shared.RemoteLoggingService, 46ED9EAA20DE5B4D17E3C68542EC8318.gwt.rpc
