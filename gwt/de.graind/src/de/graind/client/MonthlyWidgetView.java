@@ -1,13 +1,13 @@
 package de.graind.client;
 
-import com.google.gwt.gdata.client.EventEntry;
-import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.api.gwt.services.calendar.shared.model.Events;
+import com.google.web.bindery.requestfactory.shared.Receiver;
 
 public interface MonthlyWidgetView {
 
   public interface Controller {
 
-    void fetchEventsForMonth(int year, int month, AsyncCallback<EventEntry[]> callback);
+    void fetchEventsForMonth(int year, int month, Receiver<Events> receiver);
 
   }
 

@@ -37,8 +37,8 @@ public class CalendarUI extends Composite {
   }
 
   private void initController() {
-    new MonthlyWidgetController(calSpaceMonthly);
     new UserStatusWidgetController(topRowRight);
+    new MonthlyWidgetController(calSpaceMonthly);
   }
 
 }

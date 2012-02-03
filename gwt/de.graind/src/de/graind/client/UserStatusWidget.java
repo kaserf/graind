@@ -1,15 +1,11 @@
 package de.graind.client;
 
-import com.google.gwt.accounts.client.AuthSubStatus;
-import com.google.gwt.accounts.client.User;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
-
-import de.graind.shared.Config;
 
 public class UserStatusWidget extends Composite implements UserStatusWidgetView {
 
@@ -34,7 +30,7 @@ public class UserStatusWidget extends Composite implements UserStatusWidgetView 
     hpanel.add(l);
     // TODO: show login or logout button.
     // TODO: move all static setup to constructor.
-    addLogoutButton();
+    // addLogoutButton();
 
   }
 
@@ -43,18 +39,18 @@ public class UserStatusWidget extends Composite implements UserStatusWidgetView 
     logoutButton.addClickHandler(new ClickHandler() {
       @Override
       public void onClick(ClickEvent event) {
-        User.logout(new Runnable() {
-          @Override
-          public void run() {
-            hpanel.remove(logoutButton);
-          }
-        }, Config.gdataScope);
+        // User.logout(new Runnable() {
+        // @Override
+        // public void run() {
+        // hpanel.remove(logoutButton);
+        // }
+        // }, Config.gdataScope);
       }
     });
 
-    if (User.getStatus(Config.gdataScope) != AuthSubStatus.LOGGED_OUT) {
-      hpanel.add(logoutButton);
-    }
+    // if (User.getStatus(Config.gdataScope) != AuthSubStatus.LOGGED_OUT) {
+    // hpanel.add(logoutButton);
+    // }
   }
 
 }

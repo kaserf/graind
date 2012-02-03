@@ -62,6 +62,16 @@ public class CalendarUtil {
   }
 
   /**
+   * Calculate the day from a date string ("yyyy-mm-dd").
+   * 
+   * @param dateString
+   * @return
+   */
+  public static int getDay(String dateString) {
+    return Integer.parseInt(dateString.split("-")[2]);
+  }
+
+  /**
    * Calculate the month of a date.
    * 
    * @param date
@@ -79,5 +89,23 @@ public class CalendarUtil {
    */
   public static int getYear(Date date) {
     return Integer.parseInt(DateTimeFormat.getFormat("yyyy").format(date));
+  }
+
+  /**
+   * Return a string representation of today.
+   * 
+   * @return today formatted as string: yyyy-MM-dd'T'00:00:00-00:00
+   */
+  public static String today() {
+    String today = DateTimeFormat.getFormat("yyyy-MM-dd'T'00:00:00-00:00").format(new Date());
+    return today;
+  }
+
+  public static String getMinimumForMonth(int year, int month) {
+    return year + "-" + month + "-01T00:00:00-00:00";
+  }
+
+  public static String getMaximumForMonth(int year, int month) {
+    return year + "-" + month + "-" + getDaysOfMonth(year, month) + "T00:00:00-00:00";
   }
 }

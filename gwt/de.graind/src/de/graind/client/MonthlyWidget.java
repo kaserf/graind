@@ -2,12 +2,13 @@ package de.graind.client;
 
 import java.util.Date;
 
+import com.google.api.gwt.services.calendar.shared.model.Event;
+import com.google.api.gwt.services.calendar.shared.model.EventDateTime;
+import com.google.api.gwt.services.calendar.shared.model.Events;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.gdata.client.EventEntry;
-import com.google.gwt.gdata.client.When;
-import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DecoratedPopupPanel;
@@ -15,11 +16,12 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.UIObject;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.web.bindery.requestfactory.shared.Receiver;
 
 public class MonthlyWidget extends Composite implements MonthlyWidgetView {
   private int currentMonth;
   private int currentYear;
-  private EventEntry[] currentEntries;
+  private Events currentEvents;
 
   private HorizontalPanel datePanel;
   private Label monthLabel;
@@ -108,19 +110,17 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
       datePanel.add(l);
     }
 
-    controller.fetchEventsForMonth(currentYear, currentMonth, new AsyncCallback<EventEntry[]>() {
-
+    controller.fetchEventsForMonth(currentYear, currentMonth, new Receiver<Events>() {
       @Override
-      public void onSuccess(EventEntry[] result) {
-        currentEntries = result;
-        GWT.log("We got " + currentEntries.length + " new entries.");
+      public void onSuccess(Events events) {
+        currentEvents = events;
+        GWT.log("We got " + currentEvents.getItems().size() + " new entries.");
 
         fillDays();
-      }
-
-      @Override
-      public void onFailure(Throwable caught) {
-        GWT.log("could not get the events: " + caught.getMessage());
+        // GWT.log("=== UPCOMING EVENTS ===");
+        // for (Event event : events.getItems()) {
+        // GWT.log(event.getSummary());
+        // }
       }
     });
   }
@@ -135,12 +135,20 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
   private String getEventsForDay(int day) {
     String ret = "";
 
-    for (EventEntry entry : currentEntries) {
-      for (When when : entry.getTimes()) {
-        if (CalendarUtil.getDay(when.getStartTime().getDate()) == day) {
-          ret = ret + "Event: " + entry.getTitle().getText() + " (" + when.getStartTime().getDate().toString() + ")"
-              + "\n";
-        }
+    GWT.log("2We got " + currentEvents.getItems().size() + " new entries.");
+    for (Event event : currentEvents.getItems()) {
+      // TODO: check recurring events
+      // GWT.log("time: " + event.getOriginalStartTime().getDateTime());
+      DateTimeFormat dateTimeFormat = DateTimeFormat.getFormat("yyyy-MM-dd'T'hh:mm:ssZ");
+      DateTimeFormat dateFormat = DateTimeFormat.getFormat("yyyy-MM-dd");
+
+      EventDateTime start = event.getStart();
+      if ((start.getDateTime() != null) && (CalendarUtil.getDay(dateTimeFormat.parse(start.getDateTime())) == day)) {
+        ret = ret + "Event: " + event.getSummary() + " (" + start.getDateTime() + ")" + "\n";
+      } else if ((start.getDate() != null) && (CalendarUtil.getDay(dateFormat.parse(start.getDate())) == day)) {
+        ret = ret + "Event: " + event.getSummary() + " (" + start.getDate() + ")" + "\n";
+      } else {
+        GWT.log("recurring event: " + event.getSummary());
       }
     }
     return ret;
