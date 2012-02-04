@@ -11,36 +11,43 @@
 		
 		.headlineLeft {
 			background-color: #222;
-			border-bottom: 1px solid #555;
 			color: #FFF;
 			opacity: 0.5;
 		}
 		.headlineCenter {
 			border-right: 1px solid #555;
 			border-left: 1px solid #555;
-			border-bottom: 1px solid #555;
 			background-color: #222;
 			color: #FFF;
 			opacity: 0.5;
 		}
 		.headlineRight {
 			background-color: #222;
-			border-bottom: 1px solid #555;
 			color: #FFF;
 			opacity: 0.5;
 		}
 
 		.calspaceLeft{
 			background-color: #333;
-			border-top: 1px solid #555;
 			opacity: 0.5;
 		}
 		.calspaceCenter{
 			background-color: #333;
-			border-top: 1px solid #555;
 			border-left: 1px solid #555;
 			opacity: 0.5;
-		}	
+		}
+		
+		.picspace{
+			border-top: 1px solid #555;
+			border-bottom: 1px solid #555;
+			padding-top: -1px;
+			padding-bottom: -1px;
+		}
+		.picspaceLeft{
+		}
+		.picspaceCenter{
+		}
+		
 		
 	</ui:style>
 	
@@ -70,7 +77,7 @@
 				</g:DockLayoutPanel>
 			</g:south>
 			<g:center>
-				<g:DockLayoutPanel unit="PX">
+				<g:DockLayoutPanel unit="PX" styleName="{style.picspace}">
 					<g:west size="200.0">
 						<g:SimplePanel/>
 					</g:west>
