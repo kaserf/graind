@@ -16,7 +16,6 @@ public class CalendarUI extends Composite {
 
   @UiField
   SimplePanel topRowLeft;
-
   @UiField
   UserStatusWidget topRowRight;
   @UiField
