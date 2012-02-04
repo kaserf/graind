@@ -1,5 +1,7 @@
 package de.graind.client;
 
+import com.google.gwt.accounts.client.AuthSubStatus;
+import com.google.gwt.accounts.client.User;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.gdata.client.GData;
 import com.google.gwt.gdata.client.GDataSystemPackage;
@@ -62,21 +64,18 @@ public class UserStatusWidgetController implements UserStatusWidgetView.Controll
   }
 
   @Override
-  public boolean isLoggedIn() {
-    // TODO Auto-generated method stub
-    return false;
+  public AuthSubStatus getStatus() {
+    return User.getStatus(Config.getScope());
   }
 
   @Override
-  public void logout(AsyncCallback<Void> callback) {
-    // TODO Auto-generated method stub
-
+  public void logout(Runnable callback) {
+    User.logout(callback, Config.getScope());
   }
 
   @Override
-  public void login(AsyncCallback<Void> callback) {
-    // TODO Auto-generated method stub
-
+  public void login() {
+    User.login(Config.getScope());
   }
 
 }
