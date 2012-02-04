@@ -14,9 +14,16 @@ public class DayWidgetController implements DayWidgetView.Controller {
     view.init(this);
   }
 
+  @Override
   public String getDay() {
     int day = CalendarUtil.getDay(new Date());
     return (day < 10 ? "0" : "") + day;
+  }
+
+  @Override
+  public String getMonthAndYear() {
+    final Date today = new Date();
+    return CalendarUtil.getMonthLabel(today) + " " + CalendarUtil.getYear(today);
   }
 
 }

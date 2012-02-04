@@ -3,6 +3,7 @@ package de.graind.client;
 import java.util.Date;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat;
 
 public class CalendarUtil {
 
@@ -79,5 +80,9 @@ public class CalendarUtil {
    */
   public static int getYear(Date date) {
     return Integer.parseInt(DateTimeFormat.getFormat("yyyy").format(date));
+  }
+
+  public static String getMonthLabel(Date date) {
+    return DateTimeFormat.getFormat(PredefinedFormat.MONTH).format(date);
   }
 }
