@@ -1,5 +1,5 @@
 gwt-unitCache
 *.class
 *~
-war/WEB_INF/classes
+war/WEB-INF/classes
 .gwt-log
