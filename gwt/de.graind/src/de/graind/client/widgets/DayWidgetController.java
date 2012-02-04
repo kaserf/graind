@@ -2,7 +2,7 @@ package de.graind.client.widgets;
 
 import java.util.Date;
 
-import de.graind.client.CalendarUtil;
+import de.graind.client.util.CalendarUtil;
 
 public class DayWidgetController implements DayWidgetView.Controller {
 

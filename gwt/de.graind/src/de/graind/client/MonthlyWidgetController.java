@@ -13,6 +13,7 @@ import com.google.gwt.gdata.client.impl.CallErrorException;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
+import de.graind.client.util.CalendarUtil;
 import de.graind.shared.Config;
 
 public class MonthlyWidgetController implements MonthlyWidgetView.Controller {

@@ -15,7 +15,7 @@ import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
-import de.graind.client.CalendarUtil;
+import de.graind.client.util.CalendarUtil;
 import de.graind.shared.Config;
 
 public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
