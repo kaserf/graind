@@ -3,7 +3,6 @@ package de.graind.client;
 import com.google.gwt.accounts.client.AuthSubStatus;
 import com.google.gwt.accounts.client.User;
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.gdata.client.GData;
 import com.google.gwt.gdata.client.GDataSystemPackage;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -28,13 +27,19 @@ public class GraindEntry implements EntryPoint {
   private void loadModule() {
     // check if the page was reloaded while logging in, no need to init the page
     // further
-    if (User.getStatus() == AuthSubStatus.LOGGING_IN) {
+    AuthSubStatus userStatus = User.getStatus();
+    if (userStatus == AuthSubStatus.LOGGING_IN) {
       return;
+    } else if (userStatus == AuthSubStatus.LOGGED_IN) {
+      CalendarUI ui = new CalendarUI();
+      ui.setVisible(true);
+      RootPanel.get().add(ui);
+    } else {
+      // TODO: make a real ui here, instead of a lonely login widget
+      LoginWidget ui = new LoginWidget();
+      new LoginWidgetController(ui);
+      ui.setVisible(true);
+      RootPanel.get().add(ui);
     }
-
-    CalendarUI ui = new CalendarUI();
-    ui.setVisible(true);
-    RootPanel.get().add(ui);
-    GWT.log("hello");
   }
 }

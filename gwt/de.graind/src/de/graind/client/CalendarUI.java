@@ -17,7 +17,7 @@ public class CalendarUI extends Composite {
   @UiField
   SimplePanel topRowLeft;
   @UiField
-  UserStatusWidget topRowRight;
+  LogoutWidget topRowRight;
   @UiField
   SimplePanel topRowCenter;
   @UiField
@@ -40,8 +40,8 @@ public class CalendarUI extends Composite {
   }
 
   private void initController() {
-    // new MonthlyWidgetController(calSpaceMonthly);
-    new UserStatusWidgetController(topRowRight);
+    new MonthlyWidgetController(calSpaceMonthly);
+    new LogoutWidgetController(topRowRight);
     new DayWidgetController(calSpaceLeft);
   }
 
