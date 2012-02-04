@@ -21,8 +21,6 @@ public class UserStatusWidgetController implements UserStatusWidgetView.Controll
   public UserStatusWidgetController(UserStatusWidgetView view) {
     this.view = view;
 
-    // TODO: load gdata api, init widget, make controller calls async
-
     // TODO: check if we need calendar AND gbase (for picasa)
     if (!GData.isLoaded(GDataSystemPackage.CALENDAR)) {
       GData.loadGDataApi(Config.API_KEY, new Runnable() {
@@ -39,10 +37,6 @@ public class UserStatusWidgetController implements UserStatusWidgetView.Controll
   private void init() {
     service = CalendarService.newInstance(Config.APPLICATION_NAME);
     this.view.init(this);
-  }
-
-  public void gdataLoaded() {
-
   }
 
   @Override
