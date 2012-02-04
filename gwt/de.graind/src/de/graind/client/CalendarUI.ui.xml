@@ -59,7 +59,7 @@
 						<g:SimplePanel ui:field="topRowLeft" styleName="{style.headlineLeft}"/>
 					</g:west>
 					<g:east size="100.0">
-						<UserStatusWidget ui:field="topRowRight" styleName="{style.headlineRight}" width="100%" height="100%"/>
+						<LogoutWidget ui:field="topRowRight" styleName="{style.headlineRight}" width="100%" height="100%"/>
 					</g:east>
 					<g:center>
 						<g:SimplePanel ui:field="topRowCenter" styleName="{style.headlineCenter}"/>

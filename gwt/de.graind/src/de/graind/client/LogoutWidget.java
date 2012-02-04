@@ -1,7 +1,6 @@
 package de.graind.client;
 
-import com.google.gwt.accounts.client.AuthSubStatus;
-import com.google.gwt.accounts.client.User;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -10,15 +9,26 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 
-import de.graind.shared.Config;
-
-public class UserStatusWidget extends Composite implements UserStatusWidgetView {
-
+public class LogoutWidget extends Composite implements LogoutWidgetView {
   private Controller controller;
   private HorizontalPanel hpanel;
   private Label usernameLabel;
+  private Button button;
 
-  public UserStatusWidget() {
+  private ClickHandler logoutHandler = new ClickHandler() {
+    @Override
+    public void onClick(ClickEvent event) {
+      GWT.log("logout");
+      controller.logout(new Runnable() {
+        @Override
+        public native void run() /*-{
+			$wnd.location.reload();
+    }-*/;
+      });
+    }
+  };
+
+  public LogoutWidget() {
     this.hpanel = new HorizontalPanel();
     initWidget(hpanel);
   }
@@ -47,29 +57,8 @@ public class UserStatusWidget extends Composite implements UserStatusWidgetView 
       }
     });
 
-    // TODO: show login or logout button.
-    // TODO: move all static setup to constructor.
-    addLogoutButton();
-
+    this.button = new Button("Logout");
+    this.button.addClickHandler(logoutHandler);
+    this.hpanel.add(button);
   }
-
-  private void addLogoutButton() {
-    final Button logoutButton = new Button("Logout");
-    logoutButton.addClickHandler(new ClickHandler() {
-      @Override
-      public void onClick(ClickEvent event) {
-        User.logout(new Runnable() {
-          @Override
-          public void run() {
-            hpanel.remove(logoutButton);
-          }
-        }, Config.CALENDAR_SCOPE);
-      }
-    });
-
-    if (User.getStatus(Config.CALENDAR_SCOPE) != AuthSubStatus.LOGGED_OUT) {
-      hpanel.add(logoutButton);
-    }
-  }
-
 }

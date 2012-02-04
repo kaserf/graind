@@ -1,5 +1,6 @@
 package de.graind.client;
 
+import com.google.gwt.accounts.client.User;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.gdata.client.GData;
 import com.google.gwt.gdata.client.GDataSystemPackage;
@@ -11,21 +12,21 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 import de.graind.shared.Config;
 
-public class UserStatusWidgetController implements UserStatusWidgetView.Controller {
+public class LogoutWidgetController implements LogoutWidgetView.Controller {
 
-  private UserStatusWidgetView view;
+  private LogoutWidgetView view;
   private CalendarService service;
 
   private String username;
 
-  public UserStatusWidgetController(UserStatusWidgetView view) {
+  public LogoutWidgetController(LogoutWidgetView view) {
     this.view = view;
 
     // TODO: check if we need calendar AND gbase (for picasa)
     if (!GData.isLoaded(GDataSystemPackage.CALENDAR)) {
       GData.loadGDataApi(Config.API_KEY, new Runnable() {
         public void run() {
-          GWT.log("Login has loaded gdata");
+          GWT.log("Logout has loaded gdata");
           init();
         }
       }, GDataSystemPackage.CALENDAR);
@@ -48,8 +49,8 @@ public class UserStatusWidgetController implements UserStatusWidgetView.Controll
           new CalendarFeedCallback() {
             @Override
             public void onSuccess(CalendarFeed result) {
-              UserStatusWidgetController.this.username = result.getEntries()[0].getAuthors()[0].getName().getValue();
-              callback.onSuccess(UserStatusWidgetController.this.username);
+              LogoutWidgetController.this.username = result.getEntries()[0].getAuthors()[0].getName().getValue();
+              callback.onSuccess(LogoutWidgetController.this.username);
             }
 
             @Override
@@ -62,21 +63,8 @@ public class UserStatusWidgetController implements UserStatusWidgetView.Controll
   }
 
   @Override
-  public boolean isLoggedIn() {
-    // TODO Auto-generated method stub
-    return false;
-  }
-
-  @Override
-  public void logout(AsyncCallback<Void> callback) {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public void login(AsyncCallback<Void> callback) {
-    // TODO Auto-generated method stub
-
+  public void logout(Runnable callback) {
+    User.logout(callback, Config.getScope());
   }
 
 }

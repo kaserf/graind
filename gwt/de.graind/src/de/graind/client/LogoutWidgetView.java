@@ -2,18 +2,13 @@ package de.graind.client;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
-public interface UserStatusWidgetView {
+public interface LogoutWidgetView {
 
   public interface Controller {
     void getUserName(AsyncCallback<String> callback);
 
-    void logout(AsyncCallback<Void> callback);
-
-    void login(AsyncCallback<Void> callback);
-
-    boolean isLoggedIn();
+    void logout(Runnable callback);
   }
 
   public void init(Controller controller);
-
 }
