@@ -37,7 +37,7 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
   }
 
   private void gdataLoaded() {
-    this.service = CalendarService.newInstance(Config.applicationName);
+    this.service = CalendarService.newInstance(Config.APPLICATION_NAME);
     // initCalendar();
     MonthlyWidgetController.this.view.init(MonthlyWidgetController.this);
   }

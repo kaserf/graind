@@ -7,6 +7,7 @@ import com.google.gwt.gdata.client.calendar.CalendarFeed;
 import com.google.gwt.gdata.client.calendar.CalendarFeedCallback;
 import com.google.gwt.gdata.client.calendar.CalendarService;
 import com.google.gwt.gdata.client.impl.CallErrorException;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 
 import de.graind.shared.Config;
 
@@ -20,58 +21,66 @@ public class UserStatusWidgetController implements UserStatusWidgetView.Controll
   public UserStatusWidgetController(UserStatusWidgetView view) {
     this.view = view;
 
+    // TODO: load gdata api, init widget, make controller calls async
+
     // TODO: check if we need calendar AND gbase (for picasa)
     if (!GData.isLoaded(GDataSystemPackage.CALENDAR)) {
       GData.loadGDataApi(Config.API_KEY, new Runnable() {
         public void run() {
           GWT.log("Login has loaded gdata");
-          UserStatusWidgetController.this.gdataLoaded();
+          init();
         }
       }, GDataSystemPackage.CALENDAR);
     } else {
-      gdataLoaded();
+      init();
     }
+  }
+
+  private void init() {
+    service = CalendarService.newInstance(Config.APPLICATION_NAME);
+    this.view.init(this);
   }
 
   public void gdataLoaded() {
 
-    service = CalendarService.newInstance(Config.applicationName);
-
-    service.getOwnCalendarsFeed("http://www.google.com/calendar/feeds/default/owncalendars/full",
-        new CalendarFeedCallback() {
-          @Override
-          public void onSuccess(CalendarFeed result) {
-
-            // GWT.log("feed link: " + result.getFeedLink().getHref());
-            // GWT.log("feed id: " + result.getId().getValue());
-            // GWT.log("calendar id: " +
-            // result.getEntries()[0].getId().getValue());
-            // GWT.log("calendar name: " +
-            // result.getEntries()[0].getTitle().getText());
-            // GWT.log("calendar author email: " +
-            // result.getEntries()[0].getAuthors()[0].getEmail().getValue());
-            // GWT.log("calendar author name: " +
-            // result.getEntries()[0].getAuthors()[0].getName().getValue());
-
-            UserStatusWidgetController.this.username = result.getEntries()[0].getAuthors()[0].getName().getValue();
-
-            UserStatusWidgetController.this.view.init(UserStatusWidgetController.this);
-          }
-
-          @Override
-          public void onFailure(CallErrorException caught) {
-            GWT.log("failed to query calendar in userstatus");
-          }
-        });
   }
 
   @Override
-  public String getUserName() {
-    return this.username;
+  public void getUserName(final AsyncCallback<String> callback) {
+    if (this.username != null) {
+      callback.onSuccess(this.username);
+    } else {
+      service.getOwnCalendarsFeed("http://www.google.com/calendar/feeds/default/owncalendars/full",
+          new CalendarFeedCallback() {
+            @Override
+            public void onSuccess(CalendarFeed result) {
+              UserStatusWidgetController.this.username = result.getEntries()[0].getAuthors()[0].getName().getValue();
+              callback.onSuccess(UserStatusWidgetController.this.username);
+            }
+
+            @Override
+            public void onFailure(CallErrorException caught) {
+              GWT.log("failed to query calendar in userstatus");
+              callback.onFailure(caught);
+            }
+          });
+    }
   }
 
   @Override
-  public void logout() {
+  public boolean isLoggedIn() {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+  @Override
+  public void logout(AsyncCallback<Void> callback) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public void login(AsyncCallback<Void> callback) {
     // TODO Auto-generated method stub
 
   }
