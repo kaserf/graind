@@ -65,7 +65,7 @@
 				</g:DockLayoutPanel>
 			</g:south>
 			<g:center>
-				<p:PicturePicker styleName="{style.picspace}" ui:field="centerSpace" />
+				<p:PicturePickerWidget styleName="{style.picspace}" ui:field="centerSpace" />
 			</g:center>
 		</g:DockLayoutPanel>		
 	</g:HTMLPanel>
