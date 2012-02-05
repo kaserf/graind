@@ -73,7 +73,7 @@
 <!-- 					<g:layer top="-2px" height="2em" left="-3px" width="100%"> -->
 <!-- 						<g:Label text="Calendar" styleName="{style.normal}"/> -->
 <!-- 					</g:layer> -->
-					<g:layer top="-1ex" height="4em" right="0px" width="100%">
+					<g:layer top="-1ex" height="4em" right="-1ex" width="100%">
 						<g:Label horizontalAlignment="ALIGN_RIGHT" wordWrap="false" ui:field="currentMonthLabel" styleName="{style.currentMonthLabel}"></g:Label>
 					</g:layer>					
 					<g:layer top="0px" left="15px" height="100.0pct" right="15px">
