@@ -16,6 +16,8 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.UIObject;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
+import de.graind.client.util.CalendarUtil;
+
 public class MonthlyWidget extends Composite implements MonthlyWidgetView {
   private int currentMonth;
   private int currentYear;

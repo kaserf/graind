@@ -1,5 +1,6 @@
 package de.graind.client;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.gdata.client.DateTime;
 import com.google.gwt.gdata.client.EventEntry;
 import com.google.gwt.gdata.client.GData;
@@ -10,9 +11,9 @@ import com.google.gwt.gdata.client.calendar.CalendarEventQuery;
 import com.google.gwt.gdata.client.calendar.CalendarService;
 import com.google.gwt.gdata.client.impl.CallErrorException;
 import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
+import de.graind.client.util.CalendarUtil;
 import de.graind.shared.Config;
 
 public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
@@ -25,7 +26,7 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
     this.view = view;
 
     if (GData.isLoaded(GDataSystemPackage.CALENDAR)) {
-      Window.alert("Calendar package is loaded");
+      GWT.log("Calendar package is loaded");
       gdataLoaded();
     } else {
       GData.loadGDataApi(Config.API_KEY, new Runnable() {
@@ -38,7 +39,6 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
 
   private void gdataLoaded() {
     this.service = CalendarService.newInstance(Config.APPLICATION_NAME);
-    // initCalendar();
     MonthlyWidgetController.this.view.init(MonthlyWidgetController.this);
   }
 

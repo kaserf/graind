@@ -24,7 +24,7 @@ import com.google.gwt.user.client.ui.UIObject;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
-import de.graind.client.CalendarUtil;
+import de.graind.client.util.CalendarUtil;
 
 public class MonthlyWidget extends Composite implements MonthlyWidgetView {
 

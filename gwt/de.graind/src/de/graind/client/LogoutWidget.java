@@ -1,23 +1,18 @@
 package de.graind.client;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.MenuBar;
+import com.google.gwt.user.client.ui.MenuItem;
 
-public class LogoutWidget extends Composite implements LogoutWidgetView {
+public class LogoutWidget extends MenuBar implements LogoutWidgetView {
   private Controller controller;
-  private HorizontalPanel hpanel;
-  private Label usernameLabel;
-  private Button button;
+  private MenuBar submenu;
 
-  private ClickHandler logoutHandler = new ClickHandler() {
+  private Command logoutCommand = new Command() {
     @Override
-    public void onClick(ClickEvent event) {
+    public void execute() {
       GWT.log("logout");
       controller.logout(new Runnable() {
         @Override
@@ -28,9 +23,22 @@ public class LogoutWidget extends Composite implements LogoutWidgetView {
     }
   };
 
+  private Command openCalendarCommand = new Command() {
+    @Override
+    public void execute() {
+      GWT.log("open google calendar");
+    }
+  };
+
+  private Command openPicasaCommand = new Command() {
+    @Override
+    public void execute() {
+      GWT.log("open picasa");
+    }
+  };
+
   public LogoutWidget() {
-    this.hpanel = new HorizontalPanel();
-    initWidget(hpanel);
+    super();
   }
 
   @Override
@@ -41,14 +49,19 @@ public class LogoutWidget extends Composite implements LogoutWidgetView {
   }
 
   public void setupWidget() {
-    this.usernameLabel = new Label();
-    this.hpanel.add(usernameLabel);
+    this.setAutoOpen(true);
+    this.setAnimationEnabled(true);
+
+    submenu = new MenuBar(true);
+    submenu.addItem("Logout", logoutCommand);
+    submenu.addItem("Open Calendar", openCalendarCommand);
+    submenu.addItem("Open Picasa", openPicasaCommand);
 
     // load the username async style
     controller.getUserName(new AsyncCallback<String>() {
       @Override
       public void onSuccess(String result) {
-        usernameLabel.setText(result);
+        LogoutWidget.this.addItem(new MenuItem(result, submenu));
       }
 
       @Override
@@ -56,9 +69,5 @@ public class LogoutWidget extends Composite implements LogoutWidgetView {
         // TODO Auto-generated method stub
       }
     });
-
-    this.button = new Button("Logout");
-    this.button.addClickHandler(logoutHandler);
-    this.hpanel.add(button);
   }
 }

@@ -1,4 +1,4 @@
-package de.graind.client;
+package de.graind.client.util;
 
 import java.util.Date;
 
@@ -105,4 +105,5 @@ public class CalendarUtil {
     }
     return -1;
   }
+
 }
