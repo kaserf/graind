@@ -1,0 +1,134 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style type="de.graind.client.widgets.picturePicker.PicturePickerWidget.Style">
+		.main {
+		}
+		.medium {
+			color: #888;
+			font-size: 2em;
+			opacity: 0.5;
+		}
+		.normal {
+			color: #FFF;
+			font-size: 1.3em;
+			opacity: 0.5;
+		}
+		.west {
+			background-color: #151515;
+		}
+		.center {
+			border-left: 1px solid #333;
+		}
+		.west .label {
+			color: #AAA;
+			margin-bottom: 15px;
+		}
+		.west .button {
+			 background-color: #333;
+		    cursor:pointer;
+		    margin-top:1pt;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    vertical-align: middle;
+		    color: #999;
+		}
+		.west .buttonHovered {
+			 background-color: #EEE;
+		    cursor:pointer;
+		    margin-top:1pt;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    vertical-align: middle;
+		    color: #222;
+		}
+		.west .buttonSelected {
+			 background-color: #333;
+		    cursor:pointer;
+		    margin-top:1pt;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    vertical-align: middle;
+		    color: #999;
+		    border-right: 4px solid orange;
+		}
+		.west .buttonHoveredSelected {
+			 background-color: #EEE;
+		    cursor:pointer;
+		    margin-top:1pt;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    vertical-align: middle;
+		    color: #222;
+		    border-right: 4px solid orange;
+		}
+		.west .buttonWithPicture {
+			 background-color: #333;
+		    cursor:pointer;
+		    margin-top:1pt;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    vertical-align: middle;
+		    color: #999;
+		    border-left: 4px solid blue;
+		}
+		.west .buttonWithPictureSelected {
+			 background-color: #333;
+		    cursor:pointer;
+		    margin-top:1pt;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    vertical-align: middle;
+		    color: #999;
+		    border-right: 4px solid orange;
+		    border-left: 4px solid blue;
+		}
+		
+		.west .buttonWithPictureHovered {
+			 background-color: #EEE;
+		    cursor:pointer;
+		    margin-top:1pt;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    vertical-align: middle;
+		    border-left: 4px solid blue;
+		    color: #222;
+		}
+		.west .buttonWithPictureHoveredSelected {
+			 background-color: #EEE;
+		    cursor:pointer;
+		    margin-top:1pt;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    vertical-align: middle;
+		    border-right: 4px solid orange;
+		    border-left: 4px solid blue;
+		    color: #222;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:DockLayoutPanel unit="PX" height="100%" width="100%" styleName="{style.main}">
+			<g:west size="200.0">
+				<g:LayoutPanel  styleName="{style.west}">
+					<g:layer top="15px" bottom="0px" left="0px" right="10px">
+						<g:VerticalPanel width="100%" ui:field="selectorMenu" />
+					</g:layer>
+					<g:layer top="-1ex" height="4em" right="0px" width="100%">
+						<g:Label styleName="{style.medium}" wordWrap="false" horizontalAlignment="ALIGN_RIGHT" text="Selector"/>
+					</g:layer>
+				</g:LayoutPanel>
+			</g:west>
+			<g:center>
+				<g:LayoutPanel ui:field="picSpace" styleName="{style.center}">
+					<g:layer top="15px" bottom="0px" left="0px" right="10px">
+						<g:FlexTable width="100%"/>
+					</g:layer>
+					<g:layer top="-1ex" height="4em" right="0px" width="100%">
+						<g:Label styleName="{style.medium}" wordWrap="false" horizontalAlignment="ALIGN_RIGHT" ui:field="albumNameLabel" text="Album"/>
+					</g:layer>
+					
+				</g:LayoutPanel>
+			</g:center>
+		</g:DockLayoutPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 
