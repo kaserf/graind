@@ -2,6 +2,8 @@
 <module rename-to='de_graind'>
 	<!-- Inherit the core Web Toolkit stuff.                        -->
 	<inherits name='com.google.gwt.user.User' />
+	<inherits name='com.google.gwt.http.HTTP' />
+	<inherits name="com.google.gwt.json.JSON" /> 
 	<inherits name='com.google.gwt.gdata.GData' />
 
 	<!-- Inherit the default GWT style sheet.  You can change       -->

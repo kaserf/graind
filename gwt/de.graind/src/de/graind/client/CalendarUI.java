@@ -4,6 +4,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -45,6 +46,10 @@ public class CalendarUI extends Composite {
     new MonthlyWidgetController(calSpaceMonthly);
     new LogoutWidgetController(topRowRight);
     new DayWidgetController(calSpaceLeft);
+
+    PicasaTestWidget picasaTest = new PicasaTestWidget();
+    new PicasaTestWidgetController(picasaTest);
+    RootPanel.get().add(picasaTest);
   }
 
 }

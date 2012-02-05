@@ -5,6 +5,7 @@ public class Config {
   public static final String CALENDAR_SCOPE = "http://www.google.com/calendar/feeds";
   public static final String PICASA_SCOPE = "http://picasaweb.google.com/data";
   public static final String APPLICATION_NAME = "Graind";
+  public static final String PICASA_ALBUM_URI = "https://picasaweb.google.com/data/feed/api/user/default?kind=album&access=public";
 
   public static String getScope() {
     // add all scopes we need here
