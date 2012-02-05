@@ -4,35 +4,35 @@
 <!-- 	<ui:style src="./css/calendar.css" /> -->
 	<ui:style>
 		body{
-			background-color:  #050505;
+			background-color:  #111;
 			heigh: 100%;
 			color: #FFF;
 		}
 		
 		.headlineLeft {
-			background-color: #222;
+			background-color: #333;
 			color: #FFF;
 			opacity: 0.5;
 		}
 		.headlineCenter {
 			border-right: 1px solid #555;
 			border-left: 1px solid #555;
-			background-color: #222;
+			background-color: #333;
 			color: #FFF;
 			opacity: 0.5;
 		}
 		.headlineRight {
-			background-color: #222;
+			background-color: #333;
 			color: #FFF;
 			opacity: 0.5;
 		}
 
 		.calspaceLeft{
-			background-color: #333;
+			background-color: #444;
 			opacity: 0.5;
 		}
 		.calspaceCenter{
-			background-color: #333;
+			background-color: #444;
 			border-left: 1px solid #555;
 			opacity: 0.5;
 		}
@@ -58,7 +58,7 @@
 					<g:west size="200.0">
 						<g:SimplePanel ui:field="topRowLeft" styleName="{style.headlineLeft}"/>
 					</g:west>
-					<g:east size="100.0">
+					<g:east size="200.0">
 						<LogoutWidget ui:field="topRowRight" styleName="{style.headlineRight}" width="100%" height="100%"/>
 					</g:east>
 					<g:center>
@@ -72,7 +72,7 @@
 						<graind:DayWidget ui:field="calSpaceLeft" styleName="{style.calspaceLeft}"/>
 					</g:west>
 					<g:center>
-						<MonthlyWidget ui:field="calSpaceMonthly" styleName="{style.calspaceCenter}" width="100%" height="100%"/>
+						<graind:MonthlyWidget ui:field="calSpaceMonthly" styleName="{style.calspaceCenter}" width="100%" height="100%" />
 					</g:center>
 				</g:DockLayoutPanel>
 			</g:south>

@@ -9,6 +9,8 @@ import com.google.gwt.user.client.ui.Widget;
 
 import de.graind.client.widgets.DayWidget;
 import de.graind.client.widgets.DayWidgetController;
+import de.graind.client.widgets.MonthlyWidget;
+import de.graind.client.widgets.MonthlyWidgetController;
 
 public class CalendarUI extends Composite {
 
