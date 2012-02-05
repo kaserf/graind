@@ -13,7 +13,6 @@ import com.google.gwt.gdata.client.calendar.CalendarEventQuery;
 import com.google.gwt.gdata.client.calendar.CalendarService;
 import com.google.gwt.gdata.client.impl.CallErrorException;
 import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 import de.graind.client.util.CalendarUtil;
@@ -37,7 +36,6 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
     this.month = CalendarUtil.getMonth(now);
 
     if (GData.isLoaded(GDataSystemPackage.CALENDAR)) {
-      Window.alert("Calendar package is loaded");
       gdataLoaded();
     } else {
       GData.loadGDataApi(Config.API_KEY, new Runnable() {
