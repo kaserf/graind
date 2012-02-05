@@ -23,7 +23,7 @@ public class CalendarUI extends Composite {
   @UiField
   SimplePanel topRowCenter;
   @UiField
-  SimplePanel picSpace;
+  Composite centerSpace;
   @UiField
   DayWidget calSpaceLeft;
   @UiField
