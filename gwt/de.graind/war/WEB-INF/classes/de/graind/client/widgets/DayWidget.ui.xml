@@ -8,25 +8,25 @@
 		}
 		.medium {
 			color: #888;
-			font-size: 2em;
+			font-size: 2.5em;
 			opacity: 0.5;
 		}
 		.normal {
-			color: #FFF;
-			font-size: 1.3em;
+			color: #888;
+			font-size: 2em;
 			opacity: 0.5;
 		}
 	</ui:style>
 	<g:HTMLPanel width="200px" height="150px">
 		<g:LayoutPanel>
-			<g:layer top="-2px" height="2em" left="-3px" width="100%">
-				<g:Label text="Today" styleName="{style.normal}"/>
+			<g:layer top="-1ex" height="3em" right="0px" width="100%">
+				<g:Label text="Today" styleName="{style.normal}" horizontalAlignment="ALIGN_RIGHT" wordWrap="false"/>
 			</g:layer>
 			<g:layer right="-10px" top="30px" height="150px" width="100%">
-					<g:Label ui:field="day" horizontalAlignment="ALIGN_RIGHT" styleName="{style.large}"></g:Label>
+					<g:Label ui:field="day" horizontalAlignment="ALIGN_RIGHT" styleName="{style.large}" wordWrap="false"/>
 			</g:layer>
-			<g:layer top="50px" height="30px" right="0px" width="100%">
-					<g:Label ui:field="monthAndYear" horizontalAlignment="ALIGN_RIGHT" styleName="{style.medium}"/>
+			<g:layer top="40px" height="6em" right="0px" width="100%">
+					<g:Label ui:field="monthAndYear" horizontalAlignment="ALIGN_LEFT" styleName="{style.medium}"/>
 			</g:layer>
 		</g:LayoutPanel>
 	</g:HTMLPanel>
