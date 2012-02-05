@@ -65,6 +65,8 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
     String firstDayOfWeekWithEvent();
 
     String firstDayOfWeekWithoutEvent();
+
+    String daysTable();
   }
 
   public MonthlyWidget() {
