@@ -20,6 +20,15 @@
 		.center {
 			border-left: 1px solid #333;
 		}
+		.image {
+			background-color: aqua;
+			border: 1px solid silver;
+			padding: 5px;
+			marging: 3px;
+		}
+		.imageTable td {
+			text-align: center;
+		}
 		.west .label {
 			color: #AAA;
 			margin-bottom: 15px;
@@ -121,7 +130,7 @@
 			<g:center>
 				<g:LayoutPanel ui:field="picSpace" styleName="{style.center}">
 					<g:layer top="15px" bottom="0px" left="0px" right="10px">
-						<g:FlexTable width="100%"/>
+						<g:FlexTable width="100%" ui:field="pictureTable" cellPadding="3" cellSpacing="6" styleName="{style.imageTable}"/>
 					</g:layer>
 					<g:layer top="-1ex" height="4em" right="0px" width="100%">
 						<g:Label styleName="{style.medium}" wordWrap="false" horizontalAlignment="ALIGN_RIGHT" ui:field="albumNameLabel" text="Album"/>

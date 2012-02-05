@@ -10,7 +10,9 @@ import com.google.gwt.event.dom.client.MouseOverHandler;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.Random;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -25,6 +27,8 @@ public class PicturePickerWidget extends Composite implements PicturePickerView 
   VerticalPanel selectorMenu;
   @UiField
   Label albumNameLabel;
+  @UiField
+  FlexTable pictureTable;
 
   private Label[] monthButtons = new Label[12];
 
@@ -43,6 +47,8 @@ public class PicturePickerWidget extends Composite implements PicturePickerView 
     String center();
 
     String label();
+
+    String image();
 
     String button();
 
@@ -76,6 +82,8 @@ public class PicturePickerWidget extends Composite implements PicturePickerView 
     this.controller = controller;
 
     this.albumNameLabel.setText(controller.getAlbumName());
+
+    testImages(20);
   }
 
   private void setUpSelectorMenu() {
@@ -184,6 +192,15 @@ public class PicturePickerWidget extends Composite implements PicturePickerView 
       }
     }
 
+  }
+
+  private void testImages(int count) {
+    for (int i = 0; i < count; i++) {
+      Label l = new Label();
+      l.setSize((Random.nextInt(40) + 80) + "px", (Random.nextInt(40) + 80) + "px");
+      l.setStyleName(style.image());
+      pictureTable.setWidget(i / 6, i % 6, l);
+    }
   }
 
 }
