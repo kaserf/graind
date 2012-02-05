@@ -2,6 +2,7 @@ package de.graind.client.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class PicasaImage implements Serializable {
   private static final long serialVersionUID = 1L;
@@ -13,6 +14,8 @@ public class PicasaImage implements Serializable {
   private Date timestamp;
   private Long width;
   private Long height;
+
+  private List<Thumbnail> thumbnails;
 
   public String getId() {
     return id;
@@ -68,6 +71,14 @@ public class PicasaImage implements Serializable {
 
   public void setHeight(Long height) {
     this.height = height;
+  }
+
+  public List<Thumbnail> getThumbnails() {
+    return thumbnails;
+  }
+
+  public void setThumbnails(List<Thumbnail> thumbnails) {
+    this.thumbnails = thumbnails;
   }
 
 }

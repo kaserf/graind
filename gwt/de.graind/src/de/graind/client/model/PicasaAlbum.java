@@ -6,11 +6,13 @@ public class PicasaAlbum implements Serializable {
   private static final long serialVersionUID = 1L;
 
   private String id;
-  private String url;
+  private String contentUrl;
   private String creatorUsername;
   private String creatorNickname;
   private String title;
   private Integer photoCount;
+
+  private Thumbnail thumbnail;
 
   public String getId() {
     return id;
@@ -20,12 +22,12 @@ public class PicasaAlbum implements Serializable {
     this.id = albumId;
   }
 
-  public String getUrl() {
-    return url;
+  public String getContentUrl() {
+    return contentUrl;
   }
 
-  public void setUrl(String albumUrl) {
-    this.url = albumUrl;
+  public void setContentUrl(String contentUrl) {
+    this.contentUrl = contentUrl;
   }
 
   public String getCreatorUsername() {
@@ -59,4 +61,13 @@ public class PicasaAlbum implements Serializable {
   public void setPhotoCount(Integer photoCount) {
     this.photoCount = photoCount;
   }
+
+  public Thumbnail getThumbnail() {
+    return thumbnail;
+  }
+
+  public void setThumbnail(Thumbnail thumbnail) {
+    this.thumbnail = thumbnail;
+  }
+
 }
