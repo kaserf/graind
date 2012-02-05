@@ -1,5 +1,7 @@
 gwt-unitCache
 *.class
+*.gwt.rpc
 *~
-war/WEB-INF/classes
+war/WEB-INF/classes*
 .gwt-log
+war/WEB-INF/deploy*
