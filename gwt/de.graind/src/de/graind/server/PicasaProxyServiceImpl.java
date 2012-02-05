@@ -37,8 +37,8 @@ public class PicasaProxyServiceImpl extends RemoteServiceServlet implements Pica
 
       for (AlbumEntry currentAlbum : userFeed.getAlbumEntries()) {
         PicasaAlbum tmp = new PicasaAlbum();
-        tmp.setAlbumId(currentAlbum.getId());
-        tmp.setAlbumUrl(currentAlbum.getHtmlLink().getHref());
+        tmp.setId(currentAlbum.getId());
+        tmp.setUrl(currentAlbum.getHtmlLink().getHref());
         tmp.setCreatorNickname(currentAlbum.getNickname());
         tmp.setCreatorUsername(currentAlbum.getUsername());
         tmp.setPhotoCount(currentAlbum.getPhotosUsed());

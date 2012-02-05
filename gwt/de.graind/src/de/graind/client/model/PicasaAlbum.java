@@ -5,27 +5,27 @@ import java.io.Serializable;
 public class PicasaAlbum implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  private String albumId;
-  private String albumUrl;
+  private String id;
+  private String url;
   private String creatorUsername;
   private String creatorNickname;
   private String title;
   private Integer photoCount;
 
-  public String getAlbumId() {
-    return albumId;
+  public String getId() {
+    return id;
   }
 
-  public void setAlbumId(String albumId) {
-    this.albumId = albumId;
+  public void setId(String albumId) {
+    this.id = albumId;
   }
 
-  public String getAlbumUrl() {
-    return albumUrl;
+  public String getUrl() {
+    return url;
   }
 
-  public void setAlbumUrl(String albumUrl) {
-    this.albumUrl = albumUrl;
+  public void setUrl(String albumUrl) {
+    this.url = albumUrl;
   }
 
   public String getCreatorUsername() {
