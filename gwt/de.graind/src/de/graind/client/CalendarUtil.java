@@ -11,6 +11,8 @@ public class CalendarUtil {
   private static String[] monthLabels = { "January", "February", "March", "April", "May", "June", "July", "August",
       "September", "October", "November", "December" };
 
+  private static String[] weekdays = new String[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
+
   /**
    * Returns a String representation for a given month.
    * 
@@ -84,5 +86,23 @@ public class CalendarUtil {
 
   public static String getMonthLabel(Date date) {
     return DateTimeFormat.getFormat(PredefinedFormat.MONTH).format(date);
+  }
+
+  /**
+   * Return the day of the week: [0: Mon .. 6: Sun]
+   * 
+   * @param day
+   * @param month
+   * @param year
+   */
+  public static int getDayOfWeek(int day, int month, int year) {
+    Date date = DateTimeFormat.getFormat("dd.MM.yyyy").parse(day + "." + month + "." + year);
+    String weekday = DateTimeFormat.getFormat("EEE").format(date);
+    for (int i = 0; i < weekdays.length; i++) {
+      if (weekday.equals(weekdays[i])) {
+        return i;
+      }
+    }
+    return -1;
   }
 }

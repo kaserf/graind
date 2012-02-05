@@ -2,6 +2,7 @@ package de.graind.client.widgets;
 
 import java.util.Date;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.gdata.client.DateTime;
 import com.google.gwt.gdata.client.EventEntry;
 import com.google.gwt.gdata.client.GData;
@@ -30,7 +31,6 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
 
   public MonthlyWidgetController(MonthlyWidgetView view) {
     this.view = view;
-    view.init(this);
 
     final Date now = new Date();
     this.year = CalendarUtil.getYear(now);
@@ -51,6 +51,7 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
   private void gdataLoaded() {
     this.service = CalendarService.newInstance(Config.APPLICATION_NAME);
     MonthlyWidgetController.this.view.init(MonthlyWidgetController.this);
+    fetchEventsForMonth(eventCallback);
   }
 
   private void fetchEventsForMonth(final AsyncCallback<EventEntry[]> callback) {
@@ -86,6 +87,7 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
 
   @Override
   public void nextMonth() {
+    GWT.log("next month");
     if (month == 12) {
       month = 1;
       year++;
