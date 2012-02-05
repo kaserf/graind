@@ -90,26 +90,7 @@ public class PicasaProxyServiceImpl extends RemoteServiceServlet implements Pica
       AlbumFeed feed = service.getFeed(feedUrl, AlbumFeed.class);
 
       for (PhotoEntry photo : feed.getPhotoEntries()) {
-        PicasaImage tmp = new PicasaImage();
-        tmp.setAlbumId(photo.getAlbumId());
-        tmp.setId(photo.getId());
-        tmp.setTitle(photo.getTitle().getPlainText());
-        tmp.setUrl(photo.getMediaGroup().getContents().get(0).getUrl());
-        tmp.setTimestamp(photo.getTimestamp());
-        tmp.setWidth(photo.getWidth());
-        tmp.setHeight(photo.getHeight());
-
-        List<Thumbnail> thumbnails = new LinkedList<Thumbnail>();
-        List<MediaThumbnail> photoThumbnails = photo.getMediaThumbnails();
-        for (MediaThumbnail mediaThumbnail : photoThumbnails) {
-          Thumbnail thumb = new Thumbnail();
-          thumb.setHeight(mediaThumbnail.getHeight());
-          thumb.setWidth(mediaThumbnail.getWidth());
-          thumb.setUrl(mediaThumbnail.getUrl());
-        }
-
-        tmp.setThumbnails(thumbnails);
-        ret.add(tmp);
+        ret.add(fillImage(photo));
       }
     } catch (MalformedURLException e) {
       // TODO Auto-generated catch block
@@ -121,6 +102,58 @@ public class PicasaProxyServiceImpl extends RemoteServiceServlet implements Pica
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
+
+    return ret;
+  }
+
+  @Override
+  public List<PicasaImage> getRecentImages(String token) {
+    List<PicasaImage> ret = new LinkedList<PicasaImage>();
+
+    service.setAuthSubToken(token);
+
+    try {
+      URL feedUrl = new URL(PICASA_URI + "?kind=photo&imgmax=d");
+
+      AlbumFeed feed = service.getFeed(feedUrl, AlbumFeed.class);
+
+      for (PhotoEntry photo : feed.getPhotoEntries()) {
+        ret.add(fillImage(photo));
+      }
+    } catch (MalformedURLException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (ServiceException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+    return ret;
+  }
+
+  private PicasaImage fillImage(PhotoEntry photo) throws ServiceException {
+    PicasaImage ret = new PicasaImage();
+    ret.setAlbumId(photo.getAlbumId());
+    ret.setId(photo.getId());
+    ret.setTitle(photo.getTitle().getPlainText());
+    ret.setUrl(photo.getMediaGroup().getContents().get(0).getUrl());
+    ret.setTimestamp(photo.getTimestamp());
+    ret.setWidth(photo.getWidth());
+    ret.setHeight(photo.getHeight());
+
+    List<Thumbnail> thumbnails = new LinkedList<Thumbnail>();
+    List<MediaThumbnail> photoThumbnails = photo.getMediaThumbnails();
+    for (MediaThumbnail mediaThumbnail : photoThumbnails) {
+      Thumbnail thumb = new Thumbnail();
+      thumb.setHeight(mediaThumbnail.getHeight());
+      thumb.setWidth(mediaThumbnail.getWidth());
+      thumb.setUrl(mediaThumbnail.getUrl());
+    }
+
+    ret.setThumbnails(thumbnails);
 
     return ret;
   }

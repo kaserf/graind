@@ -23,16 +23,19 @@ public class PicasaTestWidget extends Composite implements PicasaTestWidgetView 
   @Override
   public void init(Controller controller) {
     this.controller = controller;
+
+    loadAlbums();
+    // loadImages(albumId);
+    loadRecentImages();
+  }
+
+  private void loadAlbums() {
     this.controller.getAlbums(new AsyncCallback<List<PicasaAlbum>>() {
       @Override
       public void onSuccess(List<PicasaAlbum> result) {
         GWT.log("got " + result.size() + " albums from the server.");
         for (PicasaAlbum picasaAlbum : result) {
           GWT.log("Album: " + picasaAlbum.getTitle() + " with ID " + picasaAlbum.getId());
-
-          // TODO: this is just an example to load the images of the first
-          // album.
-          loadImages(result.get(0).getId());
         }
       }
 
@@ -54,6 +57,24 @@ public class PicasaTestWidget extends Composite implements PicasaTestWidgetView 
       @Override
       public void onSuccess(List<PicasaImage> result) {
         GWT.log("got " + result.size() + " images from the " + albumId + " album.");
+        for (PicasaImage picasaImage : result) {
+          GWT.log("Image: " + picasaImage.getUrl());
+        }
+      }
+    });
+  }
+
+  private void loadRecentImages() {
+    this.controller.getRecentImages(new AsyncCallback<List<PicasaImage>>() {
+
+      @Override
+      public void onFailure(Throwable caught) {
+        GWT.log("getRecentImages() failed: " + caught.getMessage());
+      }
+
+      @Override
+      public void onSuccess(List<PicasaImage> result) {
+        GWT.log("got " + result.size() + " most recent images.");
         for (PicasaImage picasaImage : result) {
           GWT.log("Image: " + picasaImage.getUrl());
         }

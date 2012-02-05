@@ -56,4 +56,9 @@ public class PicasaTestWidgetController implements PicasaTestWidgetView.Controll
   public void getImages(final String albumId, AsyncCallback<List<PicasaImage>> callback) {
     service.getImages(albumId, token, callback);
   }
+
+  @Override
+  public void getRecentImages(AsyncCallback<List<PicasaImage>> callback) {
+    service.getRecentImages(token, callback);
+  }
 }
