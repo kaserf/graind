@@ -12,4 +12,7 @@ public interface PicasaProxyService extends RemoteService {
   List<PicasaAlbum> getAlbums(String token);
 
   List<PicasaImage> getImages(String albumId, String token);
+
+  List<PicasaImage> getRecentImages(String token);
+
 }

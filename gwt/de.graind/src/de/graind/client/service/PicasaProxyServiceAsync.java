@@ -12,4 +12,6 @@ public interface PicasaProxyServiceAsync {
   void getAlbums(String token, AsyncCallback<List<PicasaAlbum>> callback);
 
   void getImages(String albumId, String token, AsyncCallback<List<PicasaImage>> callback);
+
+  void getRecentImages(String token, AsyncCallback<List<PicasaImage>> callback);
 }

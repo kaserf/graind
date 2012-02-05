@@ -13,6 +13,8 @@ public interface PicasaTestWidgetView {
     void getAlbums(AsyncCallback<List<PicasaAlbum>> callback);
 
     void getImages(String albumId, AsyncCallback<List<PicasaImage>> callback);
+
+    void getRecentImages(AsyncCallback<List<PicasaImage>> callback);
   }
 
   void init(Controller controller);
