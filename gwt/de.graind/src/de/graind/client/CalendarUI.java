@@ -9,8 +9,12 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
+import de.graind.client.examples.GraindServerTestWidget;
+import de.graind.client.examples.GraindServerTestWidgetController;
 import de.graind.client.widgets.DayWidget;
 import de.graind.client.widgets.DayWidgetController;
+import de.graind.client.widgets.LogoutWidget;
+import de.graind.client.widgets.LogoutWidgetController;
 import de.graind.client.widgets.MonthlyWidget;
 import de.graind.client.widgets.MonthlyWidgetController;
 import de.graind.client.widgets.imagePicker.ImagePickerController;

@@ -1,4 +1,4 @@
-package de.graind.client;
+package de.graind.client.widgets;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 

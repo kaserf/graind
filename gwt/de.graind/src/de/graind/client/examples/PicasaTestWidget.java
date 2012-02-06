@@ -1,4 +1,4 @@
-package de.graind.client;
+package de.graind.client.examples;
 
 import java.util.List;
 

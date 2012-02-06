@@ -1,4 +1,4 @@
-package de.graind.client;
+package de.graind.client.examples;
 
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
