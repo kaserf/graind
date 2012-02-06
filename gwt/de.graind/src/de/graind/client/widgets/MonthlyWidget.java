@@ -178,7 +178,7 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
       }
 
       // handler
-      l.addClickHandler(new DayClickHandler(todaysEvents, l));
+      l.addClickHandler(new DayClickHandler(day, todaysEvents, l));
     } else {
       // just style.
       if (lastDayOfWeek) {
@@ -198,6 +198,7 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
       for (When when : entry.getTimes()) {
         if (CalendarUtil.getDay(when.getStartTime().getDate()) == day) {
           ret.add(entry);
+          break;
         }
       }
     }
@@ -223,10 +224,12 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
 
     private List<EventEntry> events;
     private UIObject target;
+    private int day;
 
-    public DayClickHandler(List<EventEntry> events, UIObject target) {
+    public DayClickHandler(int day, List<EventEntry> events, UIObject target) {
       this.events = events;
       this.target = target;
+      this.day = day;
     }
 
     @Override
@@ -242,8 +245,11 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
       String ret = "";
       for (EventEntry entry : events) {
         for (When when : entry.getTimes()) {
-          ret = ret + "Event: " + entry.getTitle().getText() + " (" + when.getStartTime().getDate().toString() + ")"
-              + "\n";
+          // add only todays occurence for recurring events.
+          if (CalendarUtil.getDay(when.getStartTime().getDate()) == day) {
+            ret = ret + "Event: " + entry.getTitle().getText() + " (" + when.getStartTime().getDate().toString() + ")"
+                + "\n";
+          }
         }
       }
       return ret;
