@@ -16,11 +16,11 @@ public class LogoutWidgetController implements LogoutWidgetView.Controller {
 
   private LogoutWidgetView view;
   private CalendarService service;
+  private AsyncCallback<Void> next;
 
-  private String username;
-
-  public LogoutWidgetController(LogoutWidgetView view) {
+  public LogoutWidgetController(LogoutWidgetView view, AsyncCallback<Void> next) {
     this.view = view;
+    this.next = next;
 
     // TODO: check if we need calendar AND gbase (for picasa)
     if (!GData.isLoaded(GDataSystemPackage.CALENDAR)) {
@@ -37,28 +37,55 @@ public class LogoutWidgetController implements LogoutWidgetView.Controller {
 
   private void init() {
     service = CalendarService.newInstance(Config.APPLICATION_NAME);
-    this.view.init(this);
+
+    this.fetchUsername(new AsyncCallback<Void>() {
+      @Override
+      public void onFailure(Throwable caught) {
+        GWT.log("failed to fetch username.");
+        next.onFailure(caught);
+      }
+
+      @Override
+      public void onSuccess(Void result) {
+        view.init(LogoutWidgetController.this);
+        next.onSuccess(result);
+      }
+    });
+  }
+
+  private void fetchUsername(final AsyncCallback<Void> callback) {
+    service.getOwnCalendarsFeed("http://www.google.com/calendar/feeds/default/owncalendars/full",
+        new CalendarFeedCallback() {
+          @Override
+          public void onSuccess(CalendarFeed result) {
+            Config.USERNAME = result.getEntries()[0].getAuthors()[0].getName().getValue();
+            callback.onSuccess(null);
+          }
+
+          @Override
+          public void onFailure(CallErrorException caught) {
+            GWT.log("failed to fetch username");
+            callback.onFailure(caught);
+          }
+        });
   }
 
   @Override
   public void getUserName(final AsyncCallback<String> callback) {
-    if (this.username != null) {
-      callback.onSuccess(this.username);
+    if (Config.USERNAME != null) {
+      callback.onSuccess(Config.USERNAME);
     } else {
-      service.getOwnCalendarsFeed("http://www.google.com/calendar/feeds/default/owncalendars/full",
-          new CalendarFeedCallback() {
-            @Override
-            public void onSuccess(CalendarFeed result) {
-              LogoutWidgetController.this.username = result.getEntries()[0].getAuthors()[0].getName().getValue();
-              callback.onSuccess(LogoutWidgetController.this.username);
-            }
+      fetchUsername(new AsyncCallback<Void>() {
+        @Override
+        public void onFailure(Throwable caught) {
+          callback.onFailure(caught);
+        }
 
-            @Override
-            public void onFailure(CallErrorException caught) {
-              GWT.log("failed to query calendar in userstatus");
-              callback.onFailure(caught);
-            }
-          });
+        @Override
+        public void onSuccess(Void result) {
+          callback.onSuccess(Config.USERNAME);
+        }
+      });
     }
   }
 

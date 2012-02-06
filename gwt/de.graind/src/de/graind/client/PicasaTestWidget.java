@@ -9,6 +9,7 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 
 import de.graind.client.model.PicasaAlbum;
 import de.graind.client.model.PicasaImage;
+import de.graind.client.model.PicasaImageBase;
 
 public class PicasaTestWidget extends Composite implements PicasaTestWidgetView {
 
@@ -57,7 +58,7 @@ public class PicasaTestWidget extends Composite implements PicasaTestWidgetView 
       @Override
       public void onSuccess(List<PicasaImage> result) {
         GWT.log("got " + result.size() + " images from the " + albumId + " album.");
-        for (PicasaImage picasaImage : result) {
+        for (PicasaImageBase picasaImage : result) {
           GWT.log("Image: " + picasaImage.getUrl());
         }
       }
@@ -77,6 +78,7 @@ public class PicasaTestWidget extends Composite implements PicasaTestWidgetView 
         GWT.log("got " + result.size() + " most recent images.");
         for (PicasaImage picasaImage : result) {
           GWT.log("Image: " + picasaImage.getUrl());
+          GWT.log("Thumbnail url: " + picasaImage.getThumbnails().get(0).getUrl());
         }
       }
     });
