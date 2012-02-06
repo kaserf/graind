@@ -8,4 +8,6 @@ public interface GraindServiceAsync {
 
   void saveMonthlyPictureSelection(String username, PicasaImageBase[] images, AsyncCallback<Void> callback);
 
+  void deleteMonthlyPictureSelection(String username, AsyncCallback<Void> callback);
+
 }
