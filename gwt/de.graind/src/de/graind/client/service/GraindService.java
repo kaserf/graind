@@ -13,4 +13,5 @@ public interface GraindService extends RemoteService {
    *          An array of 12 PicasaImages, one per month
    */
   void saveMonthlyPictureSelection(String username, PicasaImageBase[] images);
+
 }

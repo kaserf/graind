@@ -10,6 +10,8 @@ import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
 import de.graind.client.model.PicasaImage;
 import de.graind.client.model.PicasaImageBase;
+import de.graind.client.service.GraindService;
+import de.graind.client.service.GraindServiceAsync;
 import de.graind.client.service.PicasaProxyService;
 import de.graind.client.service.PicasaProxyServiceAsync;
 import de.graind.client.widgets.imagePicker.ImagePickerView.Controller;
@@ -20,7 +22,8 @@ import de.graind.shared.Config;
 public class ImagePickerController implements Controller {
 
   private String token;
-  private PicasaProxyServiceAsync service;
+  private PicasaProxyServiceAsync picasaService;
+  private GraindServiceAsync graindService;
 
   private ImagePickerView view;
   private int selectedMonth = -1;
@@ -42,13 +45,17 @@ public class ImagePickerController implements Controller {
 
   private void init() {
     this.token = User.checkLogin(Config.getScope());
-    this.service = (PicasaProxyServiceAsync) GWT.create(PicasaProxyService.class);
-    ServiceDefTarget serviceDef = (ServiceDefTarget) service;
+    this.picasaService = (PicasaProxyServiceAsync) GWT.create(PicasaProxyService.class);
+    ServiceDefTarget serviceDef = (ServiceDefTarget) picasaService;
     serviceDef.setServiceEntryPoint(GWT.getModuleBaseURL() + "picasaProxyService");
-    service.getRecentImages(token, new ImageLoaderCallback(albumName));
+    picasaService.getRecentImages(token, new ImageLoaderCallback(albumName));
     for (int i = 0; i < savedImages.length; i++) {
       savedImages[i] = -1;
     }
+
+    this.graindService = (GraindServiceAsync) GWT.create(GraindService.class);
+    serviceDef = (ServiceDefTarget) graindService;
+    serviceDef.setServiceEntryPoint(GWT.getModuleBaseURL() + "graindService");
   }
 
   @Override
@@ -104,7 +111,7 @@ public class ImagePickerController implements Controller {
 
   @Override
   public void saveCurrentSelection() {
-    // TODO call the server and save the selection!
+    // graindService.saveMonthlyPictureSelection("MEEEEE", images, callback);
   }
 
   @Override
