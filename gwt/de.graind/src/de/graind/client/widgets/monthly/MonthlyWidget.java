@@ -1,4 +1,4 @@
-package de.graind.client.widgets;
+package de.graind.client.widgets.monthly;
 
 import java.util.ArrayList;
 import java.util.List;

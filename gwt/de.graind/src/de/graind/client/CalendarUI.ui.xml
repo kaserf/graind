@@ -1,10 +1,12 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:gr="urn:import:de.graind.client.widgets" xmlns:grIm="urn:import:de.graind.client.widgets.imagePicker">
-<!-- 	<ui:style src="./css/calendar.css" /> -->
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:gr="urn:import:de.graind.client.widgets"
+	xmlns:grIm="urn:import:de.graind.client.widgets.imagePicker"
+	xmlns:grDay="urn:import:de.graind.client.widgets.day" xmlns:grMon="urn:import:de.graind.client.widgets.monthly">
+	<!-- <ui:style src="./css/calendar.css" /> -->
 	<ui:style>
-		body{
-			background-color:  #111;
+		body {
+			background-color: #111;
 			heigh: 100%;
 			color: #FFF;
 		}
@@ -13,60 +15,67 @@
 			border-right: 1px solid #555;
 			border-left: 1px solid #555;
 		}
+		
 		.north {
 			background-color: #333;
 			color: #FFF;
 		}
-
+		
 		.south {
 			background-color: #222;
 		}
-		.calspaceCenter{
+		
+		.calspaceCenter {
 			border-left: 1px solid #555;
 		}
 		
-		.picspace{
+		.picspace {
 			border-top: 1px solid #555;
 			border-bottom: 1px solid #555;
 			padding-top: -1px;
 			padding-bottom: -1px;
 		}
-		.picspaceLeft{
-		}
-		.picspaceCenter{
+		
+		.picspaceLeft {
+			
 		}
 		
-		
+		.picspaceCenter {
+			
+		}
 	</ui:style>
-	
+
 	<g:HTMLPanel width="100%" height="99.9%">
 		<g:DockLayoutPanel unit="PX" width="100%" height="100%">
-			<g:north size="30.0" >
+			<g:north size="30.0">
 				<g:DockLayoutPanel unit="PX" styleName="{style.north}">
 					<g:west size="200.0">
-						<g:SimplePanel ui:field="topRowLeft"/>
+						<g:SimplePanel ui:field="topRowLeft" />
 					</g:west>
 					<g:east size="200.0">
-						<gr:LogoutWidget ui:field="topRowRight" width="100%" height="100%"/>
+						<gr:LogoutWidget ui:field="topRowRight" width="100%"
+							height="100%" />
 					</g:east>
 					<g:center>
-						<g:SimplePanel ui:field="topRowCenter" styleName="{style.headlineCenter}"/>
+						<g:SimplePanel ui:field="topRowCenter" styleName="{style.headlineCenter}" />
 					</g:center>
 				</g:DockLayoutPanel>
 			</g:north>
 			<g:south size="150.0">
 				<g:DockLayoutPanel unit="PX" styleName="{style.south}">
 					<g:west size="200.0">
-						<gr:DayWidget ui:field="calSpaceLeft"/>
+						<grDay:DayWidget ui:field="calSpaceLeft" />
 					</g:west>
 					<g:center>
-						<gr:MonthlyWidget ui:field="calSpaceMonthly" styleName="{style.calspaceCenter}" width="100%" height="100%" />
+						<grMon:MonthlyWidget ui:field="calSpaceMonthly"
+							styleName="{style.calspaceCenter}" width="100%" height="100%" />
 					</g:center>
 				</g:DockLayoutPanel>
 			</g:south>
 			<g:center>
-				<grIm:ImagePickerWidget styleName="{style.picspace}" ui:field="centerSpace" />
+				<grIm:ImagePickerWidget styleName="{style.picspace}"
+					ui:field="centerSpace" />
 			</g:center>
-		</g:DockLayoutPanel>		
+		</g:DockLayoutPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

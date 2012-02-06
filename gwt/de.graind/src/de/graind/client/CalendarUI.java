@@ -10,14 +10,14 @@ import com.google.gwt.user.client.ui.Widget;
 
 import de.graind.client.examples.GraindServerTestWidget;
 import de.graind.client.examples.GraindServerTestWidgetController;
-import de.graind.client.widgets.DayWidget;
-import de.graind.client.widgets.DayWidgetController;
 import de.graind.client.widgets.LogoutWidget;
 import de.graind.client.widgets.LogoutWidgetController;
-import de.graind.client.widgets.MonthlyWidget;
-import de.graind.client.widgets.MonthlyWidgetController;
+import de.graind.client.widgets.day.DayWidget;
+import de.graind.client.widgets.day.DayWidgetController;
 import de.graind.client.widgets.imagePicker.ImagePickerController;
 import de.graind.client.widgets.imagePicker.ImagePickerView;
+import de.graind.client.widgets.monthly.MonthlyWidget;
+import de.graind.client.widgets.monthly.MonthlyWidgetController;
 
 public class CalendarUI extends Composite {
 

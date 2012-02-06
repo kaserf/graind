@@ -1,4 +1,4 @@
-package de.graind.client.widgets;
+package de.graind.client.widgets.day;
 
 import java.util.Date;
 

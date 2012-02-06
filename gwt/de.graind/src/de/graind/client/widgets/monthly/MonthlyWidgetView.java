@@ -1,4 +1,4 @@
-package de.graind.client.widgets;
+package de.graind.client.widgets.monthly;
 
 import com.google.gwt.gdata.client.EventEntry;
 import com.google.gwt.user.client.rpc.AsyncCallback;

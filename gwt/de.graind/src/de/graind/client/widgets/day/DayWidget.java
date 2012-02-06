@@ -1,4 +1,4 @@
-package de.graind.client.widgets;
+package de.graind.client.widgets.day;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
