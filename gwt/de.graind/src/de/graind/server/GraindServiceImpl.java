@@ -42,7 +42,8 @@ public class GraindServiceImpl extends RemoteServiceServlet implements GraindSer
     try {
       String insertString = "INSERT INTO images VALUES (?, ?, ?, ?, ?);";
 
-      // TODO: first remove old entries.
+      // delete old values first
+      deleteMonthlyPictureSelection(username);
 
       PreparedStatement stmt = this.connection.prepareStatement(insertString);
       for (short i = 0; i < images.length; i++) {
@@ -56,6 +57,21 @@ public class GraindServiceImpl extends RemoteServiceServlet implements GraindSer
 
         stmt.execute();
       }
+
+    } catch (SQLException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
+
+  @Override
+  public void deleteMonthlyPictureSelection(String username) {
+    try {
+      String deleteString = "DELETE FROM images WHERE user_id = ?;";
+
+      PreparedStatement stmt = this.connection.prepareStatement(deleteString);
+      stmt.setString(1, username);
+      stmt.execute();
 
     } catch (SQLException e) {
       // TODO Auto-generated catch block

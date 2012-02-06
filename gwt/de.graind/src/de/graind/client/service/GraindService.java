@@ -13,4 +13,11 @@ public interface GraindService extends RemoteService {
    *          An array of 12 PicasaImages, one per month
    */
   void saveMonthlyPictureSelection(String username, PicasaImageBase[] images);
+
+  /**
+   * Remove all saved monthly pictures for the given username.
+   * 
+   * @param username
+   */
+  void deleteMonthlyPictureSelection(String username);
 }
