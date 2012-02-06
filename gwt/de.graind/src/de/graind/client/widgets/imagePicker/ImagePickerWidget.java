@@ -15,7 +15,6 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -23,6 +22,7 @@ import de.graind.client.widgets.imagePicker.image.PicasaImageWidget;
 
 public class ImagePickerWidget extends Composite implements ImagePickerView {
 
+  private static final int TABLE_WIDTH = 3;
   private static PicturePickerUiBinder uiBinder = GWT.create(PicturePickerUiBinder.class);
   private Controller controller;
   @UiField
@@ -33,54 +33,14 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
   Label albumNameLabel;
   @UiField
   FlexTable pictureTable;
-  @UiField
-  SimplePanel imageTableOverlay;
 
   private Label[] monthButtons = new Label[12];
-
-  interface PicturePickerUiBinder extends UiBinder<Widget, ImagePickerWidget> {
-  }
-
-  interface Style extends CssResource {
-    String main();
-
-    String medium();
-
-    String normal();
-
-    String west();
-
-    String center();
-
-    String label();
-
-    String image();
-
-    String button();
-
-    String buttonHovered();
-
-    String buttonSelected();
-
-    String buttonHoveredSelected();
-
-    String buttonWithPicture();
-
-    String buttonWithPictureSelected();
-
-    String buttonWithPictureHovered();
-
-    String buttonWithPictureHoveredSelected();
-
-  }
+  private Label saveButton;
 
   public ImagePickerWidget() {
     initWidget(uiBinder.createAndBindUi(this));
     setUpSelectorMenu();
-  }
-
-  public ImagePickerWidget(String firstName) {
-    this();
+    setUpSaveButton();
   }
 
   @Override
@@ -88,8 +48,6 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
     this.controller = controller;
 
     this.albumNameLabel.setText(controller.getAlbumName());
-
-    imageTableOverlay.setVisible(false);
   }
 
   private void setUpSelectorMenu() {
@@ -112,13 +70,23 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
 
   }
 
+  private void setUpSaveButton() {
+    this.saveButton = new Label("Save");
+    final SaveHoverHanlder hoverHandler = new SaveHoverHanlder();
+    saveButton.addMouseOverHandler(hoverHandler);
+    saveButton.addMouseOutHandler(hoverHandler);
+
+    saveButton.addClickHandler(new SaveClickHandler());
+
+    saveButton.setStyleName(style.saveButtonInactive());
+
+    selectorMenu.add(saveButton);
+
+  }
+
   @Override
-  public void pictureSaved(int month, boolean successful) {
-    if (successful) {
-      monthButtons[month].setStyleName(style.buttonWithPicture());
-    } else {
-      monthButtons[month].setStyleName(style.button());
-    }
+  public void calendarSaved(boolean successful) {
+    // TODO weg weg weg
   }
 
   private void updateMonthButtonStyles() {
@@ -137,6 +105,70 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
         }
       }
     }
+
+  }
+
+  @Override
+  public void setImages(List<PicasaImageWidget> images) {
+    pictureTable.clear();
+    int index = 0;
+    for (PicasaImageWidget widget : images) {
+      pictureTable.setWidget(index / TABLE_WIDTH, index % TABLE_WIDTH, widget);
+      index++;
+    }
+  }
+
+  @Override
+  public void onMonthStatusUpdate() {
+    updateMonthButtonStyles();
+  }
+
+  @Override
+  public void onIsReadyToSave(boolean ready) {
+    if (ready) {
+      saveButton.setStyleName(style.saveButtonActive());
+    } else {
+      saveButton.setStyleName(style.saveButtonInactive());
+    }
+  }
+
+  interface PicturePickerUiBinder extends UiBinder<Widget, ImagePickerWidget> {
+  }
+
+  interface Style extends CssResource {
+    String main();
+
+    String medium();
+
+    String normal();
+
+    String west();
+
+    String center();
+
+    String label();
+
+    String button();
+
+    String buttonHovered();
+
+    String buttonSelected();
+
+    String buttonHoveredSelected();
+
+    String buttonWithPicture();
+
+    String buttonWithPictureSelected();
+
+    String buttonWithPictureHovered();
+
+    String buttonWithPictureHoveredSelected();
+
+    String saveButtonInactive();
+
+    String saveButtonActive();
+
+    String saveButtonActiveHovered();
 
   }
 
@@ -200,13 +232,32 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
 
   }
 
-  @Override
-  public void setImages(List<PicasaImageWidget> images) {
-    pictureTable.clear();
-    int index = 0;
-    for (PicasaImageWidget widget : images) {
-      pictureTable.setWidget(index / 6, index % 6, widget);
+  private class SaveHoverHanlder implements MouseOverHandler, MouseOutHandler {
+
+    @Override
+    public void onMouseOut(MouseOutEvent event) {
+      if (controller.isReadyToSave()) {
+        saveButton.setStyleName(style.saveButtonActive());
+      }
     }
+
+    @Override
+    public void onMouseOver(MouseOverEvent event) {
+      if (controller.isReadyToSave()) {
+        saveButton.setStyleName(style.saveButtonActiveHovered());
+      }
+
+    }
+
   }
 
+  private class SaveClickHandler implements ClickHandler {
+
+    @Override
+    public void onClick(ClickEvent event) {
+      if (controller.isReadyToSave()) {
+        controller.saveCurrentSelection();
+      }
+    }
+  }
 }

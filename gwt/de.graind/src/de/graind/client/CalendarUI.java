@@ -4,7 +4,6 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -13,7 +12,7 @@ import de.graind.client.widgets.DayWidgetController;
 import de.graind.client.widgets.MonthlyWidget;
 import de.graind.client.widgets.MonthlyWidgetController;
 import de.graind.client.widgets.imagePicker.ImagePickerController;
-import de.graind.client.widgets.imagePicker.ImagePickerWidget;
+import de.graind.client.widgets.imagePicker.ImagePickerView;
 
 public class CalendarUI extends Composite {
 
@@ -48,11 +47,11 @@ public class CalendarUI extends Composite {
     new MonthlyWidgetController(calSpaceMonthly);
     new LogoutWidgetController(topRowRight);
     new DayWidgetController(calSpaceLeft);
-    new ImagePickerController((ImagePickerWidget) centerSpace);
+    new ImagePickerController((ImagePickerView) centerSpace);
 
-    PicasaTestWidget picasaTest = new PicasaTestWidget();
-    new PicasaTestWidgetController(picasaTest);
-    RootPanel.get().add(picasaTest);
+    // PicasaTestWidget picasaTest = new PicasaTestWidget();
+    // new PicasaTestWidgetController(picasaTest);
+    // RootPanel.get().add(picasaTest);
   }
 
 }

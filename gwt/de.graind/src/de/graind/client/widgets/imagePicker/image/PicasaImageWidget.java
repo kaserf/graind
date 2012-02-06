@@ -8,6 +8,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
@@ -19,6 +20,7 @@ public class PicasaImageWidget extends Composite implements PicasaImageWidgetVie
 
   private static PictureUiBinder uiBinder = GWT.create(PictureUiBinder.class);
   private Controller controller;
+  private boolean isThumbnail;
   @UiField
   Image image;
   @UiField
@@ -37,11 +39,18 @@ public class PicasaImageWidget extends Composite implements PicasaImageWidgetVie
     initWidget(uiBinder.createAndBindUi(this));
   }
 
+  public PicasaImageWidget(boolean isThumbnail) {
+    this();
+    this.isThumbnail = isThumbnail;
+  }
+
   @Override
   public void init(Controller controller) {
     this.controller = controller;
     setImage(controller.getImage());
-    image.addClickHandler(new ImageClickHandler());
+    if (isThumbnail) {
+      image.addClickHandler(new ImageClickHandler());
+    }
   }
 
   @Override
@@ -54,12 +63,21 @@ public class PicasaImageWidget extends Composite implements PicasaImageWidgetVie
   }
 
   public void setImage(PicasaImage picasaImage) {
-    List<Thumbnail> thumbs = picasaImage.getThumbnails();
-    if (thumbs.size() > 0) {
-      image.setUrl(thumbs.get(0).getUrl());
+    if (isThumbnail) {
+      List<Thumbnail> thumbs = picasaImage.getThumbnails();
+      int numThumbs = thumbs.size();
+      if (numThumbs == 0) {
+        Window.alert("No Thumbnail for picture available: " + picasaImage.getTitle());
+      } else {
+        // assume ordering in thumbnails: 0 < 1 < 2 < ... Take index 2 if
+        // available, smaller ones else
+        image.setUrl(thumbs.get(numThumbs < 3 ? numThumbs - 1 : 2).getUrl());
+      }
+      image.setTitle(picasaImage.getTitle());
+      image.setAltText("Album: " + picasaImage.getAlbumId() + ", Title: " + picasaImage.getTitle());
+    } else {
+      image.setUrl(picasaImage.getUrl());
     }
-    image.setTitle(picasaImage.getTitle());
-    image.setAltText("Album: " + picasaImage.getAlbumId() + ", Title: " + picasaImage.getTitle());
   }
 
   private class ImageClickHandler implements ClickHandler {

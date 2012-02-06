@@ -45,12 +45,18 @@ public interface ImagePickerView {
 
     void imageClicked(int index);
 
+    boolean isReadyToSave();
+
   }
 
   void init(Controller controller);
 
-  void pictureSaved(int month, boolean successful);
+  void calendarSaved(boolean successful);
 
   void setImages(List<PicasaImageWidget> images);
+
+  void onMonthStatusUpdate();
+
+  void onIsReadyToSave(boolean ready);
 
 }
