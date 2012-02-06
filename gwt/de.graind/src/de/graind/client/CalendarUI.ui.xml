@@ -1,6 +1,6 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:="urn:import:de.graind.client" xmlns:graind="urn:import:de.graind.client.widgets" xmlns:p="urn:import:de.graind.client.widgets.imagePicker">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:gr="urn:import:de.graind.client.widgets" xmlns:grIm="urn:import:de.graind.client.widgets.imagePicker">
 <!-- 	<ui:style src="./css/calendar.css" /> -->
 	<ui:style>
 		body{
@@ -47,7 +47,7 @@
 						<g:SimplePanel ui:field="topRowLeft"/>
 					</g:west>
 					<g:east size="200.0">
-						<LogoutWidget ui:field="topRowRight" width="100%" height="100%"/>
+						<gr:LogoutWidget ui:field="topRowRight" width="100%" height="100%"/>
 					</g:east>
 					<g:center>
 						<g:SimplePanel ui:field="topRowCenter" styleName="{style.headlineCenter}"/>
@@ -57,15 +57,15 @@
 			<g:south size="150.0">
 				<g:DockLayoutPanel unit="PX" styleName="{style.south}">
 					<g:west size="200.0">
-						<graind:DayWidget ui:field="calSpaceLeft"/>
+						<gr:DayWidget ui:field="calSpaceLeft"/>
 					</g:west>
 					<g:center>
-						<graind:MonthlyWidget ui:field="calSpaceMonthly" styleName="{style.calspaceCenter}" width="100%" height="100%" />
+						<gr:MonthlyWidget ui:field="calSpaceMonthly" styleName="{style.calspaceCenter}" width="100%" height="100%" />
 					</g:center>
 				</g:DockLayoutPanel>
 			</g:south>
 			<g:center>
-				<p:ImagePickerWidget styleName="{style.picspace}" ui:field="centerSpace" />
+				<grIm:ImagePickerWidget styleName="{style.picspace}" ui:field="centerSpace" />
 			</g:center>
 		</g:DockLayoutPanel>		
 	</g:HTMLPanel>
