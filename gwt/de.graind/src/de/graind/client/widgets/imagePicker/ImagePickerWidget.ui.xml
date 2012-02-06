@@ -2,6 +2,11 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style type="de.graind.client.widgets.imagePicker.ImagePickerWidget.Style">
+		.west .explain {
+			color: #888;
+			margin-bottom: 15px;
+			text-align: right;
+		}
 		.main {
 		}
 		.medium {
@@ -30,7 +35,7 @@
 		}
 		.west .label {
 			color: #AAA;
-			margin-bottom: 15px;
+			margin-bottom: 10px;
 		}
 		.west .button {
 			 background-color: #333;
@@ -99,7 +104,7 @@
 		    padding:3px 15px;
 		    text-decoration:none;
 		    vertical-align: middle;
-		    border-left: 4px solid blue;
+		    border-left: 4px solid orange;
 		    color: #222;
 		}
 		.west .buttonWithPictureHoveredSelected {
@@ -109,8 +114,8 @@
 		    padding:3px 15px;
 		    text-decoration:none;
 		    vertical-align: middle;
-		    border-right: 4px solid orange;
-		    border-left: 4px solid blue;
+		    border-left: 4px solid orange;
+		    border-right: 4px solid blue;
 		    color: #222;
 		}
 		.saveButtonInactive {
@@ -119,6 +124,7 @@
 		    margin-top:30px;
 		    padding:3px 15px;
 		    text-decoration:none;
+		    text-align: right;
 		    vertical-align: middle;
 		    color: #555;
 		}
@@ -128,6 +134,7 @@
 		    margin-top:30px;
 		    padding:3px 15px;
 		    text-decoration:none;
+		    text-align: right;
 		    vertical-align: middle;
 		    color: #999;
 		    border-left: 4px solid green;
@@ -138,6 +145,7 @@
 		    margin-top:30px;
 		    padding:3px 15px;
 		    text-decoration:none;
+		    text-align: right;
 		    vertical-align: middle;
 		    color: #222;
 		    border-left: 4px solid green;

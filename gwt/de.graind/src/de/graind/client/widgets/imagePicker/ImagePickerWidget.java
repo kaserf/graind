@@ -52,9 +52,12 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
 
   private void setUpSelectorMenu() {
     selectorMenu.clear();
-    Label head = new Label("Connect months to pics!");
+    final Label head = new Label("Connect months to pics!");
     head.setStyleName(style.label());
     selectorMenu.add(head);
+    final Label explain = new Label("First select a month,\nthen a pic.");
+    explain.setStyleName(style.explain());
+    selectorMenu.add(explain);
 
     for (int month = 0; month < monthButtons.length; month++) {
       monthButtons[month] = new Label(monthLabels[month]);
@@ -147,6 +150,8 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
     String center();
 
     String label();
+
+    String explain();
 
     String button();
 
