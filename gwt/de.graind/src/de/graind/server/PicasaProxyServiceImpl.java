@@ -151,6 +151,7 @@ public class PicasaProxyServiceImpl extends RemoteServiceServlet implements Pica
       thumb.setHeight(mediaThumbnail.getHeight());
       thumb.setWidth(mediaThumbnail.getWidth());
       thumb.setUrl(mediaThumbnail.getUrl());
+      thumbnails.add(thumb);
     }
 
     ret.setThumbnails(thumbnails);
