@@ -25,7 +25,7 @@ public class GraindServiceImpl extends RemoteServiceServlet implements GraindSer
       Properties props = new Properties();
       props.setProperty("user", "graind");
       props.setProperty("password", "graind");
-      props.setProperty("ssl", "true");
+      // props.setProperty("ssl", "true");
       this.connection = DriverManager.getConnection(url, props);
 
     } catch (ClassNotFoundException e) {

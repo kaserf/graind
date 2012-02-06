@@ -5,7 +5,6 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -58,10 +57,12 @@ public class CalendarUI extends Composite {
         new DayWidgetController(calSpaceLeft);
         new ImagePickerController((ImagePickerView) centerSpace);
 
-        GraindServerTestWidget graindTest = new GraindServerTestWidget();
-        new GraindServerTestWidgetController(graindTest);
-        RootPanel.get().add(graindTest);
+        // Testing saving pics to db
+        // GraindServerTestWidget graindTest = new GraindServerTestWidget();
+        // new GraindServerTestWidgetController(graindTest);
+        // RootPanel.get().add(graindTest);
 
+        // Testing fetching photos and albums from picasa
         // PicasaTestWidget picasaTest = new PicasaTestWidget();
         // new PicasaTestWidgetController(picasaTest);
         // RootPanel.get().add(picasaTest);
