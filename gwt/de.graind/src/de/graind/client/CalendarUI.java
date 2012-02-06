@@ -50,9 +50,13 @@ public class CalendarUI extends Composite {
     new DayWidgetController(calSpaceLeft);
     new ImagePickerController((ImagePickerWidget) centerSpace);
 
-    PicasaTestWidget picasaTest = new PicasaTestWidget();
-    new PicasaTestWidgetController(picasaTest);
-    RootPanel.get().add(picasaTest);
+    // PicasaTestWidget picasaTest = new PicasaTestWidget();
+    // new PicasaTestWidgetController(picasaTest);
+    // RootPanel.get().add(picasaTest);
+
+    GraindServerTestWidget graindTest = new GraindServerTestWidget();
+    new GraindServerTestWidgetController(graindTest);
+    RootPanel.get().add(graindTest);
   }
 
 }

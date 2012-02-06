@@ -77,6 +77,7 @@ public class PicasaTestWidget extends Composite implements PicasaTestWidgetView 
         GWT.log("got " + result.size() + " most recent images.");
         for (PicasaImage picasaImage : result) {
           GWT.log("Image: " + picasaImage.getUrl());
+          GWT.log("Thumbnail url: " + picasaImage.getThumbnails().get(0).getUrl());
         }
       }
     });
