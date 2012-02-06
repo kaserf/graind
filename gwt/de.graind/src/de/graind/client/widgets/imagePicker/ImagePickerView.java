@@ -1,6 +1,9 @@
 package de.graind.client.widgets.imagePicker;
 
+import java.util.List;
+
 import de.graind.client.model.PicasaImage;
+import de.graind.client.widgets.imagePicker.image.PicasaImageWidget;
 
 public interface ImagePickerView {
   public String[] monthLabels = new String[] { "January", "February", "March", "April", "May", "June", "July",
@@ -40,9 +43,14 @@ public interface ImagePickerView {
 
     String getAlbumName();
 
+    void imageClicked(int index);
+
   }
 
   void init(Controller controller);
 
   void pictureSaved(int month, boolean successful);
+
+  void setImages(List<PicasaImageWidget> images);
+
 }

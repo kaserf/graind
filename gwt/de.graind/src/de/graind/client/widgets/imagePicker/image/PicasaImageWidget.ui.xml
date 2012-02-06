@@ -1,0 +1,17 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style type="de.graind.client.widgets.imagePicker.image.PicasaImageWidget.Style">
+		.image{
+			padding: 4px;
+			border: 1px solid #555; 
+		}
+		.imageSelected{
+			padding: 6px;
+			border: 2px solid orange; 
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:Image ui:field="image" styleName="{style.image}"/>
+	</g:HTMLPanel>
+</ui:UiBinder> 

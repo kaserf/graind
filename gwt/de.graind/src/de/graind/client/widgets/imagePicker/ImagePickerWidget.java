@@ -1,5 +1,7 @@
 package de.graind.client.widgets.imagePicker;
 
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -10,13 +12,14 @@ import com.google.gwt.event.dom.client.MouseOverHandler;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.Random;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+
+import de.graind.client.widgets.imagePicker.image.PicasaImageWidget;
 
 public class ImagePickerWidget extends Composite implements ImagePickerView {
 
@@ -87,7 +90,6 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
     this.albumNameLabel.setText(controller.getAlbumName());
 
     imageTableOverlay.setVisible(false);
-    testImages(20);
   }
 
   private void setUpSelectorMenu() {
@@ -198,12 +200,12 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
 
   }
 
-  private void testImages(int count) {
-    for (int i = 0; i < count; i++) {
-      Label l = new Label();
-      l.setSize((Random.nextInt(40) + 80) + "px", (Random.nextInt(40) + 80) + "px");
-      l.setStyleName(style.image());
-      pictureTable.setWidget(i / 6, i % 6, l);
+  @Override
+  public void setImages(List<PicasaImageWidget> images) {
+    pictureTable.clear();
+    int index = 0;
+    for (PicasaImageWidget widget : images) {
+      pictureTable.setWidget(index / 6, index % 6, widget);
     }
   }
 

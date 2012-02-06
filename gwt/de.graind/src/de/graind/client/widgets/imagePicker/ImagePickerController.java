@@ -1,26 +1,50 @@
 package de.graind.client.widgets.imagePicker;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gwt.accounts.client.User;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.rpc.ServiceDefTarget;
+
 import de.graind.client.model.PicasaImage;
+import de.graind.client.service.PicasaProxyService;
+import de.graind.client.service.PicasaProxyServiceAsync;
 import de.graind.client.widgets.imagePicker.ImagePickerView.Controller;
+import de.graind.client.widgets.imagePicker.image.PicasaImageWidget;
+import de.graind.client.widgets.imagePicker.image.PicasaImageWidgetController;
+import de.graind.shared.Config;
 
 public class ImagePickerController implements Controller {
 
-  private ImagePickerView view;
+  private String token;
+  private PicasaProxyServiceAsync service;
 
+  private ImagePickerView view;
   private int selectedMonth = -1;
   private int selectedImage = -1;
 
-  private List<PicasaImage> images;
+  private List<PicasaImageWidgetController> images = new ArrayList<PicasaImageWidgetController>(20);
 
-  private String albumName = "Album";
+  private String albumName = "Recent Pictures";
 
   boolean[] hasSavedPicture = new boolean[12];
 
   public ImagePickerController(ImagePickerView view) {
     this.view = view;
+
+    init();
     this.view.init(this);
+  }
+
+  private void init() {
+    this.token = User.checkLogin(Config.getScope());
+    this.service = (PicasaProxyServiceAsync) GWT.create(PicasaProxyService.class);
+    ServiceDefTarget serviceDef = (ServiceDefTarget) service;
+    serviceDef.setServiceEntryPoint(GWT.getModuleBaseURL() + "picasaProxyService");
+
+    service.getRecentImages(token, new ImageLoaderCallback(albumName));
   }
 
   @Override
@@ -40,7 +64,7 @@ public class ImagePickerController implements Controller {
 
   @Override
   public PicasaImage getImage(int index) throws IndexOutOfBoundsException {
-    return images.get(index);
+    return images.get(index).getImage();
   }
 
   @Override
@@ -80,6 +104,51 @@ public class ImagePickerController implements Controller {
   @Override
   public boolean isSelected(int month) {
     return selectedMonth == month;
+  }
+
+  @Override
+  public void imageClicked(int index) {
+    int i = 0;
+    for (PicasaImageWidgetController image : images) {
+      if (i == index) {
+        image.setSelected(true);
+      } else {
+        image.setSelected(false);
+      }
+      i++;
+    }
+
+  }
+
+  private class ImageLoaderCallback implements AsyncCallback<List<PicasaImage>> {
+
+    private String album;
+
+    public ImageLoaderCallback(String album) {
+      this.album = album;
+    }
+
+    @Override
+    public void onFailure(Throwable caught) {
+      // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onSuccess(List<PicasaImage> result) {
+      images.clear();
+      GWT.log("received " + result.size() + " images from '" + album + "'");
+      int index = 0;
+      PicasaImageWidget widget;
+      PicasaImageWidgetController controller;
+      for (PicasaImage image : result) {
+        widget = new PicasaImageWidget();
+        controller = new PicasaImageWidgetController(widget, image, index, ImagePickerController.this);
+        images.add(controller);
+        index++;
+      }
+
+    }
   }
 
 }

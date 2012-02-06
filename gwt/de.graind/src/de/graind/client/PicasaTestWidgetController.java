@@ -18,9 +18,8 @@ public class PicasaTestWidgetController implements PicasaTestWidgetView.Controll
 
   private PicasaTestWidgetView view;
 
-  private String token;
-
   private PicasaProxyServiceAsync service;
+  private String token;
 
   public PicasaTestWidgetController(PicasaTestWidgetView view) {
     this.view = view;
