@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.google.gwt.accounts.client.User;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
@@ -111,7 +112,31 @@ public class ImagePickerController implements Controller {
 
   @Override
   public void saveCurrentSelection() {
-    // graindService.saveMonthlyPictureSelection("MEEEEE", images, callback);
+    Window.alert("Now saving");
+    readyToSave = false;
+    view.onIsReadyToSave(false);
+    PicasaImageBase[] toSave = new PicasaImageBase[12];
+    for (int i = 0; i < toSave.length; i++) {
+      toSave[i] = imageControllers.get(savedImages[i]).getImage();
+    }
+    graindService.saveMonthlyPictureSelection(Config.USERNAME, toSave, new AsyncCallback<Void>() {
+
+      @Override
+      public void onSuccess(Void result) {
+        Window.alert("Yup, everything is allright.");
+        view.calendarSaved(true);
+      }
+
+      @Override
+      public void onFailure(Throwable caught) {
+        GWT.log("Error while saving an Calendar");
+        GWT.log(caught.toString());
+        Window.alert("Oops, please try again");
+        checkAllImagesSet();
+        view.onMonthStatusUpdate();
+        view.calendarSaved(false);
+      }
+    });
   }
 
   @Override
