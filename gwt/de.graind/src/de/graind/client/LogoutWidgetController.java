@@ -17,8 +17,6 @@ public class LogoutWidgetController implements LogoutWidgetView.Controller {
   private LogoutWidgetView view;
   private CalendarService service;
 
-  private String username;
-
   public LogoutWidgetController(LogoutWidgetView view) {
     this.view = view;
 
@@ -42,15 +40,15 @@ public class LogoutWidgetController implements LogoutWidgetView.Controller {
 
   @Override
   public void getUserName(final AsyncCallback<String> callback) {
-    if (this.username != null) {
-      callback.onSuccess(this.username);
+    if (Config.USERNAME != null) {
+      callback.onSuccess(Config.USERNAME);
     } else {
       service.getOwnCalendarsFeed("http://www.google.com/calendar/feeds/default/owncalendars/full",
           new CalendarFeedCallback() {
             @Override
             public void onSuccess(CalendarFeed result) {
-              LogoutWidgetController.this.username = result.getEntries()[0].getAuthors()[0].getName().getValue();
-              callback.onSuccess(LogoutWidgetController.this.username);
+              Config.USERNAME = result.getEntries()[0].getAuthors()[0].getName().getValue();
+              callback.onSuccess(Config.USERNAME);
             }
 
             @Override

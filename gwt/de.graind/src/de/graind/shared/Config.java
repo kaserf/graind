@@ -6,6 +6,9 @@ public class Config {
   public static final String PICASA_SCOPE = "http://picasaweb.google.com/data";
   public static final String APPLICATION_NAME = "Graind";
 
+  /** Caches the username if it was retrieved before. */
+  public static String USERNAME = null;
+
   public static String getScope() {
     // add all scopes we need here
     return CALENDAR_SCOPE + " " + PICASA_SCOPE;
