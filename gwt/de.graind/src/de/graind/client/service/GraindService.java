@@ -1,9 +1,16 @@
 package de.graind.client.service;
 
-import java.util.List;
-
 import com.google.gwt.user.client.rpc.RemoteService;
 
+import de.graind.client.model.PicasaImageBase;
+
 public interface GraindService extends RemoteService {
-  List<Integer> queryDatabaseTest();
+
+  /**
+   * Save the pictures per month.
+   * 
+   * @param images
+   *          An array of 12 PicasaImages, one per month
+   */
+  void saveMonthlyPictureSelection(String username, PicasaImageBase[] images);
 }

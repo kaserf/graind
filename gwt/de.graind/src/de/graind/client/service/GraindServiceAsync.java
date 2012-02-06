@@ -1,11 +1,11 @@
 package de.graind.client.service;
 
-import java.util.List;
-
 import com.google.gwt.user.client.rpc.AsyncCallback;
+
+import de.graind.client.model.PicasaImageBase;
 
 public interface GraindServiceAsync {
 
-  void queryDatabaseTest(AsyncCallback<List<Integer>> callback);
+  void saveMonthlyPictureSelection(String username, PicasaImageBase[] images, AsyncCallback<Void> callback);
 
 }

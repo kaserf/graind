@@ -1,13 +1,11 @@
 package de.graind.client;
 
-import java.util.List;
-
-import com.google.gwt.user.client.rpc.AsyncCallback;
+import de.graind.client.model.PicasaImageBase;
 
 public interface GraindServerTestWidgetView {
 
   public interface Controller {
-    void queryDatabaseTest(AsyncCallback<List<Integer>> callback);
+    void insertIntoDBTest(String username, PicasaImageBase[] images);
   }
 
   void init(Controller controller);

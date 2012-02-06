@@ -2,15 +2,13 @@ package de.graind.server;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Properties;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
+import de.graind.client.model.PicasaImageBase;
 import de.graind.client.service.GraindService;
 
 public class GraindServiceImpl extends RemoteServiceServlet implements GraindService {
@@ -40,21 +38,28 @@ public class GraindServiceImpl extends RemoteServiceServlet implements GraindSer
   }
 
   @Override
-  public List<Integer> queryDatabaseTest() {
-    List<Integer> ret = new LinkedList<Integer>();
-
+  public void saveMonthlyPictureSelection(String username, PicasaImageBase[] images) {
     try {
-      Statement stmt = this.connection.createStatement();
-      ResultSet rs = stmt.executeQuery("SELECT * FROM test");
-      while (rs.next()) {
-        ret.add(rs.getInt(1));
+      String insertString = "INSERT INTO images VALUES (?, ?, ?, ?, ?);";
+
+      // TODO: first remove old entries.
+
+      PreparedStatement stmt = this.connection.prepareStatement(insertString);
+      for (short i = 0; i < images.length; i++) {
+        PicasaImageBase img = images[i];
+
+        stmt.setString(1, username);
+        stmt.setShort(2, i);
+        stmt.setString(3, img.getUrl());
+        stmt.setInt(4, img.getHeight().intValue());
+        stmt.setInt(5, img.getWidth().intValue());
+
+        stmt.execute();
       }
 
     } catch (SQLException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-
-    return ret;
   }
 }

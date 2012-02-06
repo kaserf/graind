@@ -9,6 +9,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
 import de.graind.client.model.PicasaImage;
+import de.graind.client.model.PicasaImageBase;
 import de.graind.client.service.PicasaProxyService;
 import de.graind.client.service.PicasaProxyServiceAsync;
 import de.graind.client.widgets.imagePicker.ImagePickerView.Controller;
@@ -63,18 +64,18 @@ public class ImagePickerController implements Controller {
   }
 
   @Override
-  public PicasaImage getImage(int index) throws IndexOutOfBoundsException {
+  public PicasaImageBase getImage(int index) throws IndexOutOfBoundsException {
     return images.get(index).getImage();
   }
 
   @Override
-  public PicasaImage nextImage() {
+  public PicasaImageBase nextImage() {
     selectedImage = (selectedImage + 1) % images.size();
     return getImage(selectedImage);
   }
 
   @Override
-  public PicasaImage prevImage() {
+  public PicasaImageBase prevImage() {
     if (selectedImage == 0) {
       selectedImage = images.size() - 1;
     } else {

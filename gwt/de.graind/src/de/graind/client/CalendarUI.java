@@ -3,6 +3,7 @@ package de.graind.client;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
@@ -45,18 +46,28 @@ public class CalendarUI extends Composite {
   }
 
   private void initController() {
-    new MonthlyWidgetController(calSpaceMonthly);
-    new LogoutWidgetController(topRowRight);
-    new DayWidgetController(calSpaceLeft);
-    new ImagePickerController((ImagePickerWidget) centerSpace);
+    new LogoutWidgetController(topRowRight, new AsyncCallback<Void>() {
 
-    // PicasaTestWidget picasaTest = new PicasaTestWidget();
-    // new PicasaTestWidgetController(picasaTest);
-    // RootPanel.get().add(picasaTest);
+      @Override
+      public void onSuccess(Void result) {
+        new MonthlyWidgetController(calSpaceMonthly);
+        new DayWidgetController(calSpaceLeft);
+        new ImagePickerController((ImagePickerWidget) centerSpace);
 
-    GraindServerTestWidget graindTest = new GraindServerTestWidget();
-    new GraindServerTestWidgetController(graindTest);
-    RootPanel.get().add(graindTest);
+        GraindServerTestWidget graindTest = new GraindServerTestWidget();
+        new GraindServerTestWidgetController(graindTest);
+        RootPanel.get().add(graindTest);
+
+        // PicasaTestWidget picasaTest = new PicasaTestWidget();
+        // new PicasaTestWidgetController(picasaTest);
+        // RootPanel.get().add(picasaTest);
+      }
+
+      @Override
+      public void onFailure(Throwable caught) {
+        GWT.log("ooops! something went wrong, load error or something");
+      }
+    });
   }
 
 }
