@@ -12,8 +12,8 @@ import de.graind.client.widgets.DayWidget;
 import de.graind.client.widgets.DayWidgetController;
 import de.graind.client.widgets.MonthlyWidget;
 import de.graind.client.widgets.MonthlyWidgetController;
-import de.graind.client.widgets.picturePicker.ImagePickerController;
-import de.graind.client.widgets.picturePicker.ImagePickerWidget;
+import de.graind.client.widgets.imagePicker.ImagePickerController;
+import de.graind.client.widgets.imagePicker.ImagePickerWidget;
 
 public class CalendarUI extends Composite {
 

@@ -1,6 +1,6 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:="urn:import:de.graind.client" xmlns:graind="urn:import:de.graind.client.widgets" xmlns:p="urn:import:de.graind.client.widgets.picturePicker">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:="urn:import:de.graind.client" xmlns:graind="urn:import:de.graind.client.widgets" xmlns:p="urn:import:de.graind.client.widgets.imagePicker">
 <!-- 	<ui:style src="./css/calendar.css" /> -->
 	<ui:style>
 		body{

@@ -1,4 +1,4 @@
-package de.graind.client.widgets.picturePicker;
+package de.graind.client.widgets.imagePicker;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;

@@ -1,9 +1,9 @@
-package de.graind.client.widgets.picturePicker;
+package de.graind.client.widgets.imagePicker;
 
 import java.util.List;
 
 import de.graind.client.model.PicasaImage;
-import de.graind.client.widgets.picturePicker.ImagePickerView.Controller;
+import de.graind.client.widgets.imagePicker.ImagePickerView.Controller;
 
 public class ImagePickerController implements Controller {
 
