@@ -14,7 +14,7 @@ import de.graind.client.widgets.DayWidgetController;
 import de.graind.client.widgets.MonthlyWidget;
 import de.graind.client.widgets.MonthlyWidgetController;
 import de.graind.client.widgets.imagePicker.ImagePickerController;
-import de.graind.client.widgets.imagePicker.ImagePickerWidget;
+import de.graind.client.widgets.imagePicker.ImagePickerView;
 
 public class CalendarUI extends Composite {
 
@@ -52,7 +52,7 @@ public class CalendarUI extends Composite {
       public void onSuccess(Void result) {
         new MonthlyWidgetController(calSpaceMonthly);
         new DayWidgetController(calSpaceLeft);
-        new ImagePickerController((ImagePickerWidget) centerSpace);
+        new ImagePickerController((ImagePickerView) centerSpace);
 
         GraindServerTestWidget graindTest = new GraindServerTestWidget();
         new GraindServerTestWidgetController(graindTest);

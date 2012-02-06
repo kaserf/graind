@@ -20,15 +20,8 @@
 		.center {
 			border-left: 1px solid #333;
 		}
-		.image {
-			background-color: aqua;
-			border: 1px solid silver;
-			padding: 5px;
-			marging: 3px;
-		}
-		.imageTable td div {
-			margin-left: auto;
-			margin-right: auto;
+		.imageTable td {
+			text-align: center;
 			vertical-align: middle;
 		}
 		.imageTableOverlay {
@@ -65,7 +58,7 @@
 		    text-decoration:none;
 		    vertical-align: middle;
 		    color: #999;
-		    border-right: 4px solid orange;
+		    border-right: 4px solid blue;
 		}
 		.west .buttonHoveredSelected {
 			 background-color: #EEE;
@@ -75,7 +68,7 @@
 		    text-decoration:none;
 		    vertical-align: middle;
 		    color: #222;
-		    border-right: 4px solid orange;
+		    border-right: 4px solid blue;
 		}
 		.west .buttonWithPicture {
 			 background-color: #333;
@@ -85,7 +78,7 @@
 		    text-decoration:none;
 		    vertical-align: middle;
 		    color: #999;
-		    border-left: 4px solid blue;
+		    border-left: 4px solid orange;
 		}
 		.west .buttonWithPictureSelected {
 			 background-color: #333;
@@ -95,8 +88,8 @@
 		    text-decoration:none;
 		    vertical-align: middle;
 		    color: #999;
-		    border-right: 4px solid orange;
-		    border-left: 4px solid blue;
+		    border-right: 4px solid blue;
+		    border-left: 4px solid orange;
 		}
 		
 		.west .buttonWithPictureHovered {
@@ -120,6 +113,35 @@
 		    border-left: 4px solid blue;
 		    color: #222;
 		}
+		.saveButtonInactive {
+			 background-color: #222;
+		    cursor:default;
+		    margin-top:30px;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    vertical-align: middle;
+		    color: #555;
+		}
+		.saveButtonActive {
+			 background-color: #333;
+		    cursor:pointer;
+		    margin-top:30px;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    vertical-align: middle;
+		    color: #999;
+		    border-left: 4px solid green;
+		}
+		.saveButtonActiveHovered {
+			 background-color: #EEE;
+		    cursor:pointer;
+		    margin-top:30px;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    vertical-align: middle;
+		    color: #222;
+		    border-left: 4px solid green;
+		}
 	</ui:style>
 	<g:HTMLPanel>
 		<g:DockLayoutPanel unit="PX" height="100%" width="100%" styleName="{style.main}">
@@ -135,16 +157,14 @@
 			</g:west>
 			<g:center>
 				<g:LayoutPanel ui:field="picSpace" styleName="{style.center}">
-					<g:layer top="15px" bottom="0px" left="0px" right="10px">
-						<g:FlexTable width="100%" ui:field="pictureTable" cellPadding="3" cellSpacing="6" styleName="{style.imageTable}"/>
-					</g:layer>
-					<g:layer top="0px" bottom="0px" left="0px" right="0px">
-						<g:SimplePanel width="100%"  styleName="{style.imageTableOverlay}" ui:field="imageTableOverlay"/>
+					<g:layer top="20px" bottom="0px" left="0px" right="0px">
+						<g:ScrollPanel>
+							<g:FlexTable width="100%" ui:field="pictureTable" cellPadding="3" cellSpacing="6" styleName="{style.imageTable}"/>
+						</g:ScrollPanel>
 					</g:layer>
 					<g:layer top="-1ex" height="4em" right="0px" width="100%">
 						<g:Label styleName="{style.medium}" wordWrap="false" horizontalAlignment="ALIGN_RIGHT" ui:field="albumNameLabel" text="Album"/>
 					</g:layer>
-					
 				</g:LayoutPanel>
 			</g:center>
 		</g:DockLayoutPanel>
