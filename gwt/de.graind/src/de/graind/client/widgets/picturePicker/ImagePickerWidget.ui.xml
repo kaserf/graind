@@ -26,8 +26,14 @@
 			padding: 5px;
 			marging: 3px;
 		}
-		.imageTable td {
-			text-align: center;
+		.imageTable td div {
+			margin-left: auto;
+			margin-right: auto;
+			vertical-align: middle;
+		}
+		.imageTableOverlay {
+			opacity: 0.8;
+			background-color: #000;
 		}
 		.west .label {
 			color: #AAA;
@@ -131,6 +137,9 @@
 				<g:LayoutPanel ui:field="picSpace" styleName="{style.center}">
 					<g:layer top="15px" bottom="0px" left="0px" right="10px">
 						<g:FlexTable width="100%" ui:field="pictureTable" cellPadding="3" cellSpacing="6" styleName="{style.imageTable}"/>
+					</g:layer>
+					<g:layer top="0px" bottom="0px" left="0px" right="0px">
+						<g:SimplePanel width="100%"  styleName="{style.imageTableOverlay}" ui:field="imageTableOverlay"/>
 					</g:layer>
 					<g:layer top="-1ex" height="4em" right="0px" width="100%">
 						<g:Label styleName="{style.medium}" wordWrap="false" horizontalAlignment="ALIGN_RIGHT" ui:field="albumNameLabel" text="Album"/>

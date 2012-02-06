@@ -12,8 +12,8 @@ import de.graind.client.widgets.DayWidget;
 import de.graind.client.widgets.DayWidgetController;
 import de.graind.client.widgets.MonthlyWidget;
 import de.graind.client.widgets.MonthlyWidgetController;
-import de.graind.client.widgets.picturePicker.PicturePickerController;
-import de.graind.client.widgets.picturePicker.PicturePickerWidget;
+import de.graind.client.widgets.picturePicker.ImagePickerController;
+import de.graind.client.widgets.picturePicker.ImagePickerWidget;
 
 public class CalendarUI extends Composite {
 
@@ -48,7 +48,7 @@ public class CalendarUI extends Composite {
     new MonthlyWidgetController(calSpaceMonthly);
     new LogoutWidgetController(topRowRight);
     new DayWidgetController(calSpaceLeft);
-    new PicturePickerController((PicturePickerWidget) centerSpace);
+    new ImagePickerController((ImagePickerWidget) centerSpace);
 
     PicasaTestWidget picasaTest = new PicasaTestWidget();
     new PicasaTestWidgetController(picasaTest);

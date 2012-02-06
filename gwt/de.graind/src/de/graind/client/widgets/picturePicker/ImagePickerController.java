@@ -3,11 +3,11 @@ package de.graind.client.widgets.picturePicker;
 import java.util.List;
 
 import de.graind.client.model.PicasaImage;
-import de.graind.client.widgets.picturePicker.PicturePickerView.Controller;
+import de.graind.client.widgets.picturePicker.ImagePickerView.Controller;
 
-public class PicturePickerController implements Controller {
+public class ImagePickerController implements Controller {
 
-  private PicturePickerView view;
+  private ImagePickerView view;
 
   private int selectedMonth = -1;
   private int selectedImage = -1;
@@ -18,7 +18,7 @@ public class PicturePickerController implements Controller {
 
   boolean[] hasSavedPicture = new boolean[12];
 
-  public PicturePickerController(PicturePickerView view) {
+  public ImagePickerController(ImagePickerView view) {
     this.view = view;
     this.view.init(this);
   }

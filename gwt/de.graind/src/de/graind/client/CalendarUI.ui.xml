@@ -39,7 +39,7 @@
 		
 	</ui:style>
 	
-	<g:HTMLPanel width="100%" height="100%">
+	<g:HTMLPanel width="100%" height="99.9%">
 		<g:DockLayoutPanel unit="PX" width="100%" height="100%">
 			<g:north size="30.0" >
 				<g:DockLayoutPanel unit="PX" styleName="{style.north}">
@@ -65,7 +65,7 @@
 				</g:DockLayoutPanel>
 			</g:south>
 			<g:center>
-				<p:PicturePickerWidget styleName="{style.picspace}" ui:field="centerSpace" />
+				<p:ImagePickerWidget styleName="{style.picspace}" ui:field="centerSpace" />
 			</g:center>
 		</g:DockLayoutPanel>		
 	</g:HTMLPanel>

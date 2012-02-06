@@ -14,10 +14,11 @@ import com.google.gwt.user.client.Random;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
-public class PicturePickerWidget extends Composite implements PicturePickerView {
+public class ImagePickerWidget extends Composite implements ImagePickerView {
 
   private static PicturePickerUiBinder uiBinder = GWT.create(PicturePickerUiBinder.class);
   private Controller controller;
@@ -29,10 +30,12 @@ public class PicturePickerWidget extends Composite implements PicturePickerView 
   Label albumNameLabel;
   @UiField
   FlexTable pictureTable;
+  @UiField
+  SimplePanel imageTableOverlay;
 
   private Label[] monthButtons = new Label[12];
 
-  interface PicturePickerUiBinder extends UiBinder<Widget, PicturePickerWidget> {
+  interface PicturePickerUiBinder extends UiBinder<Widget, ImagePickerWidget> {
   }
 
   interface Style extends CssResource {
@@ -68,12 +71,12 @@ public class PicturePickerWidget extends Composite implements PicturePickerView 
 
   }
 
-  public PicturePickerWidget() {
+  public ImagePickerWidget() {
     initWidget(uiBinder.createAndBindUi(this));
     setUpSelectorMenu();
   }
 
-  public PicturePickerWidget(String firstName) {
+  public ImagePickerWidget(String firstName) {
     this();
   }
 
@@ -83,6 +86,7 @@ public class PicturePickerWidget extends Composite implements PicturePickerView 
 
     this.albumNameLabel.setText(controller.getAlbumName());
 
+    imageTableOverlay.setVisible(false);
     testImages(20);
   }
 

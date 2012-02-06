@@ -2,7 +2,7 @@ package de.graind.client.widgets.picturePicker;
 
 import de.graind.client.model.PicasaImage;
 
-public interface PicturePickerView {
+public interface ImagePickerView {
   public String[] monthLabels = new String[] { "January", "February", "March", "April", "May", "June", "July",
       "August", "September", "October", "November", "December" };
 
