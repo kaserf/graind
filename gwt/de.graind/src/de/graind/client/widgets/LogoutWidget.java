@@ -23,19 +23,40 @@ public class LogoutWidget extends MenuBar implements LogoutWidgetView {
     }
   };
 
-  private Command openCalendarCommand = new Command() {
+  private Command openGoogleCalendarCommand = new Command() {
     @Override
-    public void execute() {
-      GWT.log("open google calendar");
-    }
+    public native void execute() /*-{
+			$wnd.location.href = 'https://calendar.google.com';
+    }-*/;
   };
 
   private Command openPicasaCommand = new Command() {
     @Override
+    public native void execute() /*-{
+			$wnd.location.href = 'https://picasaweb.google.com';
+    }-*/;
+  };
+
+  private Command openSettingsCommand = new Command() {
+    @Override
     public void execute() {
-      GWT.log("open picasa");
+      submenu.removeItem(openSettingsItem);
+      submenu.addItem(openCalendarItem);
+      controller.toggleSettings();
     }
   };
+
+  private Command openCalendarCommand = new Command() {
+    @Override
+    public void execute() {
+      submenu.removeItem(openCalendarItem);
+      submenu.addItem(openSettingsItem);
+      controller.toggleSettings();
+    }
+  };
+
+  private MenuItem openSettingsItem = new MenuItem("Settings", openSettingsCommand);
+  private MenuItem openCalendarItem = new MenuItem("Calendar", openCalendarCommand);
 
   public LogoutWidget() {
     super();
@@ -53,9 +74,10 @@ public class LogoutWidget extends MenuBar implements LogoutWidgetView {
     this.setAnimationEnabled(true);
 
     submenu = new MenuBar(true);
+    submenu.addItem(openSettingsItem);
+    submenu.addItem("Open Google Calendar", openGoogleCalendarCommand);
+    submenu.addItem("Open Google Picasa", openPicasaCommand);
     submenu.addItem("Logout", logoutCommand);
-    submenu.addItem("Open Calendar", openCalendarCommand);
-    submenu.addItem("Open Picasa", openPicasaCommand);
 
     // load the username async style
     controller.getUserName(new AsyncCallback<String>() {
