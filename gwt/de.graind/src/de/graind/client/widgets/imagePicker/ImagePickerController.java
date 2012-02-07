@@ -37,6 +37,8 @@ public class ImagePickerController implements Controller {
   private String albumName = "Recent Pictures";
 
   private int[] savedImages = new int[12];
+  private PicasaImageBase[] serverSettings;
+
   private boolean readyToSave = false;
   private CalendarUI parentController;
 
@@ -53,14 +55,30 @@ public class ImagePickerController implements Controller {
     this.picasaService = (PicasaProxyServiceAsync) GWT.create(PicasaProxyService.class);
     ServiceDefTarget serviceDef = (ServiceDefTarget) picasaService;
     serviceDef.setServiceEntryPoint(GWT.getModuleBaseURL() + "picasaProxyService");
-    picasaService.getRecentImages(token, new ImageLoaderCallback(albumName));
-    for (int i = 0; i < savedImages.length; i++) {
-      savedImages[i] = -1;
-    }
 
     this.graindService = (GraindServiceAsync) GWT.create(GraindService.class);
     serviceDef = (ServiceDefTarget) graindService;
     serviceDef.setServiceEntryPoint(GWT.getModuleBaseURL() + "graindService");
+
+    for (int i = 0; i < savedImages.length; i++) {
+      savedImages[i] = -1;
+    }
+
+    graindService.getAllImages(Config.USERNAME, new AsyncCallback<PicasaImageBase[]>() {
+      @Override
+      public void onFailure(Throwable caught) {
+        GWT.log("failed to load saved images.");
+      }
+
+      @Override
+      public void onSuccess(PicasaImageBase[] result) {
+        // we should always get an array of size 12
+        serverSettings = result;
+
+        // now we have the settings, load all images
+        picasaService.getRecentImages(token, new ImageLoaderCallback(albumName));
+      }
+    });
   }
 
   @Override
@@ -104,7 +122,7 @@ public class ImagePickerController implements Controller {
 
       @Override
       public void onSuccess(Void result) {
-        view.calendarSaved(true);
+        checkAllImagesSet();
         parentController.hideSettings();
       }
 
@@ -115,7 +133,6 @@ public class ImagePickerController implements Controller {
         Window.alert("Error while saving, please try again");
         checkAllImagesSet();
         view.onMonthStatusUpdate();
-        view.calendarSaved(false);
       }
     });
   }
@@ -203,12 +220,23 @@ public class ImagePickerController implements Controller {
       for (PicasaImage image : result) {
         widget = new PicasaImageWidget(true);
         imageWidgets.add(widget);
+
+        // check with the already saved images.
+        // TODO: this should be implemented more efficient
+        for (int i = 0; i < serverSettings.length; i++) {
+          if (serverSettings[i].getUrl().equals(image.getUrl())) {
+            savedImages[i] = index;
+          }
+        }
+
         controller = new PicasaImageWidgetController(widget, image, index, true);
         controller.registerForClickEvent(clickHandler);
         imageControllers.add(controller);
         index++;
       }
 
+      view.onMonthStatusUpdate();
+      checkAllImagesSet();
       view.setImages(imageWidgets);
     }
   }

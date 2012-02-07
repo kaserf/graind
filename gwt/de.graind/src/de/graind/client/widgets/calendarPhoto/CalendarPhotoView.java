@@ -9,6 +9,10 @@ public interface CalendarPhotoView {
     PicasaImageBase getImage();
 
     void refetchImage();
+
+    void setCurrentMonth(int currentMonth);
+
+    int getCurrentMonth();
   }
 
   void init(Controller controller);

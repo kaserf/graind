@@ -88,6 +88,10 @@ public class CalendarUtil {
     return DateTimeFormat.getFormat(PredefinedFormat.MONTH).format(date);
   }
 
+  public static String getTime(Date date) {
+    return DateTimeFormat.getFormat(PredefinedFormat.TIME_SHORT).format(date);
+  }
+
   /**
    * Return the day of the week: [0: Mon .. 6: Sun]
    * 

@@ -19,6 +19,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DecoratedPopupPanel;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.UIObject;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -234,7 +235,7 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
     public void onClick(ClickEvent event) {
       DecoratedPopupPanel popup = new DecoratedPopupPanel(true);
       popup.setWidth("200px");
-      popup.add(new Label(eventsToMessage()));
+      popup.add(new HTML(eventsToMessage()));
       popup.show();
       popup.showRelativeTo(target);
     }
@@ -245,8 +246,8 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
         for (When when : entry.getTimes()) {
           // add only todays occurence for recurring events.
           if (CalendarUtil.getDay(when.getStartTime().getDate()) == day) {
-            ret = ret + "Event: " + entry.getTitle().getText() + " (" + when.getStartTime().getDate().toString() + ")"
-                + "\n";
+            ret = CalendarUtil.getTime(when.getStartTime().getDate()) + ": " + entry.getTitle().getText() + "<br />"
+                + ret;
           }
         }
       }

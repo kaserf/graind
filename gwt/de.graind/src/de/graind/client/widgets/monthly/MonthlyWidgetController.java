@@ -14,6 +14,7 @@ import com.google.gwt.gdata.client.impl.CallErrorException;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
+import de.graind.client.CalendarUI;
 import de.graind.client.util.CalendarUtil;
 import de.graind.shared.Config;
 
@@ -26,9 +27,12 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
 
   private int year;
   private int month;
+  private CalendarUI parentController;
 
-  public MonthlyWidgetController(MonthlyWidgetView view) {
+  public MonthlyWidgetController(MonthlyWidgetView view, CalendarUI parentController) {
     this.view = view;
+
+    this.parentController = parentController;
 
     final Date now = new Date();
     this.year = CalendarUtil.getYear(now);
@@ -92,6 +96,8 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
     } else {
       month++;
     }
+
+    this.parentController.setCurrentMonth(month);
     fetchEventsForMonth(eventCallback);
   }
 
@@ -103,6 +109,8 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
     } else {
       month--;
     }
+
+    this.parentController.setCurrentMonth(month);
     fetchEventsForMonth(eventCallback);
   }
 

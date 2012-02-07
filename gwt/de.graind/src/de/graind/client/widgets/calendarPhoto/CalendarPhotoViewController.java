@@ -19,6 +19,8 @@ public class CalendarPhotoViewController implements Controller {
   private GraindServiceAsync service;
   private PicasaImageBase image;
 
+  private int currentMonth = CalendarUtil.getMonth(new Date());
+
   public CalendarPhotoViewController(CalendarPhotoView view) {
     this.calView = view;
 
@@ -26,7 +28,7 @@ public class CalendarPhotoViewController implements Controller {
     ServiceDefTarget serviceDef = (ServiceDefTarget) service;
     serviceDef.setServiceEntryPoint(GWT.getModuleBaseURL() + "graindService");
 
-    service.getImageForMonth(Config.USERNAME, CalendarUtil.getMonth(new Date()), new AsyncCallback<PicasaImageBase>() {
+    service.getImageForMonth(Config.USERNAME, currentMonth, new AsyncCallback<PicasaImageBase>() {
 
       @Override
       public void onSuccess(PicasaImageBase result) {
@@ -53,7 +55,7 @@ public class CalendarPhotoViewController implements Controller {
 
   @Override
   public void refetchImage() {
-    service.getImageForMonth(Config.USERNAME, CalendarUtil.getMonth(new Date()), new AsyncCallback<PicasaImageBase>() {
+    service.getImageForMonth(Config.USERNAME, currentMonth, new AsyncCallback<PicasaImageBase>() {
 
       @Override
       public void onSuccess(PicasaImageBase result) {
@@ -67,6 +69,16 @@ public class CalendarPhotoViewController implements Controller {
         GWT.log(caught.toString());
       }
     });
+  }
+
+  @Override
+  public void setCurrentMonth(int currentMonth) {
+    this.currentMonth = currentMonth;
+  }
+
+  @Override
+  public int getCurrentMonth() {
+    return this.currentMonth;
   }
 
 }
