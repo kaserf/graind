@@ -55,8 +55,7 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
     CalendarEventQuery query = CalendarEventQuery
         .newInstance("http://www.google.com/calendar/feeds/default/private/full");
 
-    final DateTime max = DateTime.newInstance(format.parse(year + "-" + month + "-"
-        + CalendarUtil.getDaysOfMonth(year, month)));
+    final DateTime max = DateTime.newInstance(format.parse(year + "-" + (month + 1) + "-01"));
     final DateTime min = DateTime.newInstance(format.parse(year + "-" + month + "-01"));
     query.setMaximumStartTime(max);
     query.setMinimumStartTime(min);
