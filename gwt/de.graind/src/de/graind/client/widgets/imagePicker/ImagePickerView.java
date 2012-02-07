@@ -52,8 +52,6 @@ public interface ImagePickerView {
 
   void init(Controller controller);
 
-  void calendarSaved(boolean successful);
-
   void setImages(List<PicasaImageWidget> images);
 
   void onMonthStatusUpdate();

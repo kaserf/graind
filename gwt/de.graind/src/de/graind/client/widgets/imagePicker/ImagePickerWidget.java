@@ -101,11 +101,6 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
     selectorMenu.add(cancelButton);
   }
 
-  @Override
-  public void calendarSaved(boolean successful) {
-    // TODO weg weg weg
-  }
-
   private void updateMonthButtonStyles() {
     for (int month = 0; month < monthButtons.length; month++) {
       if (controller.isSelected(month)) {

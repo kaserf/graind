@@ -122,7 +122,7 @@ public class ImagePickerController implements Controller {
 
       @Override
       public void onSuccess(Void result) {
-        view.calendarSaved(true);
+        checkAllImagesSet();
         parentController.hideSettings();
       }
 
@@ -133,7 +133,6 @@ public class ImagePickerController implements Controller {
         Window.alert("Error while saving, please try again");
         checkAllImagesSet();
         view.onMonthStatusUpdate();
-        view.calendarSaved(false);
       }
     });
   }
