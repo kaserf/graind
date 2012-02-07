@@ -10,4 +10,8 @@ public interface GraindServiceAsync {
 
   void deleteMonthlyPictureSelection(String username, AsyncCallback<Void> callback);
 
+  void getImageForMonth(String username, int month, AsyncCallback<PicasaImageBase> callback);
+
+  void getAllImages(String username, AsyncCallback<PicasaImageBase[]> callback);
+
 }
