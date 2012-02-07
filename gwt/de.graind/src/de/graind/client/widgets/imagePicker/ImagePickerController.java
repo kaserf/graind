@@ -18,6 +18,7 @@ import de.graind.client.service.PicasaProxyServiceAsync;
 import de.graind.client.widgets.imagePicker.ImagePickerView.Controller;
 import de.graind.client.widgets.picasaImage.PicasaImageWidget;
 import de.graind.client.widgets.picasaImage.PicasaImageWidgetController;
+import de.graind.client.widgets.picasaImage.PicasaImageWidgetView.Controller.ClickHandler;
 import de.graind.shared.Config;
 
 public class ImagePickerController implements Controller {
@@ -82,27 +83,6 @@ public class ImagePickerController implements Controller {
     }
     this.selectedImage = -1;
 
-  }
-
-  @Override
-  public PicasaImage getImage(int index) throws IndexOutOfBoundsException {
-    return imageControllers.get(index).getImage();
-  }
-
-  @Override
-  public PicasaImage nextImage() {
-    selectedImage = (selectedImage + 1) % imageControllers.size();
-    return getImage(selectedImage);
-  }
-
-  @Override
-  public PicasaImageBase prevImage() {
-    if (selectedImage == 0) {
-      selectedImage = imageControllers.size() - 1;
-    } else {
-      selectedImage--;
-    }
-    return getImage(selectedImage);
   }
 
   @Override
@@ -208,6 +188,13 @@ public class ImagePickerController implements Controller {
       imageControllers.clear();
       GWT.log("received " + result.size() + " images from '" + album + "'");
 
+      ClickHandler clickHandler = new ClickHandler() {
+        @Override
+        public void onClick(int idOfImage) {
+          imageClicked(idOfImage);
+        }
+      };
+
       int index = 0;
       PicasaImageWidget widget;
       PicasaImageWidgetController controller;
@@ -215,13 +202,13 @@ public class ImagePickerController implements Controller {
       for (PicasaImage image : result) {
         widget = new PicasaImageWidget(true);
         imageWidgets.add(widget);
-        controller = new PicasaImageWidgetController(widget, image, index, ImagePickerController.this);
+        controller = new PicasaImageWidgetController(widget, image, index, true);
+        controller.registerForClickEvent(clickHandler);
         imageControllers.add(controller);
         index++;
       }
 
       view.setImages(imageWidgets);
-
     }
   }
 

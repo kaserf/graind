@@ -1,15 +1,28 @@
 package de.graind.client.widgets.picasaImage;
 
-import de.graind.client.model.PicasaImage;
+import de.graind.client.model.PicasaImageBase;
 
 public interface PicasaImageWidgetView {
 
   public interface Controller {
     public void imageClicked();
 
-    public PicasaImage getImage();
+    /**
+     * returns the URL of the image to be displayed
+     * 
+     * @return
+     */
+    public String getImageUrl();
 
-    void setSelected(boolean selected);
+    public PicasaImageBase getImage();
+
+    public void setSelected(boolean selected);
+
+    public void registerForClickEvent(ClickHandler handler);
+
+    public interface ClickHandler {
+      public void onClick(int idOfImage);
+    }
   }
 
   public void init(Controller controller);

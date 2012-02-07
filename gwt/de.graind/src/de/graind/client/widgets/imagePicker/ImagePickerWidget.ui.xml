@@ -79,7 +79,7 @@
 			 background-color: #333;
 		    cursor:pointer;
 		    margin-top:1pt;
-		    padding:3px 15px;
+		    padding:3px 15px 3px 11px;
 		    text-decoration:none;
 		    vertical-align: middle;
 		    color: #999;
@@ -89,7 +89,7 @@
 			 background-color: #333;
 		    cursor:pointer;
 		    margin-top:1pt;
-		    padding:3px 15px;
+		    padding:3px 15px 3px 11px;
 		    text-decoration:none;
 		    vertical-align: middle;
 		    color: #999;
@@ -101,7 +101,7 @@
 			 background-color: #EEE;
 		    cursor:pointer;
 		    margin-top:1pt;
-		    padding:3px 15px;
+		    padding:3px 15px 3px 11px;
 		    text-decoration:none;
 		    vertical-align: middle;
 		    border-left: 4px solid orange;
@@ -111,7 +111,7 @@
 			 background-color: #EEE;
 		    cursor:pointer;
 		    margin-top:1pt;
-		    padding:3px 15px;
+		    padding:3px 15px 3px 11px;
 		    text-decoration:none;
 		    vertical-align: middle;
 		    border-left: 4px solid orange;
@@ -170,7 +170,7 @@
 							<g:FlexTable width="100%" ui:field="pictureTable" cellPadding="3" cellSpacing="6" styleName="{style.imageTable}"/>
 						</g:ScrollPanel>
 					</g:layer>
-					<g:layer top="-1ex" height="4em" right="0px" width="100%">
+					<g:layer top="-1ex" height="3em" right="0px" width="100%">
 						<g:Label styleName="{style.medium}" wordWrap="false" horizontalAlignment="ALIGN_RIGHT" ui:field="albumNameLabel" text="Album"/>
 					</g:layer>
 				</g:LayoutPanel>

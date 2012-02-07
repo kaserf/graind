@@ -2,7 +2,6 @@ package de.graind.client.widgets.imagePicker;
 
 import java.util.List;
 
-import de.graind.client.model.PicasaImageBase;
 import de.graind.client.widgets.picasaImage.PicasaImageWidget;
 
 public interface ImagePickerView {
@@ -29,11 +28,11 @@ public interface ImagePickerView {
 
     void deselectPicture();
 
-    PicasaImageBase nextImage();
-
-    PicasaImageBase prevImage();
-
-    PicasaImageBase getImage(int index) throws IndexOutOfBoundsException;
+    // PicasaImageBase nextImage();
+    //
+    // PicasaImageBase prevImage();
+    //
+    // PicasaImageBase getImage(int index) throws IndexOutOfBoundsException;
 
     void saveCurrentSelection();
 
