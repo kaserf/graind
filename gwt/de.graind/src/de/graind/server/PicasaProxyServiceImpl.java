@@ -113,7 +113,7 @@ public class PicasaProxyServiceImpl extends RemoteServiceServlet implements Pica
     service.setAuthSubToken(token);
 
     try {
-      URL feedUrl = new URL(PICASA_URI + "?kind=photo&imgmax=d");
+      URL feedUrl = new URL(PICASA_URI + "?kind=photo&imgmax=d&access=public");
 
       AlbumFeed feed = service.getFeed(feedUrl, AlbumFeed.class);
 
