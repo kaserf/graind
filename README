@@ -4,9 +4,6 @@ This project aims to develop a web application
 to create an online photo calendar with pictures from picasa
 and your events from google calendar.
 
-== running ==
-To run graind just install nodejs and run 'node server/index.js' 
-
 = Authors =
 Christian Breil <christian.breil@googlemail.com>
 Felix Kaser <f.kaser@gmx.net>
