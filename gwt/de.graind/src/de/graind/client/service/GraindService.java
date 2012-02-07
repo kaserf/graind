@@ -26,6 +26,7 @@ public interface GraindService extends RemoteService {
    * 
    * @param username
    * @param month
+   *          1 for January .. 12 for December
    * @return
    */
   PicasaImageBase getImageForMonth(String username, int month);

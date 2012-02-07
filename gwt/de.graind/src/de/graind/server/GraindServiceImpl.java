@@ -83,6 +83,7 @@ public class GraindServiceImpl extends RemoteServiceServlet implements GraindSer
   @Override
   public PicasaImageBase getImageForMonth(String username, int month) {
     PicasaImageBase ret = null;
+    month--;
 
     try {
       String queryString = "SELECT image_url, image_height, image_width FROM images WHERE user_id = ? AND month = ?;";
