@@ -1,2 +1,0 @@
-serviceClass: de.graind.client.service.PicasaProxyService
-path: 3EF3EE837EA4C02617EF7089DD1B3845.gwt.rpc

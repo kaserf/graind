@@ -1,2 +1,0 @@
-serviceClass: de.graind.client.service.ProxyService
-path: 4E5390D3816B99FD59F8F7F7DB5FD4DF.gwt.rpc
