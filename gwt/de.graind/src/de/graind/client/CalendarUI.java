@@ -63,13 +63,13 @@ public class CalendarUI extends Composite {
 
       @Override
       public void onSuccess(Void result) {
-        new MonthlyWidgetController(calSpaceMonthly);
         new DayWidgetController(calSpaceLeft);
 
         calPhotoWidget = new CalendarPhotoWidget();
         calPhotoController = new CalendarPhotoViewController(calPhotoWidget);
         centerSpace.add(calPhotoWidget);
 
+        new MonthlyWidgetController(calSpaceMonthly, CalendarUI.this);
         // Testing saving pics to db
         // GraindServerTestWidget graindTest = new GraindServerTestWidget();
         // new GraindServerTestWidgetController(graindTest);
@@ -120,5 +120,10 @@ public class CalendarUI extends Composite {
 
       this.calendarVisible = true;
     }
+  }
+
+  public void setCurrentMonth(int currentMonth) {
+    calPhotoController.setCurrentMonth(currentMonth);
+    calPhotoController.refetchImage();
   }
 }
