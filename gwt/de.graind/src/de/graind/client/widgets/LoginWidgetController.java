@@ -5,7 +5,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.gdata.client.GData;
 import com.google.gwt.gdata.client.GDataSystemPackage;
 
-import de.graind.shared.Config;
+import de.graind.client.util.Config;
 
 public class LoginWidgetController implements LoginWidgetView.Controller {
 

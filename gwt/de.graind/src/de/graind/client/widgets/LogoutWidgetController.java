@@ -2,8 +2,10 @@ package de.graind.client.widgets;
 
 import com.google.gwt.accounts.client.User;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.gdata.client.GData;
 import com.google.gwt.gdata.client.GDataSystemPackage;
+import com.google.gwt.gdata.client.calendar.CalendarEntry;
 import com.google.gwt.gdata.client.calendar.CalendarFeed;
 import com.google.gwt.gdata.client.calendar.CalendarFeedCallback;
 import com.google.gwt.gdata.client.calendar.CalendarService;
@@ -11,7 +13,7 @@ import com.google.gwt.gdata.client.impl.CallErrorException;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 import de.graind.client.CalendarUI;
-import de.graind.shared.Config;
+import de.graind.client.util.Config;
 
 public class LogoutWidgetController implements LogoutWidgetView.Controller {
 
@@ -61,7 +63,11 @@ public class LogoutWidgetController implements LogoutWidgetView.Controller {
         new CalendarFeedCallback() {
           @Override
           public void onSuccess(CalendarFeed result) {
-            Config.USERNAME = result.getEntries()[0].getAuthors()[0].getName().getValue();
+            JavaScriptObject[] entries = (JavaScriptObject[]) result.getEntries();
+            Config.USERNAME = ((CalendarEntry) entries[0]).getAuthors()[0].getName().getValue();
+            // Config.USERNAME =
+            // result.getEntries()[0].getAuthors()[0].getName().getValue();
+            // Config.USERNAME = "breil.christian@googlemail.com";
             callback.onSuccess(null);
           }
 

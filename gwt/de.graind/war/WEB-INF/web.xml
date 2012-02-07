@@ -13,7 +13,7 @@
   
   <servlet-mapping>
     <servlet-name>picasaProxyServlet</servlet-name>
-    <url-pattern>/de_graind/picasaProxyService</url-pattern>
+    <url-pattern>/graind/picasaProxyService</url-pattern>
   </servlet-mapping>
   
   <!-- Graind Servlet -->
@@ -24,7 +24,7 @@
   
   <servlet-mapping>
     <servlet-name>graindServlet</servlet-name>
-    <url-pattern>/de_graind/graindService</url-pattern>
+    <url-pattern>/graind/graindService</url-pattern>
   </servlet-mapping>
   
   <!-- Default page to serve -->

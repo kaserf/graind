@@ -10,8 +10,8 @@ import de.graind.client.model.PicasaImageBase;
 import de.graind.client.service.GraindService;
 import de.graind.client.service.GraindServiceAsync;
 import de.graind.client.util.CalendarUtil;
+import de.graind.client.util.Config;
 import de.graind.client.widgets.calendarPhoto.CalendarPhotoView.Controller;
-import de.graind.shared.Config;
 
 public class CalendarPhotoViewController implements Controller {
 
@@ -47,9 +47,6 @@ public class CalendarPhotoViewController implements Controller {
 
   @Override
   public PicasaImageBase getImage() {
-    if (image == null) {
-      throw new IllegalStateException("not initialized yet, try again later");
-    }
     return image;
   }
 

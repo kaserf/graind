@@ -2,6 +2,7 @@ package de.graind.client.widgets.monthly;
 
 import java.util.Date;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.gdata.client.DateTime;
 import com.google.gwt.gdata.client.EventEntry;
 import com.google.gwt.gdata.client.GData;
@@ -16,7 +17,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 import de.graind.client.CalendarUI;
 import de.graind.client.util.CalendarUtil;
-import de.graind.shared.Config;
+import de.graind.client.util.Config;
 
 public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
   private static final DateTimeFormat format = DateTimeFormat.getFormat("yyyy-MM-dd");
@@ -77,7 +78,13 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
 
       @Override
       public void onSuccess(CalendarEventFeed result) {
-        callback.onSuccess(result.getEntries());
+        JavaScriptObject[] entries = (JavaScriptObject[]) result.getEntries();
+        EventEntry[] ret = new EventEntry[entries.length];
+        for (int i = 0; i < entries.length; i++) {
+          ret[i] = ((EventEntry) entries[i]);
+        }
+
+        callback.onSuccess(ret);
       }
     });
 

@@ -7,9 +7,9 @@ import com.google.gwt.gdata.client.GData;
 import com.google.gwt.gdata.client.GDataSystemPackage;
 import com.google.gwt.user.client.ui.RootPanel;
 
+import de.graind.client.util.Config;
 import de.graind.client.widgets.LoginWidget;
 import de.graind.client.widgets.LoginWidgetController;
-import de.graind.shared.Config;
 
 public class GraindEntry implements EntryPoint {
 

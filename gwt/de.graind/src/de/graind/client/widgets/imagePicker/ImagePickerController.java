@@ -16,11 +16,11 @@ import de.graind.client.service.GraindService;
 import de.graind.client.service.GraindServiceAsync;
 import de.graind.client.service.PicasaProxyService;
 import de.graind.client.service.PicasaProxyServiceAsync;
+import de.graind.client.util.Config;
 import de.graind.client.widgets.imagePicker.ImagePickerView.Controller;
 import de.graind.client.widgets.picasaImage.PicasaImageWidget;
 import de.graind.client.widgets.picasaImage.PicasaImageWidgetController;
 import de.graind.client.widgets.picasaImage.PicasaImageWidgetView.Controller.ClickHandler;
-import de.graind.shared.Config;
 
 public class ImagePickerController implements Controller {
 
@@ -224,7 +224,7 @@ public class ImagePickerController implements Controller {
         // check with the already saved images.
         // TODO: this should be implemented more efficient
         for (int i = 0; i < serverSettings.length; i++) {
-          if (serverSettings[i].getUrl().equals(image.getUrl())) {
+          if (serverSettings[0] != null && serverSettings[i].getUrl().equals(image.getUrl())) {
             savedImages[i] = index;
           }
         }

@@ -19,7 +19,7 @@ import de.graind.client.model.PicasaAlbum;
 import de.graind.client.model.PicasaImage;
 import de.graind.client.model.Thumbnail;
 import de.graind.client.service.PicasaProxyService;
-import de.graind.shared.Config;
+import de.graind.client.util.Config;
 
 public class PicasaProxyServiceImpl extends RemoteServiceServlet implements PicasaProxyService {
 

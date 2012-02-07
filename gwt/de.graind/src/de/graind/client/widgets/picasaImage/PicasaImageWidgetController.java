@@ -33,6 +33,11 @@ public class PicasaImageWidgetController implements Controller {
     this.id = imageId;
     this.isThumbnail = isThumbnail;
 
+    // don't further init the view if we don't have an image
+    if (image == null) {
+      return;
+    }
+
     view.init(this);
   }
 
@@ -81,7 +86,8 @@ public class PicasaImageWidgetController implements Controller {
   public void setImage(PicasaImageBase image) {
     this.image = image;
 
-    this.view.reloadImage();
+    if (image != null)
+      this.view.reloadImage();
   }
 
 }

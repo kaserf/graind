@@ -4,7 +4,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 
 import de.graind.client.model.PicasaImageBase;
-import de.graind.shared.Config;
+import de.graind.client.util.Config;
 
 public class GraindServerTestWidget extends Composite implements GraindServerTestWidgetView {
 
