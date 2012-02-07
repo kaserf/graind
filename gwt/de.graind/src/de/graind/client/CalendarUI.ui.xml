@@ -73,8 +73,7 @@
 				</g:DockLayoutPanel>
 			</g:south>
 			<g:center>
-				<grIm:ImagePickerWidget styleName="{style.picspace}"
-					ui:field="centerSpace" />
+				<g:DockLayoutPanel styleName="{style.picspace}" ui:field="centerSpace" />
 			</g:center>
 		</g:DockLayoutPanel>
 	</g:HTMLPanel>

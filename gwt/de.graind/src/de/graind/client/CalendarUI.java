@@ -5,17 +5,16 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
-import de.graind.client.examples.GraindServerTestWidget;
-import de.graind.client.examples.GraindServerTestWidgetController;
 import de.graind.client.widgets.LogoutWidget;
 import de.graind.client.widgets.LogoutWidgetController;
 import de.graind.client.widgets.day.DayWidget;
 import de.graind.client.widgets.day.DayWidgetController;
 import de.graind.client.widgets.imagePicker.ImagePickerController;
-import de.graind.client.widgets.imagePicker.ImagePickerView;
+import de.graind.client.widgets.imagePicker.ImagePickerWidget;
 import de.graind.client.widgets.monthly.MonthlyWidget;
 import de.graind.client.widgets.monthly.MonthlyWidgetController;
 
@@ -30,7 +29,7 @@ public class CalendarUI extends Composite {
   @UiField
   SimplePanel topRowCenter;
   @UiField
-  Composite centerSpace;
+  DockLayoutPanel centerSpace;
   @UiField
   DayWidget calSpaceLeft;
   @UiField
@@ -55,7 +54,10 @@ public class CalendarUI extends Composite {
       public void onSuccess(Void result) {
         new MonthlyWidgetController(calSpaceMonthly);
         new DayWidgetController(calSpaceLeft);
-        new ImagePickerController((ImagePickerView) centerSpace);
+
+        ImagePickerWidget imagePickerWidget = new ImagePickerWidget();
+        new ImagePickerController(imagePickerWidget);
+        centerSpace.add(imagePickerWidget);
 
         // Testing saving pics to db
         // GraindServerTestWidget graindTest = new GraindServerTestWidget();
@@ -74,5 +76,4 @@ public class CalendarUI extends Composite {
       }
     });
   }
-
 }
