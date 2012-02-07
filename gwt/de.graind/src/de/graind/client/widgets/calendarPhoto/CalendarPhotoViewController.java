@@ -54,4 +54,23 @@ public class CalendarPhotoViewController implements Controller {
     return image;
   }
 
+  @Override
+  public void refetchImage() {
+    service.getImageForMonth(Config.USERNAME, CalendarUtil.getMonth(new Date()), new AsyncCallback<PicasaImageBase>() {
+
+      @Override
+      public void onSuccess(PicasaImageBase result) {
+        image = result;
+        calView.reload();
+      }
+
+      @Override
+      public void onFailure(Throwable caught) {
+        GWT.log("Error while getting today's image for User: " + Config.USERNAME);
+        GWT.log(caught.toString());
+        Window.alert("oops, i really don't know what happened..");
+      }
+    });
+  }
+
 }

@@ -42,6 +42,7 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
     initWidget(uiBinder.createAndBindUi(this));
     setUpSelectorMenu();
     setUpSaveButton();
+    setUpCancelButton();
   }
 
   @Override
@@ -278,7 +279,7 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
   private class CancelClickHandler implements ClickHandler {
     @Override
     public void onClick(ClickEvent event) {
-      // TODO FLEX this is where you can handle the cancel button
+      controller.cancelSelection();
     }
   }
 }

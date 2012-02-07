@@ -46,6 +46,8 @@ public class CalendarUI extends Composite {
 
   private CalendarPhotoWidget calPhotoWidget;
 
+  private CalendarPhotoViewController calPhotoController;
+
   interface CalendarUIUiBinder extends UiBinder<Widget, CalendarUI> {
   }
 
@@ -67,7 +69,7 @@ public class CalendarUI extends Composite {
         new DayWidgetController(calSpaceLeft);
 
         calPhotoWidget = new CalendarPhotoWidget();
-        new CalendarPhotoViewController(calPhotoWidget);
+        calPhotoController = new CalendarPhotoViewController(calPhotoWidget);
         centerSpace.add(calPhotoWidget);
 
         // Testing saving pics to db
@@ -116,6 +118,7 @@ public class CalendarUI extends Composite {
 
       // tell logout widget to enable the button
       logoutWidgetController.hideSettings();
+      calPhotoController.refetchImage();
 
       this.calendarVisible = true;
     }

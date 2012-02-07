@@ -77,4 +77,11 @@ public class PicasaImageWidgetController implements Controller {
     view.setSelected(selected);
   }
 
+  @Override
+  public void setImage(PicasaImageBase image) {
+    this.image = image;
+
+    this.view.reloadImage();
+  }
+
 }

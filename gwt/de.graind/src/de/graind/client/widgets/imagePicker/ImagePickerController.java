@@ -216,4 +216,9 @@ public class ImagePickerController implements Controller {
     }
   }
 
+  @Override
+  public void cancelSelection() {
+    this.parentController.hideSettings();
+  }
+
 }

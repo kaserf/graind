@@ -36,6 +36,8 @@ public interface ImagePickerView {
 
     void saveCurrentSelection();
 
+    void cancelSelection();
+
     boolean hasSavedPicture(int month);
 
     boolean isSelected(int month);

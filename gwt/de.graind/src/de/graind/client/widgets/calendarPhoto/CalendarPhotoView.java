@@ -7,7 +7,11 @@ public interface CalendarPhotoView {
   public interface Controller {
 
     PicasaImageBase getImage();
+
+    void refetchImage();
   }
 
   void init(Controller controller);
+
+  void reload();
 }

@@ -16,6 +16,8 @@ public interface PicasaImageWidgetView {
 
     public PicasaImageBase getImage();
 
+    public void setImage(PicasaImageBase image);
+
     public void setSelected(boolean selected);
 
     public void registerForClickEvent(ClickHandler handler);
@@ -28,4 +30,6 @@ public interface PicasaImageWidgetView {
   public void init(Controller controller);
 
   public void setSelected(boolean selected);
+
+  public void reloadImage();
 }

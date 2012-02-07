@@ -33,4 +33,9 @@ public class CalendarPhotoWidget extends Composite implements CalendarPhotoView 
     this.controller = controller;
     imageController = new PicasaImageWidgetController(image, controller.getImage(), 0, false);
   }
+
+  @Override
+  public void reload() {
+    imageController.setImage(controller.getImage());
+  }
 }

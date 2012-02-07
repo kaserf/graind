@@ -41,7 +41,9 @@ public class PicasaImageWidget extends Composite implements PicasaImageWidgetVie
   @Override
   public void init(Controller controller) {
     this.controller = controller;
-    image.setUrl(controller.getImageUrl());
+
+    reloadImage();
+
     if (isThumbnail) {
       image.addClickHandler(new ImageClickHandler());
     }
@@ -61,6 +63,11 @@ public class PicasaImageWidget extends Composite implements PicasaImageWidgetVie
     public void onClick(ClickEvent event) {
       controller.imageClicked();
     }
+  }
+
+  @Override
+  public void reloadImage() {
+    image.setUrl(controller.getImageUrl());
   }
 
 }
