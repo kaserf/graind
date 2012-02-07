@@ -13,6 +13,14 @@ public class CalendarUtil {
 
   private static String[] weekdays = new String[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
 
+  private static final DateTimeFormat dayFormat = DateTimeFormat.getFormat("dd");
+  private static final DateTimeFormat monthFormat = DateTimeFormat.getFormat("M");
+  private static final DateTimeFormat monthLabelFormat = DateTimeFormat.getFormat(PredefinedFormat.MONTH);
+  private static final DateTimeFormat yearFormat = DateTimeFormat.getFormat("yyyy");
+  private static final DateTimeFormat timeShortFormat = DateTimeFormat.getFormat(PredefinedFormat.TIME_SHORT);
+  private static final DateTimeFormat dateFormatDE = DateTimeFormat.getFormat("dd.MM.yyyy");
+  private static final DateTimeFormat weekdayFormat = DateTimeFormat.getFormat("EEE");
+
   /**
    * Returns a String representation for a given month.
    * 
@@ -61,7 +69,7 @@ public class CalendarUtil {
    * @return
    */
   public static int getDay(Date date) {
-    return Integer.parseInt(DateTimeFormat.getFormat("dd").format(date));
+    return Integer.parseInt(dayFormat.format(date));
   }
 
   /**
@@ -71,7 +79,7 @@ public class CalendarUtil {
    * @return
    */
   public static int getMonth(Date date) {
-    return Integer.parseInt(DateTimeFormat.getFormat("M").format(date));
+    return Integer.parseInt(monthFormat.format(date));
   }
 
   /**
@@ -81,15 +89,15 @@ public class CalendarUtil {
    * @return
    */
   public static int getYear(Date date) {
-    return Integer.parseInt(DateTimeFormat.getFormat("yyyy").format(date));
+    return Integer.parseInt(yearFormat.format(date));
   }
 
   public static String getMonthLabel(Date date) {
-    return DateTimeFormat.getFormat(PredefinedFormat.MONTH).format(date);
+    return monthLabelFormat.format(date);
   }
 
   public static String getTime(Date date) {
-    return DateTimeFormat.getFormat(PredefinedFormat.TIME_SHORT).format(date);
+    return timeShortFormat.format(date);
   }
 
   /**
@@ -100,8 +108,8 @@ public class CalendarUtil {
    * @param year
    */
   public static int getDayOfWeek(int day, int month, int year) {
-    Date date = DateTimeFormat.getFormat("dd.MM.yyyy").parse(day + "." + month + "." + year);
-    String weekday = DateTimeFormat.getFormat("EEE").format(date);
+    Date date = dateFormatDE.parse(day + "." + month + "." + year);
+    String weekday = weekdayFormat.format(date);
     for (int i = 0; i < weekdays.length; i++) {
       if (weekday.equals(weekdays[i])) {
         return i;
