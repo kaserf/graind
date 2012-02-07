@@ -1,4 +1,4 @@
-package de.graind.client.widgets.imagePicker.image;
+package de.graind.client.widgets.picasaImage;
 
 import de.graind.client.model.PicasaImage;
 

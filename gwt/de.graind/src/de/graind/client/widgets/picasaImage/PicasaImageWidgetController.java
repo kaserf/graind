@@ -1,8 +1,8 @@
-package de.graind.client.widgets.imagePicker.image;
+package de.graind.client.widgets.picasaImage;
 
 import de.graind.client.model.PicasaImage;
 import de.graind.client.widgets.imagePicker.ImagePickerView;
-import de.graind.client.widgets.imagePicker.image.PicasaImageWidgetView.Controller;
+import de.graind.client.widgets.picasaImage.PicasaImageWidgetView.Controller;
 
 public class PicasaImageWidgetController implements Controller {
 

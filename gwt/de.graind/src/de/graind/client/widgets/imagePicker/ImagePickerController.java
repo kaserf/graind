@@ -16,8 +16,8 @@ import de.graind.client.service.GraindServiceAsync;
 import de.graind.client.service.PicasaProxyService;
 import de.graind.client.service.PicasaProxyServiceAsync;
 import de.graind.client.widgets.imagePicker.ImagePickerView.Controller;
-import de.graind.client.widgets.imagePicker.image.PicasaImageWidget;
-import de.graind.client.widgets.imagePicker.image.PicasaImageWidgetController;
+import de.graind.client.widgets.picasaImage.PicasaImageWidget;
+import de.graind.client.widgets.picasaImage.PicasaImageWidgetController;
 import de.graind.shared.Config;
 
 public class ImagePickerController implements Controller {

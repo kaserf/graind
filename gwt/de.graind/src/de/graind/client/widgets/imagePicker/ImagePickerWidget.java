@@ -18,7 +18,7 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
-import de.graind.client.widgets.imagePicker.image.PicasaImageWidget;
+import de.graind.client.widgets.picasaImage.PicasaImageWidget;
 
 public class ImagePickerWidget extends Composite implements ImagePickerView {
 

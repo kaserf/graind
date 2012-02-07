@@ -3,7 +3,7 @@ package de.graind.client.widgets.imagePicker;
 import java.util.List;
 
 import de.graind.client.model.PicasaImageBase;
-import de.graind.client.widgets.imagePicker.image.PicasaImageWidget;
+import de.graind.client.widgets.picasaImage.PicasaImageWidget;
 
 public interface ImagePickerView {
   public String[] monthLabels = new String[] { "January", "February", "March", "April", "May", "June", "July",
