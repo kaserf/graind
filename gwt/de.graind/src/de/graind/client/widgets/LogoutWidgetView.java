@@ -9,8 +9,12 @@ public interface LogoutWidgetView {
 
     void logout(Runnable callback);
 
-    void toggleSettings();
+    void showSettings();
+
+    void hideSettings();
   }
 
   public void init(Controller controller);
+
+  void toggleSettingsButton();
 }

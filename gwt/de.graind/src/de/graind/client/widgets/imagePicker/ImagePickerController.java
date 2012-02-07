@@ -9,6 +9,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
+import de.graind.client.CalendarUI;
 import de.graind.client.model.PicasaImage;
 import de.graind.client.model.PicasaImageBase;
 import de.graind.client.service.GraindService;
@@ -37,9 +38,11 @@ public class ImagePickerController implements Controller {
 
   private int[] savedImages = new int[12];
   private boolean readyToSave = false;
+  private CalendarUI parentController;
 
-  public ImagePickerController(ImagePickerView view) {
+  public ImagePickerController(ImagePickerView view, CalendarUI parentController) {
     this.view = view;
+    this.parentController = parentController;
 
     init();
     this.view.init(this);
@@ -105,6 +108,7 @@ public class ImagePickerController implements Controller {
       public void onSuccess(Void result) {
         Window.alert("Yup, everything is allright.");
         view.calendarSaved(true);
+        parentController.hideSettings();
       }
 
       @Override

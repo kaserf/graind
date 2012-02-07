@@ -1,7 +1,6 @@
 package de.graind.client;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -16,6 +15,8 @@ import de.graind.client.widgets.calendarPhoto.CalendarPhotoViewController;
 import de.graind.client.widgets.calendarPhoto.CalendarPhotoWidget;
 import de.graind.client.widgets.day.DayWidget;
 import de.graind.client.widgets.day.DayWidgetController;
+import de.graind.client.widgets.imagePicker.ImagePickerController;
+import de.graind.client.widgets.imagePicker.ImagePickerWidget;
 import de.graind.client.widgets.monthly.MonthlyWidget;
 import de.graind.client.widgets.monthly.MonthlyWidgetController;
 
@@ -36,14 +37,19 @@ public class CalendarUI extends Composite {
   @UiField
   MonthlyWidget calSpaceMonthly;
 
-  private HandlerManager eventBus;
+  private boolean calendarVisible = true;
+  private ImagePickerWidget imagePickerWidget = new ImagePickerWidget();
+
+  private LogoutWidgetController logoutWidgetController;
+
+  private ImagePickerController imagePickerController;
+
+  private CalendarPhotoWidget calPhotoWidget;
 
   interface CalendarUIUiBinder extends UiBinder<Widget, CalendarUI> {
   }
 
   public CalendarUI() {
-    this.eventBus = new HandlerManager(null);
-
     initWidget(uiBinder.createAndBindUi(this));
     initController();
   }
@@ -53,17 +59,14 @@ public class CalendarUI extends Composite {
   }
 
   private void initController() {
-    new LogoutWidgetController(topRowRight, this, new AsyncCallback<Void>() {
+    logoutWidgetController = new LogoutWidgetController(topRowRight, this, new AsyncCallback<Void>() {
 
       @Override
       public void onSuccess(Void result) {
         new MonthlyWidgetController(calSpaceMonthly);
         new DayWidgetController(calSpaceLeft);
 
-        // ImagePickerWidget imagePickerWidget = new ImagePickerWidget();
-        // new ImagePickerController(imagePickerWidget);
-        // centerSpace.add(imagePickerWidget);
-        CalendarPhotoWidget calPhotoWidget = new CalendarPhotoWidget();
+        calPhotoWidget = new CalendarPhotoWidget();
         new CalendarPhotoViewController(calPhotoWidget);
         centerSpace.add(calPhotoWidget);
 
@@ -86,9 +89,35 @@ public class CalendarUI extends Composite {
   }
 
   /**
-   * If we are showing the calendar ui, show settings and vice versa.
+   * Show the settings image picker
    */
-  public void toggleSettings() {
+  public void showSettings() {
+    if (this.imagePickerController == null) {
+      imagePickerController = new ImagePickerController(imagePickerWidget, CalendarUI.this);
+    }
 
+    if (this.calendarVisible) {
+      // hide calendar, show image picker
+      centerSpace.remove(calPhotoWidget);
+      centerSpace.add(imagePickerWidget);
+
+      this.calendarVisible = false;
+    }
+  }
+
+  /**
+   * Hide the settings image picker
+   */
+  public void hideSettings() {
+    if (!this.calendarVisible) {
+      // hide picker, show calendar
+      centerSpace.remove(imagePickerWidget);
+      centerSpace.add(calPhotoWidget);
+
+      // tell logout widget to enable the button
+      logoutWidgetController.hideSettings();
+
+      this.calendarVisible = true;
+    }
   }
 }

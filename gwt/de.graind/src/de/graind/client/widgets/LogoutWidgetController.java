@@ -98,8 +98,13 @@ public class LogoutWidgetController implements LogoutWidgetView.Controller {
   }
 
   @Override
-  public void toggleSettings() {
-    this.parentController.toggleSettings();
+  public void showSettings() {
+    this.parentController.showSettings();
+    this.view.toggleSettingsButton();
   }
 
+  @Override
+  public void hideSettings() {
+    this.view.toggleSettingsButton();
+  }
 }

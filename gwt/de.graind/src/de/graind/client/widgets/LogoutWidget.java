@@ -40,23 +40,11 @@ public class LogoutWidget extends MenuBar implements LogoutWidgetView {
   private Command openSettingsCommand = new Command() {
     @Override
     public void execute() {
-      submenu.removeItem(openSettingsItem);
-      submenu.addItem(openCalendarItem);
-      controller.toggleSettings();
-    }
-  };
-
-  private Command openCalendarCommand = new Command() {
-    @Override
-    public void execute() {
-      submenu.removeItem(openCalendarItem);
-      submenu.addItem(openSettingsItem);
-      controller.toggleSettings();
+      controller.showSettings();
     }
   };
 
   private MenuItem openSettingsItem = new MenuItem("Settings", openSettingsCommand);
-  private MenuItem openCalendarItem = new MenuItem("Calendar", openCalendarCommand);
 
   public LogoutWidget() {
     super();
@@ -91,5 +79,10 @@ public class LogoutWidget extends MenuBar implements LogoutWidgetView {
         // TODO Auto-generated method stub
       }
     });
+  }
+
+  @Override
+  public void toggleSettingsButton() {
+    openSettingsItem.setEnabled(!openSettingsItem.isEnabled());
   }
 }
