@@ -61,6 +61,9 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
     query.setMaximumStartTime(max);
     query.setMinimumStartTime(min);
 
+    // get all events (more then 1000 are unlikely)
+    query.setMaxResults(1000);
+
     // TODO: add entries that start at an earlier date but are still valid
 
     service.getEventsFeed(query, new CalendarEventFeedCallback() {
