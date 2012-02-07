@@ -47,7 +47,7 @@
 			</g:west>
 			<g:center>
 				<g:LayoutPanel ui:field="picSpace" styleName="{style.center}">
-					<g:layer top="20px" bottom="20px" left="20px" right="20px" >
+					<g:layer top="30px" bottom="20px" left="20px" right="20px" >
 						<grIm:PicasaImageWidget height="100%" width="100%" ui:field="image" styleName="{style.centerMain}"/>
 					</g:layer>
 					<g:layer top="-1ex" height="3em" right="0px" width="100%">
