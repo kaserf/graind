@@ -5,13 +5,16 @@
 		.image{
 			cursor: pointer;
 			padding: 4px;
-			border: 1px solid #555; 
-			
+			border: 1px solid #555;
+			max-height: 100%;
+			max-width: 100%;
 		}
 		.imageSelected{
 			cursor: pointer;
 			padding: 3px;
 			border: 2px solid orange; 
+			max-height: 100%;
+			max-width: 100%;
 		}
 	</ui:style>
 	<g:HTMLPanel>

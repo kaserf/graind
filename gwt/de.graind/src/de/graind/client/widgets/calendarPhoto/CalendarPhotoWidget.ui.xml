@@ -9,6 +9,9 @@
 		}
 		.main {
 		}
+		.centerMain {
+			text-align: center;
+		}
 		.medium {
 			color: #888;
 			font-size: 2em;
@@ -44,10 +47,8 @@
 			</g:west>
 			<g:center>
 				<g:LayoutPanel ui:field="picSpace" styleName="{style.center}">
-					<g:layer top="20px" bottom="0px" left="0px" right="0px">
-						<g:VerticalPanel horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
-							<grIm:PicasaImageWidget ui:field="image"/>
-						</g:VerticalPanel>
+					<g:layer top="20px" bottom="20px" left="20px" right="20px" >
+						<grIm:PicasaImageWidget height="100%" width="100%" ui:field="image" styleName="{style.centerMain}"/>
 					</g:layer>
 					<g:layer top="-1ex" height="3em" right="0px" width="100%">
 						<g:Label styleName="{style.medium}" wordWrap="false" horizontalAlignment="ALIGN_RIGHT" ui:field="calendarName" text="Calendar"/>
