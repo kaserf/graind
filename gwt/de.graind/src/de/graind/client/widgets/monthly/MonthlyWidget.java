@@ -79,7 +79,6 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
 
   @Override
   public void init(Controller controller) {
-    GWT.log("MonthlyWidget init");
     this.controller = controller;
 
     addButtonEventHandlers();
@@ -209,7 +208,6 @@ public class MonthlyWidget extends Composite implements MonthlyWidgetView {
 
     @Override
     public void onSuccess(EventEntry[] result) {
-      GWT.log("We got " + result.length + " new entries.");
       events = result;
       onUpdateEvent();
     }

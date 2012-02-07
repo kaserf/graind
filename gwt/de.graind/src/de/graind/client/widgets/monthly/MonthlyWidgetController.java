@@ -2,7 +2,6 @@ package de.graind.client.widgets.monthly;
 
 import java.util.Date;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.gdata.client.DateTime;
 import com.google.gwt.gdata.client.EventEntry;
 import com.google.gwt.gdata.client.GData;
@@ -85,7 +84,6 @@ public class MonthlyWidgetController implements MonthlyWidgetView.Controller {
 
   @Override
   public void nextMonth() {
-    GWT.log("next month");
     if (month == 12) {
       month = 1;
       year++;

@@ -65,7 +65,6 @@ public class ImagePickerController implements Controller {
 
   @Override
   public void setSelectedMonth(int month) {
-    GWT.log("Month " + month + " + selected. Image: " + savedImages[month]);
     selectedMonth = month;
     if (savedImages[month] != -1) {
       imageClicked(savedImages[month]);
@@ -95,7 +94,6 @@ public class ImagePickerController implements Controller {
 
   @Override
   public void saveCurrentSelection() {
-    Window.alert("Now saving");
     readyToSave = false;
     view.onIsReadyToSave(false);
     PicasaImageBase[] toSave = new PicasaImageBase[12];
@@ -106,7 +104,6 @@ public class ImagePickerController implements Controller {
 
       @Override
       public void onSuccess(Void result) {
-        Window.alert("Yup, everything is allright.");
         view.calendarSaved(true);
         parentController.hideSettings();
       }
@@ -115,7 +112,7 @@ public class ImagePickerController implements Controller {
       public void onFailure(Throwable caught) {
         GWT.log("Error while saving an Calendar");
         GWT.log(caught.toString());
-        Window.alert("Oops, please try again");
+        Window.alert("Error while saving, please try again");
         checkAllImagesSet();
         view.onMonthStatusUpdate();
         view.calendarSaved(false);

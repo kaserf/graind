@@ -3,7 +3,6 @@ package de.graind.client.widgets.calendarPhoto;
 import java.util.Date;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
@@ -39,8 +38,6 @@ public class CalendarPhotoViewController implements Controller {
       public void onFailure(Throwable caught) {
         GWT.log("Error while getting today's image for User: " + Config.USERNAME);
         GWT.log(caught.toString());
-        Window.alert("oops, i really don't know what happened..");
-
       }
     });
 
@@ -68,7 +65,6 @@ public class CalendarPhotoViewController implements Controller {
       public void onFailure(Throwable caught) {
         GWT.log("Error while getting today's image for User: " + Config.USERNAME);
         GWT.log(caught.toString());
-        Window.alert("oops, i really don't know what happened..");
       }
     });
   }
