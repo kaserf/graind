@@ -11,10 +11,10 @@ import com.google.gwt.user.client.ui.Widget;
 
 import de.graind.client.widgets.LogoutWidget;
 import de.graind.client.widgets.LogoutWidgetController;
+import de.graind.client.widgets.calendarPhoto.CalendarPhotoViewController;
+import de.graind.client.widgets.calendarPhoto.CalendarPhotoWidget;
 import de.graind.client.widgets.day.DayWidget;
 import de.graind.client.widgets.day.DayWidgetController;
-import de.graind.client.widgets.imagePicker.ImagePickerController;
-import de.graind.client.widgets.imagePicker.ImagePickerWidget;
 import de.graind.client.widgets.monthly.MonthlyWidget;
 import de.graind.client.widgets.monthly.MonthlyWidgetController;
 
@@ -55,9 +55,12 @@ public class CalendarUI extends Composite {
         new MonthlyWidgetController(calSpaceMonthly);
         new DayWidgetController(calSpaceLeft);
 
-        ImagePickerWidget imagePickerWidget = new ImagePickerWidget();
-        new ImagePickerController(imagePickerWidget);
-        centerSpace.add(imagePickerWidget);
+        // ImagePickerWidget imagePickerWidget = new ImagePickerWidget();
+        // new ImagePickerController(imagePickerWidget);
+        // centerSpace.add(imagePickerWidget);
+        CalendarPhotoWidget calPhotoWidget = new CalendarPhotoWidget();
+        new CalendarPhotoViewController(calPhotoWidget);
+        centerSpace.add(calPhotoWidget);
 
         // Testing saving pics to db
         // GraindServerTestWidget graindTest = new GraindServerTestWidget();
