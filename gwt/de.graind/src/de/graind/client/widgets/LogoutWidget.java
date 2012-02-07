@@ -2,6 +2,7 @@ package de.graind.client.widgets;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Command;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.MenuBar;
 import com.google.gwt.user.client.ui.MenuItem;
@@ -25,16 +26,16 @@ public class LogoutWidget extends MenuBar implements LogoutWidgetView {
 
   private Command openGoogleCalendarCommand = new Command() {
     @Override
-    public native void execute() /*-{
-			$wnd.location.href = 'https://calendar.google.com';
-    }-*/;
+    public void execute() {
+      Window.open("https://calendar.google.com", "_blank", "");
+    }
   };
 
   private Command openPicasaCommand = new Command() {
     @Override
-    public native void execute() /*-{
-			$wnd.location.href = 'https://picasaweb.google.com';
-    }-*/;
+    public void execute() {
+      Window.open("https://picasaweb.google.com", "_blank", "");
+    }
   };
 
   private Command openSettingsCommand = new Command() {
