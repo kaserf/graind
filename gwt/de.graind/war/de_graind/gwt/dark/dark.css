@@ -378,22 +378,16 @@ a, a:visited, a:hover {
 }
 .gwt-DecoratedPopupPanel .popupMiddleCenter {
   padding: 3px;
-  background: #00CCFF;
-  color: black;
+  background: #EEE;
+  color: #222;
 }
 .gwt-DecoratedPopupPanel .popupTopCenter {
-  background: url(images/hborder.png) repeat-x;
 }
 .gwt-DecoratedPopupPanel .popupBottomCenter {
-  background: url(images/hborder.png) repeat-x 0px -4px;
-  -background: url(images/hborder_ie6.png) repeat-x 0px -4px;
 }
 .gwt-DecoratedPopupPanel .popupMiddleLeft {
-  background: url(images/vborder.png) repeat-y;
 }
 .gwt-DecoratedPopupPanel .popupMiddleRight {
-  background: url(images/vborder.png) repeat-y -4px 0px;
-  -background: url(images/vborder_ie6.png) repeat-y -4px 0px;
 }
 .gwt-DecoratedPopupPanel .popupTopLeftInner {
   width: 5px;
@@ -416,20 +410,12 @@ a, a:visited, a:hover {
   zoom: 1;
 }
 .gwt-DecoratedPopupPanel .popupTopLeft {
-  background: url(images/corner.png) no-repeat 0px -10px;
-  -background: url(images/corner_ie6.png) no-repeat 0px -10px;
 }
 .gwt-DecoratedPopupPanel .popupTopRight {
-  background: url(images/corner.png) no-repeat -5px -10px;
-  -background: url(images/corner_ie6.png) no-repeat -5px -10px;
 }
 .gwt-DecoratedPopupPanel .popupBottomLeft {
-  background: url(images/corner.png) no-repeat 0px -15px;
-  -background: url(images/corner_ie6.png) no-repeat 0px -15px;
 }
 .gwt-DecoratedPopupPanel .popupBottomRight {
-  background: url(images/corner.png) no-repeat -5px -15px;
-  -background: url(images/corner_ie6.png) no-repeat -5px -15px;
 }
 * html .gwt-DecoratedPopupPanel .popupTopLeftInner {
   width: 5px;
