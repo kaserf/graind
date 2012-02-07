@@ -1,0 +1,210 @@
+body {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  background: #4d4d4d;
+  direction: ltr;
+}
+
+body, table td, select {
+  font-family: Arial Unicode MS, Arial, sans-serif;
+  font-size: small;
+  color: #bec7cc;
+}
+
+
+.gwt-MenuBar {
+  cursor: default;
+}
+.gwt-MenuBar .gwt-MenuItem {
+  cursor: default;
+}
+.gwt-MenuBar .gwt-MenuItem-selected {
+  background: #EEE;
+  color: #222;
+}
+.gwt-MenuBar .gwt-MenuItem-disabled {
+  color: #ccc;
+}
+.gwt-MenuBar-horizontal {
+  text-align: right;
+}
+.gwt-MenuBar-horizontal .gwt-MenuItem {
+  padding: 5px 10px;
+  vertical-align: bottom;
+  font-weight: bold;
+}
+.gwt-MenuBar-horizontal .gwt-MenuItemSeparator {
+  width: 1px;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  border-left: 1px solid #bec7cc;
+  background: #000;
+}
+.gwt-MenuBar-horizontal .gwt-MenuItemSeparator .menuSeparatorInner {
+  width: 1px;
+  height: 1px;
+  background: #000; 
+}
+.gwt-MenuBar-vertical {
+  margin-top: 0px;
+  margin-left: 0px;
+  background: #555;
+}
+.gwt-MenuBar-vertical table {
+  border-collapse: collapse;
+}
+.gwt-MenuBar-vertical .gwt-MenuItem {
+  padding: 4px 14px 4px 1px;
+}
+.gwt-MenuBar-vertical .gwt-MenuItemSeparator {
+  padding: 2px 0px;
+}
+.gwt-MenuBar-vertical .gwt-MenuItemSeparator .menuSeparatorInner {
+  height: 1px;
+  padding: 0px;
+  border: 0px;
+  border-top: 1px solid #bec7cc;
+  background: #222;
+  overflow: hidden;
+}
+.gwt-MenuBar-vertical .subMenuIcon {
+  padding-right: 4px;
+}
+.gwt-MenuBar-vertical .subMenuIcon-selected {
+  background: #666;
+}
+.gwt-MenuBarPopup {
+  margin: 0px 0px 0px 3px;
+}
+.gwt-MenuBarPopup .menuPopupTopCenter {
+}
+.gwt-MenuBarPopup .menuPopupBottomCenter {
+}
+.gwt-MenuBarPopup .menuPopupMiddleLeft {
+}
+.gwt-MenuBarPopup .menuPopupMiddleRight {
+}
+.gwt-MenuBarPopup .menuPopupTopLeftInner {
+  width: 5px;
+  height: 5px;
+  zoom: 1;
+}
+.gwt-MenuBarPopup .menuPopupTopRightInner {
+  width: 8px;
+  height: 5px;
+  zoom: 1;
+}
+.gwt-MenuBarPopup .menuPopupBottomLeftInner {
+  width: 5px;
+  height: 8px;
+  zoom: 1;
+}
+.gwt-MenuBarPopup .menuPopupBottomRightInner {
+  width: 8px;
+  height: 8px;
+  zoom: 1;
+}
+.gwt-MenuBarPopup .menuPopupTopLeft {
+}
+.gwt-MenuBarPopup .menuPopupTopRight {
+}
+.gwt-MenuBarPopup .menuPopupBottomLeft {
+}
+.gwt-MenuBarPopup .menuPopupBottomRight {
+}
+* html .gwt-MenuBarPopup .menuPopupTopLeftInner {
+  width: 5px;
+  height: 5px;
+  overflow: hidden;
+}
+* html .gwt-MenuBarPopup .menuPopupTopRightInner {
+  width: 8px;
+  height: 5px;
+  overflow: hidden;
+}
+* html .gwt-MenuBarPopup .menuPopupBottomLeftInner {
+  width: 5px;
+  height: 8px;
+  overflow: hidden;
+}
+* html .gwt-MenuBarPopup .menuPopupBottomRightInner {
+  width: 8px;
+  height: 8px;
+  overflow: hidden;
+}
+
+
+.gwt-PopupPanel {
+  padding: 3px;
+}
+
+.gwt-DecoratedPopupPanel .popupContent {
+}
+.gwt-DecoratedPopupPanel .popupMiddleCenter {
+  padding: 3px;
+  background: #FFF;
+  color: #222;
+}
+.gwt-DecoratedPopupPanel .popupTopCenter {
+}
+.gwt-DecoratedPopupPanel .popupBottomCenter {
+}
+.gwt-DecoratedPopupPanel .popupMiddleLeft {
+}
+.gwt-DecoratedPopupPanel .popupMiddleRight {
+}
+.gwt-DecoratedPopupPanel .popupTopLeftInner {
+  width: 5px;
+  height: 5px;
+  zoom: 1;
+}
+.gwt-DecoratedPopupPanel .popupTopRightInner {
+  width: 8px;
+  height: 5px;
+  zoom: 1;
+}
+.gwt-DecoratedPopupPanel .popupBottomLeftInner {
+  width: 5px;
+  height: 8px;
+  zoom: 1;
+}
+.gwt-DecoratedPopupPanel .popupBottomRightInner {
+  width: 8px;
+  height: 8px;
+  zoom: 1;
+}
+.gwt-DecoratedPopupPanel .popupTopLeft {
+}
+.gwt-DecoratedPopupPanel .popupTopRight {
+}
+.gwt-DecoratedPopupPanel .popupBottomLeft {
+}
+.gwt-DecoratedPopupPanel .popupBottomRight {
+}
+* html .gwt-DecoratedPopupPanel .popupTopLeftInner {
+  width: 5px;
+  height: 5px;
+  overflow: hidden;
+}
+* html .gwt-DecoratedPopupPanel .popupTopRightInner {
+  width: 8px;
+  height: 5px;
+  overflow: hidden;
+}
+* html .gwt-DecoratedPopupPanel .popupBottomLeftInner {
+  width: 5px;
+  height: 8px;
+  overflow: hidden;
+}
+* html .gwt-DecoratedPopupPanel .popupBottomRightInner {
+  width: 8px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.gwt-PopupPanelGlass {
+  background-color: #EEE;
+  color: #222;
+}
