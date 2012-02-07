@@ -35,6 +35,7 @@
 	</ui:style>
 	<g:HTMLPanel>
 		<g:DockLayoutPanel unit="PX" height="100%" width="100%" styleName="{style.main}">
+			<!--
 			<g:west size="200.0">
 				<g:LayoutPanel  styleName="{style.west}">
 					<g:layer top="15px" bottom="0px" left="0px" right="10px">
@@ -45,6 +46,7 @@
 					</g:layer>
 				</g:LayoutPanel>
 			</g:west>
+			-->
 			<g:center>
 				<g:LayoutPanel ui:field="picSpace" styleName="{style.center}">
 					<g:layer top="30px" bottom="20px" left="20px" right="20px" >

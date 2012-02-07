@@ -13,7 +13,6 @@
 		
 		.headlineCenter {
 			border-right: 1px solid #555;
-			border-left: 1px solid #555;
 		}
 		
 		.north {
