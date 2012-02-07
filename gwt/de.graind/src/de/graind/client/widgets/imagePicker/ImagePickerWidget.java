@@ -36,6 +36,7 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
 
   private Label[] monthButtons = new Label[12];
   private Label saveButton;
+  private Label cancelButton;
 
   public ImagePickerWidget() {
     initWidget(uiBinder.createAndBindUi(this));
@@ -75,7 +76,7 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
 
   private void setUpSaveButton() {
     this.saveButton = new Label("Save");
-    final SaveHoverHanlder hoverHandler = new SaveHoverHanlder();
+    final SaveCancelHoverHanlder hoverHandler = new SaveCancelHoverHanlder();
     saveButton.addMouseOverHandler(hoverHandler);
     saveButton.addMouseOutHandler(hoverHandler);
 
@@ -84,7 +85,19 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
     saveButton.setStyleName(style.saveButtonInactive());
 
     selectorMenu.add(saveButton);
+  }
 
+  private void setUpCancelButton() {
+    this.cancelButton = new Label("Cancel");
+    final SaveCancelHoverHanlder hoverHandler = new SaveCancelHoverHanlder();
+    cancelButton.addMouseOverHandler(hoverHandler);
+    cancelButton.addMouseOutHandler(hoverHandler);
+
+    cancelButton.addClickHandler(new CancelClickHandler());
+
+    cancelButton.setStyleName(style.saveButtonActive());
+
+    selectorMenu.add(cancelButton);
   }
 
   @Override
@@ -237,8 +250,7 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
 
   }
 
-  private class SaveHoverHanlder implements MouseOverHandler, MouseOutHandler {
-
+  private class SaveCancelHoverHanlder implements MouseOverHandler, MouseOutHandler {
     @Override
     public void onMouseOut(MouseOutEvent event) {
       if (controller.isReadyToSave()) {
@@ -251,18 +263,22 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
       if (controller.isReadyToSave()) {
         saveButton.setStyleName(style.saveButtonActiveHovered());
       }
-
     }
-
   }
 
   private class SaveClickHandler implements ClickHandler {
-
     @Override
     public void onClick(ClickEvent event) {
       if (controller.isReadyToSave()) {
         controller.saveCurrentSelection();
       }
+    }
+  }
+
+  private class CancelClickHandler implements ClickHandler {
+    @Override
+    public void onClick(ClickEvent event) {
+      // TODO FLEX this is where you can handle the cancel button
     }
   }
 }
