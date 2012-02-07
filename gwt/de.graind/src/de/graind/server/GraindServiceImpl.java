@@ -78,4 +78,16 @@ public class GraindServiceImpl extends RemoteServiceServlet implements GraindSer
       e.printStackTrace();
     }
   }
+
+  @Override
+  public PicasaImageBase getImageForMonth(String username, int month) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public PicasaImageBase[] getAllImages(String username) {
+    // TODO Auto-generated method stub
+    return null;
+  }
 }
