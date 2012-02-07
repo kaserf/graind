@@ -8,6 +8,8 @@ public interface LogoutWidgetView {
     void getUserName(AsyncCallback<String> callback);
 
     void logout(Runnable callback);
+
+    void toggleSettings();
   }
 
   public void init(Controller controller);

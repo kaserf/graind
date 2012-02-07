@@ -10,6 +10,7 @@ import com.google.gwt.gdata.client.calendar.CalendarService;
 import com.google.gwt.gdata.client.impl.CallErrorException;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
+import de.graind.client.CalendarUI;
 import de.graind.shared.Config;
 
 public class LogoutWidgetController implements LogoutWidgetView.Controller {
@@ -17,10 +18,12 @@ public class LogoutWidgetController implements LogoutWidgetView.Controller {
   private LogoutWidgetView view;
   private CalendarService service;
   private AsyncCallback<Void> next;
+  private CalendarUI parentController;
 
-  public LogoutWidgetController(LogoutWidgetView view, AsyncCallback<Void> next) {
+  public LogoutWidgetController(LogoutWidgetView view, CalendarUI calendarUI, AsyncCallback<Void> next) {
     this.view = view;
     this.next = next;
+    this.parentController = calendarUI;
 
     // TODO: check if we need calendar AND gbase (for picasa)
     if (!GData.isLoaded(GDataSystemPackage.CALENDAR)) {
@@ -92,6 +95,11 @@ public class LogoutWidgetController implements LogoutWidgetView.Controller {
   @Override
   public void logout(Runnable callback) {
     User.logout(callback, Config.getScope());
+  }
+
+  @Override
+  public void toggleSettings() {
+    this.parentController.toggleSettings();
   }
 
 }

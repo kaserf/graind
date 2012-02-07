@@ -1,6 +1,7 @@
 package de.graind.client;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -35,10 +36,14 @@ public class CalendarUI extends Composite {
   @UiField
   MonthlyWidget calSpaceMonthly;
 
+  private HandlerManager eventBus;
+
   interface CalendarUIUiBinder extends UiBinder<Widget, CalendarUI> {
   }
 
   public CalendarUI() {
+    this.eventBus = new HandlerManager(null);
+
     initWidget(uiBinder.createAndBindUi(this));
     initController();
   }
@@ -48,7 +53,7 @@ public class CalendarUI extends Composite {
   }
 
   private void initController() {
-    new LogoutWidgetController(topRowRight, new AsyncCallback<Void>() {
+    new LogoutWidgetController(topRowRight, this, new AsyncCallback<Void>() {
 
       @Override
       public void onSuccess(Void result) {
@@ -75,5 +80,12 @@ public class CalendarUI extends Composite {
         GWT.log("ooops! something went wrong, load error or something");
       }
     });
+  }
+
+  /**
+   * If we are showing the calendar ui, show settings and vice versa.
+   */
+  public void toggleSettings() {
+
   }
 }
