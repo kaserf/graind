@@ -35,7 +35,7 @@
 		}
 		.west .label {
 			color: #AAA;
-			margin-bottom: 10px;
+			margin-bottom: 5px;
 		}
 		.west .button {
 			 background-color: #333;
@@ -150,12 +150,44 @@
 		    color: #222;
 		    border-left: 4px solid green;
 		}
+		.cancelButtonInactive {
+			 background-color: #222;
+		    cursor:default;
+		    margin-top:1px;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    text-align: right;
+		    vertical-align: middle;
+		    color: #555;
+		}
+		.cancelButtonActive {
+			 background-color: #333;
+		    cursor:pointer;
+		    margin-top:1px;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    text-align: right;
+		    vertical-align: middle;
+		    color: #999;
+		    border-left: 4px solid red;
+		}
+		.cancelButtonActiveHovered {
+			 background-color: #EEE;
+		    cursor:pointer;
+		    margin-top:1px;
+		    padding:3px 15px;
+		    text-decoration:none;
+		    text-align: right;
+		    vertical-align: middle;
+		    color: #222;
+		    border-left: 4px solid red;
+		}
 	</ui:style>
 	<g:HTMLPanel>
 		<g:DockLayoutPanel unit="PX" height="100%" width="100%" styleName="{style.main}">
 			<g:west size="200.0">
 				<g:LayoutPanel  styleName="{style.west}">
-					<g:layer top="15px" bottom="0px" left="0px" right="10px">
+					<g:layer top="20px" bottom="0px" left="0px" right="10px">
 						<g:VerticalPanel width="100%" ui:field="selectorMenu" />
 					</g:layer>
 					<g:layer top="-1ex" height="4em" right="0px" width="100%">

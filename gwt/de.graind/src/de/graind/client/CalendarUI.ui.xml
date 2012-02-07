@@ -52,7 +52,7 @@
 					<g:west size="200.0">
 						<g:SimplePanel ui:field="topRowLeft" />
 					</g:west>
-					<g:east size="200.0">
+					<g:east size="250">
 						<gr:LogoutWidget ui:field="topRowRight" width="100%"
 							height="100%" />
 					</g:east>

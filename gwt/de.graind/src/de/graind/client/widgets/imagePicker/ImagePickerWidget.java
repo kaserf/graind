@@ -77,7 +77,7 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
 
   private void setUpSaveButton() {
     this.saveButton = new Label("Save");
-    final SaveCancelHoverHanlder hoverHandler = new SaveCancelHoverHanlder();
+    final SaveHoverHandler hoverHandler = new SaveHoverHandler();
     saveButton.addMouseOverHandler(hoverHandler);
     saveButton.addMouseOutHandler(hoverHandler);
 
@@ -90,13 +90,13 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
 
   private void setUpCancelButton() {
     this.cancelButton = new Label("Cancel");
-    final SaveCancelHoverHanlder hoverHandler = new SaveCancelHoverHanlder();
+    final CancelHoverHandler hoverHandler = new CancelHoverHandler();
     cancelButton.addMouseOverHandler(hoverHandler);
     cancelButton.addMouseOutHandler(hoverHandler);
 
     cancelButton.addClickHandler(new CancelClickHandler());
 
-    cancelButton.setStyleName(style.saveButtonActive());
+    cancelButton.setStyleName(style.cancelButtonActive());
 
     selectorMenu.add(cancelButton);
   }
@@ -189,6 +189,12 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
 
     String saveButtonActiveHovered();
 
+    String cancelButtonInactive();
+
+    String cancelButtonActive();
+
+    String cancelButtonActiveHovered();
+
   }
 
   private class MonthClickHandler implements ClickHandler {
@@ -251,7 +257,7 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
 
   }
 
-  private class SaveCancelHoverHanlder implements MouseOverHandler, MouseOutHandler {
+  private class SaveHoverHandler implements MouseOverHandler, MouseOutHandler {
     @Override
     public void onMouseOut(MouseOutEvent event) {
       if (controller.isReadyToSave()) {
@@ -273,6 +279,18 @@ public class ImagePickerWidget extends Composite implements ImagePickerView {
       if (controller.isReadyToSave()) {
         controller.saveCurrentSelection();
       }
+    }
+  }
+
+  private class CancelHoverHandler implements MouseOverHandler, MouseOutHandler {
+    @Override
+    public void onMouseOut(MouseOutEvent event) {
+      cancelButton.setStyleName(style.cancelButtonActive());
+    }
+
+    @Override
+    public void onMouseOver(MouseOverEvent event) {
+      cancelButton.setStyleName(style.cancelButtonActiveHovered());
     }
   }
 

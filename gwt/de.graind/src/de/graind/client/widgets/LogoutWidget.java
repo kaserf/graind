@@ -60,7 +60,7 @@ public class LogoutWidget extends MenuBar implements LogoutWidgetView {
 
   public void setupWidget() {
     this.setAutoOpen(true);
-    this.setAnimationEnabled(true);
+    this.setAnimationEnabled(false);
 
     submenu = new MenuBar(true);
     submenu.addItem(openSettingsItem);

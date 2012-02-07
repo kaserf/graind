@@ -29,8 +29,6 @@ public class CalendarUI extends Composite {
   @UiField
   LogoutWidget topRowRight;
   @UiField
-  SimplePanel topRowCenter;
-  @UiField
   DockLayoutPanel centerSpace;
   @UiField
   DayWidget calSpaceLeft;
